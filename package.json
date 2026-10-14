@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "slidev --open",
     "build": "slidev build",
+    "postbuild": "node -e \"const fs=require('fs'); if(fs.existsSync('dist/_redirects')) fs.unlinkSync('dist/_redirects')\"",
     "preview": "vite preview",
     "export": "slidev export",
-    "deploy": "slidev build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@slidev/cli": "^51.4.0",
