@@ -3,40 +3,68 @@ layout: section
 ---
 
 # Module 03
-<div class="text-3xl font-bold bg-gradient-to-r from-amber-300 via-white to-amber-400 bg-clip-text text-transparent">
+<div class="text-3xl font-bold text-white font-serif">
   Speaking to the Machine
 </div>
-<p class="text-slate-400 mt-2">
+<p class="text-slate-300 mt-2 font-sans">
   Prompt Engineering, Context Windows, Agent Tooling, and Applied Workflows.
 </p>
 
 ---
 
 # Why Most Prompts Fail: The Ambiguity Trap
-LLMs are probabilistic pattern matchers: vague prompts yield generic corporate clichés.
+LLMs are probabilistic token predictors: under-specified inputs guarantee generic corporate clichés.
 
-<div class="grid grid-cols-2 gap-4 mt-6">
-  <div class="p-4 rounded-xl bg-red-950/20 border border-red-500/40">
-    <div class="text-xs font-mono text-red-400 font-bold uppercase mb-2">❌ What 90% of Users Type</div>
-    <div class="p-3 rounded bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300">
-      "Write a marketing email for my study app."
+<div class="grid grid-cols-2 gap-5 mt-6">
+  <div v-click class="p-5 rounded-xl bg-slate-900/90 border-2 border-red-500/50 flex flex-col justify-between">
+    <div>
+      <div class="text-xs font-mono text-red-400 font-bold uppercase tracking-wider mb-2">Passive Vague Instruction</div>
+      <div class="p-3.5 rounded-lg bg-slate-950 border border-slate-800 font-mono text-sm text-red-300 font-bold">
+        "Write a marketing email for my study app."
+      </div>
+      <div class="mt-4 space-y-2.5 text-sm text-slate-200 font-sans">
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-x-circle w-4 h-4 text-red-400 shrink-0 mt-0.5"></span>
+          <span><strong>Zero Audience Persona:</strong> Model falls back on corporate filler words ("unleash", "synergy").</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-x-circle w-4 h-4 text-red-400 shrink-0 mt-0.5"></span>
+          <span><strong>Unbounded Output Space:</strong> Generates either 6 rambling paragraphs or a useless 2-line snippet.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-x-circle w-4 h-4 text-red-400 shrink-0 mt-0.5"></span>
+          <span><strong>No Reasoning Constraints:</strong> Model guesses answers without validating logical deduction.</span>
+        </div>
+      </div>
     </div>
-    <div class="text-xs text-slate-400 mt-3 space-y-1">
-      <div>• No audience context -> Defaults to generic buzzwords</div>
-      <div>• No length constraints -> Output is either too long or rambling</div>
-      <div>• Zero tone guidance -> Sounds robotic and impersonal</div>
+    <div class="mt-4 pt-3 border-t border-red-900/40 text-xs font-mono text-red-400">
+      Result: Unusable zero-shot filler
     </div>
   </div>
 
-  <div class="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/40">
-    <div class="text-xs font-mono text-emerald-400 font-bold uppercase mb-2">✅ Deterministic Architecture</div>
-    <div class="p-3 rounded bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300">
-      [Persona] + [Context] + [Task] + [Constraints] + [Format] + [CoT]
+  <div v-click class="p-5 rounded-xl bg-slate-900/90 border-2 border-emerald-500/50 flex flex-col justify-between">
+    <div>
+      <div class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider mb-2">Deterministic Structured Architecture</div>
+      <div class="p-3.5 rounded-lg bg-slate-950 border border-slate-800 font-mono text-sm text-emerald-300 font-bold">
+        [Persona] + [Context] + [Task] + [Constraints] + [Format] + [CoT]
+      </div>
+      <div class="mt-4 space-y-2.5 text-sm text-slate-200 font-sans">
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-check-circle-2 w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></span>
+          <span><strong>Domain Role Authority:</strong> Forces precise vocabulary, tone calibration, and perspective.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-check-circle-2 w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></span>
+          <span><strong>Strict Output Schemas:</strong> Enforces tables, Markdown codeblocks, JSON, or step sequences.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-check-circle-2 w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></span>
+          <span><strong>Chain of Thought:</strong> Requires intermediate deductive reasoning before generating final tokens.</span>
+        </div>
+      </div>
     </div>
-    <div class="text-xs text-slate-300 mt-3 space-y-1">
-      <div>• Pinpoints the exact cognitive role required</div>
-      <div>• Constrains output space to deterministic schema</div>
-      <div>• Directs the model to reason before generating</div>
+    <div class="mt-4 pt-3 border-t border-emerald-900/40 text-xs font-mono text-emerald-300">
+      Result: Deterministic, production-ready output
     </div>
   </div>
 </div>
@@ -44,38 +72,68 @@ LLMs are probabilistic pattern matchers: vague prompts yield generic corporate c
 ---
 
 # The 6 Pillars of a Master Prompt
-Every elite prompt decomposes into these 6 modular building blocks.
+Every elite prompt decomposes into these 6 modular architectural building blocks.
 
-<div class="grid grid-cols-3 gap-3 mt-4 text-xs">
-  <SlideCard title="1. Persona & Role" subtitle="Who is answering?" accent="purple">
-    Defines perspective, seniority, domain authority, and pedagogical tone.
-    <div class="mt-1 font-mono text-[11px] text-purple-300">"Act as a Principal Staff Engineer..."</div>
-  </SlideCard>
+<div class="grid grid-cols-3 gap-3.5 mt-5 text-xs">
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-purple-500/40 flex flex-col justify-between h-44">
+    <div>
+      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">1. Persona</h3>
+      <p class="text-slate-300 font-sans mt-1">Defines seniority, domain authority, perspective, and voice calibration.</p>
+    </div>
+    <div class="font-mono text-[11px] text-purple-300 bg-purple-950/30 p-1.5 rounded border border-purple-500/30">
+      "Act as a Principal Staff Engineer..."
+    </div>
+  </div>
 
-  <SlideCard title="2. Context" subtitle="Background facts" accent="indigo">
-    Supplies constraints, target audience profile, raw notes, or project environment.
-    <div class="mt-1 font-mono text-[11px] text-indigo-300">"We are building for non-technical biology majors..."</div>
-  </SlideCard>
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-blue-500/40 flex flex-col justify-between h-44">
+    <div>
+      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">2. Context</h3>
+      <p class="text-slate-300 font-sans mt-1">Background environment, user constraints, target audience, and project state.</p>
+    </div>
+    <div class="font-mono text-[11px] text-blue-300 bg-blue-950/30 p-1.5 rounded border border-blue-500/30">
+      "Building for 1st-year biology students..."
+    </div>
+  </div>
 
-  <SlideCard title="3. Task" subtitle="The clear objective" accent="emerald">
-    The unambiguous, verb-driven command to accomplish.
-    <div class="mt-1 font-mono text-[11px] text-emerald-300">"Create a 3-part onboarding email sequence."</div>
-  </SlideCard>
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-emerald-500/40 flex flex-col justify-between h-44">
+    <div>
+      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">3. Task</h3>
+      <p class="text-slate-300 font-sans mt-1">The unambiguous, verb-driven primary mission to be completed.</p>
+    </div>
+    <div class="font-mono text-[11px] text-emerald-300 bg-emerald-950/30 p-1.5 rounded border border-emerald-500/30">
+      "Construct a 3-part onboarding sequence..."
+    </div>
+  </div>
 
-  <SlideCard title="4. Instructions" subtitle="Guardrails" accent="cyan">
-    Strict rules on what to avoid, styling tone, and banned clichés.
-    <div class="mt-1 font-mono text-[11px] text-cyan-300">"Avoid jargon ('unleash', 'supercharge'). Limit to 150 words."</div>
-  </SlideCard>
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-cyan-500/40 flex flex-col justify-between h-44">
+    <div>
+      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">4. Instructions</h3>
+      <p class="text-slate-300 font-sans mt-1">Strict guardrails on banned buzzwords, tone rules, and scope limitations.</p>
+    </div>
+    <div class="font-mono text-[11px] text-cyan-300 bg-cyan-950/30 p-1.5 rounded border border-cyan-500/30">
+      "Ban buzzwords ('supercharge'). Under 150 words."
+    </div>
+  </div>
 
-  <SlideCard title="5. Format" subtitle="Output schema" accent="amber">
-    Enforces Markdown tables, JSON schemas, checklists, or code snippets.
-    <div class="mt-1 font-mono text-[11px] text-amber-300">"Return output strictly as a 4-column Markdown table."</div>
-  </SlideCard>
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-amber-500/40 flex flex-col justify-between h-44">
+    <div>
+      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">5. Format</h3>
+      <p class="text-slate-300 font-sans mt-1">Enforces concrete output structure: Markdown tables, JSON, or codeblocks.</p>
+    </div>
+    <div class="font-mono text-[11px] text-amber-300 bg-amber-950/30 p-1.5 rounded border border-amber-500/30">
+      "Output strictly as a 4-column Markdown table."
+    </div>
+  </div>
 
-  <SlideCard title="6. Chain of Thought" subtitle="Reason first" accent="pink">
-    Instructs the LLM to write out intermediate deduction steps before final answer.
-    <div class="mt-1 font-mono text-[11px] text-pink-300">"First diagnose student pain points, then write the hook."</div>
-  </SlideCard>
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-pink-500/40 flex flex-col justify-between h-44">
+    <div>
+      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">6. Chain of Thought</h3>
+      <p class="text-slate-300 font-sans mt-1">Forces step-by-step intermediate deduction before rendering final output.</p>
+    </div>
+    <div class="font-mono text-[11px] text-pink-300 bg-pink-950/30 p-1.5 rounded border border-pink-500/30">
+      "First diagnose student pain points, then write."
+    </div>
+  </div>
 </div>
 
 ---
@@ -129,74 +187,138 @@ Then, map each slide directly to alleviate one anxiety.
 ```
 ````
 
-<div v-click class="mt-4 p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs">
-  ✨ <strong>Key Insight:</strong> Specifying constraints and Chain of Thought eliminates 90% of model hallucinations.
-</div>
-
 ---
 
 # Interactive Lab: Construct Your Prompt
-Toggle building blocks to see how output specificity and determinism jump in real time.
+Toggle building blocks across three real-world domain scenarios to observe live output changes.
 
 <PromptLegoBuilder />
 
 ---
 
 # Chatbot Mechanics: The Context Window
-LLM working memory is finite. See what happens when token capacity is exceeded.
+LLM working memory is finite. Test memory saturation and trigger context compaction.
 
 <ContextGauge />
 
 ---
 
 # Agent Abilities & Tool Use
-Modern LLMs aren't just text generators—they orchestrate external tools autonomously.
+Modern foundation models don't just generate text: they orchestrate external tools autonomously.
 
-<div class="grid grid-cols-4 gap-3 mt-6 text-xs">
-  <div class="p-3 rounded-xl bg-slate-900 border border-indigo-500/30">
-    <div class="text-xs font-mono text-indigo-400 font-bold mb-1">1. Web Search</div>
-    <p class="text-slate-300">Pulls real-time data, stock prices, news, and cites source URLs dynamically.</p>
+<div class="grid grid-cols-4 gap-4 mt-6 text-xs">
+  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-indigo-500/40 flex flex-col justify-between h-72">
+    <div>
+      <div class="text-xs font-mono text-indigo-400 font-bold uppercase mb-1">TOOL 01</div>
+      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">Web Search Engine</h3>
+      <p class="text-slate-300 font-sans mt-2 leading-relaxed">
+        Autonomous query dispatching to live search indexes to retrieve real-time data beyond model cutoff dates.
+      </p>
+      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
+        <li>• Retrieves live API documentation</li>
+        <li>• Validates recent regulatory changes</li>
+        <li>• Emits direct URL citations</li>
+      </ul>
+    </div>
+    <div class="text-[10px] font-mono text-indigo-300 border-t border-slate-800 pt-2">
+      Perplexity, Gemini Google Search
+    </div>
   </div>
 
-  <div class="p-3 rounded-xl bg-slate-900 border border-emerald-500/30">
-    <div class="text-xs font-mono text-emerald-400 font-bold mb-1">2. Code Interpreter</div>
-    <p class="text-slate-300">Spins up a sandboxed Python runtime to execute math, process CSVs, and render charts.</p>
+  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/40 flex flex-col justify-between h-72">
+    <div>
+      <div class="text-xs font-mono text-emerald-400 font-bold uppercase mb-1">TOOL 02</div>
+      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">Code Interpreter</h3>
+      <p class="text-slate-300 font-sans mt-2 leading-relaxed">
+        Spins up an isolated sandboxed Python REPL to execute calculations and verify code assertions in real time.
+      </p>
+      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
+        <li>• Exact math calculation without hallucination</li>
+        <li>• In-memory Pandas dataframe operations</li>
+        <li>• Renders Matplotlib &amp; Seaborn charts</li>
+      </ul>
+    </div>
+    <div class="text-[10px] font-mono text-emerald-300 border-t border-slate-800 pt-2">
+      ChatGPT ADA, Claude Artifacts
+    </div>
   </div>
 
-  <div class="p-3 rounded-xl bg-slate-900 border border-cyan-500/30">
-    <div class="text-xs font-mono text-cyan-400 font-bold mb-1">3. Diagramming</div>
-    <p class="text-slate-300">Generates Mermaid or SVG architecture diagrams to visually represent systems.</p>
+  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/40 flex flex-col justify-between h-72">
+    <div>
+      <div class="text-xs font-mono text-cyan-400 font-bold uppercase mb-1">TOOL 03</div>
+      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">Visual Diagramming</h3>
+      <p class="text-slate-300 font-sans mt-2 leading-relaxed">
+        Synthesizes Mermaid diagrams, SVG flowcharts, and architecture maps to communicate complex topologies.
+      </p>
+      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
+        <li>• Sequence &amp; distributed system traces</li>
+        <li>• Database ERD entity modeling</li>
+        <li>• State transition diagrams</li>
+      </ul>
+    </div>
+    <div class="text-[10px] font-mono text-cyan-300 border-t border-slate-800 pt-2">
+      Mermaid.js, SVG canvas rendering
+    </div>
   </div>
 
-  <div class="p-3 rounded-xl bg-slate-900 border border-amber-500/30">
-    <div class="text-xs font-mono text-amber-400 font-bold mb-1">4. Function Calling</div>
-    <p class="text-slate-300">Emits structured JSON to invoke APIs, database queries, and external webhook triggers.</p>
+  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-amber-500/40 flex flex-col justify-between h-72">
+    <div>
+      <div class="text-xs font-mono text-amber-400 font-bold uppercase mb-1">TOOL 04</div>
+      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">Function Calling</h3>
+      <p class="text-slate-300 font-sans mt-2 leading-relaxed">
+        Emits strict validated JSON payloads matching OpenAPI schemas to invoke backend databases and webhooks.
+      </p>
+      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
+        <li>• Executes SQL database transactions</li>
+        <li>• Dispatches webhook payloads to n8n</li>
+        <li>• Authenticates third-party API mutations</li>
+      </ul>
+    </div>
+    <div class="text-[10px] font-mono text-amber-300 border-t border-slate-800 pt-2">
+      OpenAPI Tools, Anthropic Tool Use
+    </div>
   </div>
-</div>
-
-<div class="mt-4 p-3 rounded-xl bg-indigo-950/30 border border-indigo-500/30 text-xs text-indigo-200">
-  🔄 <strong>Agentic Loop:</strong> Thought $\rightarrow$ Action (Call Tool) $\rightarrow$ Observation (Read Tool Result) $\rightarrow$ Final Output.
 </div>
 
 ---
 
-# Applied AI: 4 Production Scenarios
-Real-world workflows demonstrating the power of structured prompting.
+# Applied AI: Production Scenarios & Live Prompts
+Full, battle-tested prompt templates ready to copy and test live across your workflows.
 
-<div class="grid grid-cols-2 gap-3 mt-3 text-xs">
-  <SlideCard title="1. Marketing & Personas" subtitle="Audience Intelligence" accent="purple">
-    Feed high-level product specs to generate 3 segmented demographic personas, along with customized value propositions and pain-point ad hooks.
-  </SlideCard>
+<div class="grid grid-cols-2 gap-4 mt-4 text-xs">
+  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-purple-500/40 flex flex-col justify-between h-54">
+    <div>
+      <h3 class="text-sm font-bold text-white font-serif min-h-[1.75rem] flex items-center">Marketing Persona &amp; Angle Generation</h3>
+      <div class="p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[10.5px] text-slate-300 leading-relaxed overflow-y-auto max-h-32">
+Act as a Senior Conversion Strategist. We are launching an AI-powered code review assistant. Generate 3 distinct developer buyer personas: 1) Overwhelmed Startup CTO, 2) Junior Bootcamper afraid of PR rejections, 3) Staff Engineer enforcing compliance. For each persona, provide: Primary Anxiety, Unvarnished Internal Monologue, and a 1-Sentence High-Converting Value Prop.
+      </div>
+    </div>
+  </div>
 
-  <SlideCard title="2. Data Analysis & Trends" subtitle="CSV to Insights" accent="emerald">
-    Upload raw transactional CSVs directly to Claude/ChatGPT. Prompt: <em>"Analyze customer churn by region, highlight top 3 anomalies, and generate a chart."</em>
-  </SlideCard>
+  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-emerald-500/40 flex flex-col justify-between h-54">
+    <div>
+      <h3 class="text-sm font-bold text-white font-serif min-h-[1.75rem] flex items-center">Data Analysis &amp; Anomaly Extraction</h3>
+      <div class="p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[10.5px] text-slate-300 leading-relaxed overflow-y-auto max-h-32">
+I have uploaded server_latency_logs.csv with columns [timestamp, endpoint, status_code, latency_ms]. Run a Python analysis to calculate the p50, p95, and p99 latency by endpoint. Identify any endpoints exhibiting statistical latency degradation after 14:00 UTC, and output a markdown table accompanied by a line plot code snippet.
+      </div>
+    </div>
+  </div>
 
-  <SlideCard title="3. Coding & Refactoring" subtitle="Developer Leverage" accent="cyan">
-    Paste buggy code + error stack trace. Prompt: <em>"Explain root cause, provide unit test reproducing the bug, and output the patched function."</em>
-  </SlideCard>
+  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/40 flex flex-col justify-between h-54">
+    <div>
+      <h3 class="text-sm font-bold text-white font-serif min-h-[1.75rem] flex items-center">Code Debugging &amp; Test Generation</h3>
+      <div class="p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[10.5px] text-slate-300 leading-relaxed overflow-y-auto max-h-32">
+Act as a Principal Node.js Engineer. Review the attached async function. 1) Pinpoint the unhandled Promise rejection race condition causing memory leaks, 2) Write a minimal reproduction unit test using Vitest that fails on current code, 3) Provide the refactored production function with exponential backoff retry.
+      </div>
+    </div>
+  </div>
 
-  <SlideCard title="4. Daily News Aggregator" subtitle="Personalized Intelligence" accent="amber">
-    Prompt template combining Perplexity or Gemini web search: <em>"Scan the web for top 5 breakthroughs in [Topic] in past 24h. Output 3-bullet executive briefs."</em>
-  </SlideCard>
+  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-amber-500/40 flex flex-col justify-between h-54">
+    <div>
+      <h3 class="text-sm font-bold text-white font-serif min-h-[1.75rem] flex items-center">Custom Daily Intelligence Aggregator</h3>
+      <div class="p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[10.5px] text-slate-300 leading-relaxed overflow-y-auto max-h-32">
+Search the web for the top 5 technical announcements or open-source releases regarding LLM inference optimization published in the last 24 hours. Filter out promotional press releases. For each breakthrough, output: Headline, 2-Sentence Technical Mechanism Summary, Architectural Trade-off, and Primary Source URL.
+      </div>
+    </div>
+  </div>
 </div>

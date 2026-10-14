@@ -1,52 +1,91 @@
-@import "@slidev/client/styles/index.css";
+@import '@slidev/client/styles/index.css';
+@import url('https://fonts.googleapis.com/css2?family=Faustina:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --slidev-theme-primary: #6366f1;
+  --slidev-theme-primary: #818cf8;
+  --bg-deck: oklch(20.5% 0 none);
+  --bg-card: oklch(25.5% 0 none);
+  --bg-card-hover: oklch(29% 0 none);
+  --bg-inset: oklch(16.5% 0 none);
+  --border-card: oklch(34% 0 none);
+  --border-subtle: oklch(28% 0 none);
+  --text-main: oklch(95% 0 none);
+  --text-muted: oklch(80% 0 none);
+  --text-dim: oklch(62% 0 none);
 }
 
-/* Dark mode slide background */
+/* Master Slide Background */
 .slidev-layout {
-  background-color: #0b0f19;
-  background-image:
-    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
-    radial-gradient(
-      at 100% 100%,
-      rgba(16, 185, 129, 0.08) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 50% 50%, rgba(14, 165, 233, 0.05) 0px, transparent 50%);
-  color: #e2e8f0;
+  background-color: var(--bg-deck) !important;
+  background-image: none !important;
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
-/* Custom glow animations */
-@keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
-  }
+/* Headings: Faustina bold with crisp white */
+h1, h2, h3, h4, .font-title {
+  font-family: 'Faustina', Georgia, serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em;
+  color: #ffffff;
 }
 
-.glow-indigo {
-  animation: pulse-glow 3s infinite;
+/* Neutralize and elevate card backgrounds to fit oklch(20.5% 0 none) */
+.glass-card,
+[class*="bg-slate-900"] {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border-card) !important;
+  color: var(--text-muted);
 }
 
-/* Sleek scrollbar */
+/* Deeper inset surfaces (code blocks, terminal output, inputs, list items) */
+[class*="bg-slate-950"],
+pre,
+code {
+  background-color: var(--bg-inset) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+/* Interactive elements and secondary chips */
+[class*="bg-slate-800"] {
+  background-color: oklch(29% 0 none) !important;
+  border-color: oklch(36% 0 none) !important;
+}
+
+/* Harmonize heavy colored background patches into cohesive neutral tinted surfaces */
+[class*="bg-indigo-950"],
+[class*="bg-cyan-950"],
+[class*="bg-emerald-950"],
+[class*="bg-amber-950"],
+[class*="bg-pink-950"],
+[class*="bg-purple-950"],
+[class*="bg-red-950"] {
+  background-color: oklch(23.5% 0.01 270) !important;
+  border-color: oklch(34% 0 none) !important;
+}
+
+/* Remove text gradients everywhere */
+.bg-clip-text {
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: initial !important;
+  color: #ffffff !important;
+}
+
+/* Polished scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--bg-inset);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.4);
+  background: oklch(40% 0 none);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.7);
+  background: oklch(50% 0 none);
 }
 
 /* Suppress global top header title overlay */
@@ -63,5 +102,3 @@ header,
   pointer-events: none !important;
   opacity: 0 !important;
 }
-
-

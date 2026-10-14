@@ -23,7 +23,7 @@ defineProps<{
     <div v-if="title || $slots.header" class="flex items-center justify-between gap-2 mb-2">
       <div class="flex items-center gap-2">
         <slot name="icon" />
-        <h3 v-if="title" class="font-bold text-sm tracking-wide text-white">{{ title }}</h3>
+        <h3 v-if="title" class="font-bold text-sm tracking-wide text-white font-serif">{{ title }}</h3>
       </div>
       <span v-if="subtitle" class="text-[11px] font-mono text-slate-400">{{ subtitle }}</span>
       <slot name="badge" />

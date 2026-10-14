@@ -1,0 +1,37 @@
+<script setup lang="ts">
+const modules = [
+  { no: 'MODULE 01', title: 'The AI Landscape', desc: 'Evolution & Ecosystem', badge: 'text-indigo-400' },
+  { no: 'MODULE 02', title: 'Modern Toolbox', desc: 'Tools for Every Major', badge: 'text-emerald-400' },
+  { no: 'MODULE 03', title: 'Prompting', desc: '6 Pillars & Context', badge: 'text-amber-400' },
+  { no: 'MODULE 04', title: 'AI for Learning', desc: 'Socratic Framework', badge: 'text-pink-400' },
+  { no: 'MODULE 05', title: 'n8n Automation', desc: 'Autonomous Pipelines', badge: 'text-cyan-400' },
+]
+</script>
+
+<template>
+  <div class="relative h-full flex flex-col justify-center items-center overflow-hidden text-center select-none">
+    <div class="px-4 py-1.5 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 text-xs font-mono mb-4">
+      AI FOUNDATIONS CURRICULUM • MASTER DECK
+    </div>
+
+    <h1 class="text-6xl font-extrabold tracking-tight text-white font-serif">
+      From AI Consumer to AI Architect
+    </h1>
+
+    <p class="mt-3 text-lg text-slate-300 max-w-2xl font-sans">
+      Mastering the landscape, the modern toolbox, prompt engineering, accelerated learning, and visual automation.
+    </p>
+
+    <div class="grid grid-cols-5 gap-3 mt-10 w-full max-w-4xl text-left">
+      <div
+        v-for="m in modules"
+        :key="m.no"
+        class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-700/60 hover:border-indigo-500/50 transition-all flex flex-col justify-between h-28"
+      >
+        <div class="text-[10px] font-mono font-bold" :class="m.badge">{{ m.no }}</div>
+        <div class="font-bold text-sm text-white font-serif">{{ m.title }}</div>
+        <div class="text-[11px] text-slate-400 font-sans">{{ m.desc }}</div>
+      </div>
+    </div>
+  </div>
+</template>

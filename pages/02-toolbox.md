@@ -3,121 +3,250 @@ layout: section
 ---
 
 # Module 02
-<div class="text-3xl font-bold bg-gradient-to-r from-emerald-300 via-white to-emerald-400 bg-clip-text text-transparent">
+<div class="text-3xl font-bold text-white font-serif">
   The Modern AI Toolbox
 </div>
-<p class="text-slate-400 mt-2">
-  Stop using one chatbot for everything: Pick the precision tool for the job.
+<p class="text-slate-300 mt-2 font-sans">
+  Stop using one chatbot for everything: Selecting precision foundation engines.
 </p>
 
 ---
 
-# Chat & Ideation: The Big Three
-Each foundation model has evolved distinct cognitive strengths and optimal use cases.
+# Foundation LLMs: The Core Landscape
+All modern chat models share autoregressive transformer foundations, but diverge in specialization.
 
 <div class="grid grid-cols-3 gap-4 mt-6">
-  <SlideCard title="Gemini (Google)" subtitle="Multimodal & Scale" accent="indigo" hoverEffect>
-    <div class="text-xs space-y-2">
-      <div class="p-2 rounded bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 font-mono text-[11px]">
-        Superpower: 1M–2M Token Context Window
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs font-mono font-bold text-indigo-400">GOOGLE</span>
+        <span class="text-[10px] font-mono bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded font-bold">2M TOKENS</span>
       </div>
-      <p>Seamlessly digests 2-hour video recordings, 1,000-page book PDFs, or entire repositories in a single prompt.</p>
-      <div class="text-[11px] text-slate-400">
-        <strong>Best for:</strong> Long-form analysis, multimodal reasoning, Google Workspace integration.
-      </div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Gemini 2.0 Flash / Pro</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        Native multimodal processing designed to ingest hours of video, audio, and multi-thousand page documents without chunking.
+      </p>
+      <ul class="text-[11px] text-slate-300 mt-2.5 space-y-1 font-mono">
+        <li>• Massive Context: Ingest entire repos</li>
+        <li>• Multimodal: Audio/video understanding</li>
+        <li>• Ecosystem: Deep Google Workspace sync</li>
+      </ul>
     </div>
-  </SlideCard>
+    <div class="mt-2 text-[11px] font-mono text-indigo-300 border-t border-slate-800 pt-2">
+      Best for: Long-form document synthesis &amp; video QA
+    </div>
+  </div>
 
-  <SlideCard title="Claude (Anthropic)" subtitle="Nuance & Reasoning" accent="amber" hoverEffect>
-    <div class="text-xs space-y-2">
-      <div class="p-2 rounded bg-amber-500/10 border border-amber-500/20 text-amber-300 font-mono text-[11px]">
-        Superpower: Natural Writing & Artifacts
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs font-mono font-bold text-amber-400">ANTHROPIC</span>
+        <span class="text-[10px] font-mono bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-bold">CODE &amp; REASON</span>
       </div>
-      <p>Exceptional tone calibration, human-grade prose, and interactive frontend rendering in side-panel Artifacts.</p>
-      <div class="text-[11px] text-slate-400">
-        <strong>Best for:</strong> Academic writing, complex coding architectures, deep reasoning tasks.
-      </div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Claude 3.5 Sonnet</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        Industry benchmark for software engineering, complex multi-step reasoning, and articulate academic prose.
+      </p>
+      <ul class="text-[11px] text-slate-300 mt-2.5 space-y-1 font-mono">
+        <li>• Code Architecture: SOTA benchmark performance</li>
+        <li>• Nuanced Prose: Eliminates corporate buzzwords</li>
+        <li>• Artifacts: Live interactive UI canvas rendering</li>
+      </ul>
     </div>
-  </SlideCard>
+    <div class="mt-2 text-[11px] font-mono text-amber-300 border-t border-slate-800 pt-2">
+      Best for: Programming, nuanced writing, system design
+    </div>
+  </div>
 
-  <SlideCard title="ChatGPT (OpenAI)" subtitle="The Ecosystem Pioneer" accent="emerald" hoverEffect>
-    <div class="text-xs space-y-2">
-      <div class="p-2 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 font-mono text-[11px]">
-        Superpower: Advanced Voice & Data Analysis
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs font-mono font-bold text-emerald-400">OPENAI</span>
+        <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold">VOICE &amp; SANDBOX</span>
       </div>
-      <p>Real-time conversational voice mode, Python code execution sandbox, and a massive ecosystem of custom GPTs.</p>
-      <div class="text-[11px] text-slate-400">
-        <strong>Best for:</strong> Spoken tutoring, rapid data crunching with CSVs, versatile daily assistant.
-      </div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">ChatGPT-4o</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        Versatile generalist platform featuring native low-latency voice dialogue and server-side Python runtime execution.
+      </p>
+      <ul class="text-[11px] text-slate-300 mt-2.5 space-y-1 font-mono">
+        <li>• Python Sandbox: Run code on CSVs in-memory</li>
+        <li>• Real-Time Voice: Interruption-capable audio</li>
+        <li>• Custom GPTs: Tailored instruction workflows</li>
+      </ul>
     </div>
-  </SlideCard>
+    <div class="mt-2 text-[11px] font-mono text-emerald-300 border-t border-slate-800 pt-2">
+      Best for: Data crunching, spoken coaching, daily versatility
+    </div>
+  </div>
 </div>
 
 ---
 
-# Research & Writing: Grounded Intelligence
-Moving from open-web guessing to hallucination-free, citation-backed knowledge.
+# Grounded Research: Citations vs Hallucinations
+Comparing real-time multi-source retrieval against document-grounded notebooks.
 
 <div class="grid grid-cols-2 gap-4 mt-6">
-  <div class="p-4 rounded-xl bg-slate-900/80 border border-cyan-500/40">
-    <div class="flex items-center justify-between mb-2">
-      <h3 class="font-bold text-base text-cyan-300">Perplexity AI</h3>
-      <span class="text-xs font-mono bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded">Real-Time Web RAG</span>
+  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs font-mono font-bold text-cyan-400">WEB-GROUNDED RAG</span>
+        <span class="text-[10px] font-mono bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded font-bold">LIVE SOURCES</span>
+      </div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Perplexity AI</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        Scrapes live search indexes, filters low-quality SEO farms, and summarizes multi-page findings with numbered superscript citations.
+      </p>
+      <div class="mt-3 p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300 space-y-1">
+        <div><strong>Pipeline:</strong> Query &rarr; Web Crawl &rarr; Cross-Reference &rarr; Verified Citations</div>
+        <div class="text-slate-400"><strong>Use Case:</strong> Competitive analysis, technical docs, market research.</div>
+      </div>
     </div>
-    <p class="text-xs text-slate-300 leading-relaxed mb-3">
-      Replaces traditional search engines by synthesizing live web pages and providing direct inline superscript citations for every claim made.
-    </p>
-    <div class="p-2.5 rounded bg-slate-950 border border-slate-800 text-[11px] text-slate-400 font-mono">
-      Query -> Multi-source search -> Rerank sources -> Synthesize with footnotes
+    <div class="mt-2 text-[11px] font-mono text-cyan-300 border-t border-slate-800 pt-2">
+      Ensures zero stale data or fabricated URLs
     </div>
   </div>
 
-  <div class="p-4 rounded-xl bg-slate-900/80 border border-indigo-500/40">
-    <div class="flex items-center justify-between mb-2">
-      <h3 class="font-bold text-base text-indigo-300">NotebookLM (Google)</h3>
-      <span class="text-xs font-mono bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded">Source-Grounded Notebook</span>
+  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs font-mono font-bold text-indigo-400">SOURCE-CONSTRAINED NOTEBOOK</span>
+        <span class="text-[10px] font-mono bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded font-bold">ZERO HALLUCINATION</span>
+      </div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Google NotebookLM</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        Upload up to 50 textbook PDFs, raw notes, or transcripts. Answers are 100% constrained to uploaded corpus with exact paragraph quotes.
+      </p>
+      <div class="mt-3 p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300 space-y-1">
+        <div><strong>Audio Overview:</strong> Generates two-host deep dive conversational podcast.</div>
+        <div class="text-slate-400"><strong>Constraint:</strong> If missing from notes, model explicitly admits absence.</div>
+      </div>
     </div>
-    <p class="text-xs text-slate-300 leading-relaxed mb-3">
-      Upload up to 50 PDFs, lecture slides, or audio files. Answers are strictly constrained to your notes with clickable source quotes, plus podcast-style Audio Overviews.
-    </p>
-    <div class="p-2.5 rounded bg-slate-950 border border-slate-800 text-[11px] text-slate-400 font-mono">
-      Zero hallucination: If it's not in your uploaded notes, it won't invent it.
+    <div class="mt-2 text-[11px] font-mono text-indigo-300 border-t border-slate-800 pt-2">
+      Guarantees grounded study guides and board exam synthesis
     </div>
   </div>
 </div>
 
 ---
 
-# Visual, Marketing & Coding Engines
-Transforming ideas into high-fidelity visual media and software codebases.
+# Visual & Marketing AI Suite
+Transforming natural language descriptions into production-ready visual assets and campaign creative.
 
-<div class="grid grid-cols-2 gap-4 mt-4">
-  <SlideCard title="Visual & Marketing Suite" subtitle="Midjourney & Canva AI" accent="pink" hoverEffect>
-    <ul class="space-y-2 text-xs">
-      <li>
-        <strong class="text-pink-300">Midjourney v6:</strong> Photorealistic imagery, cinematic lighting, and conceptual art generation via Discord and web interfaces.
-      </li>
-      <li>
-        <strong class="text-pink-300">Canva Magic Studio:</strong> Instantly converts text briefs into social carousels, slide presentations, background removal, and multi-channel asset resizing.
-      </li>
-    </ul>
-  </SlideCard>
+<div class="grid grid-cols-3 gap-4 mt-6">
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="text-xs font-mono font-bold text-pink-400">DIFFUSION ENGINE</div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Midjourney v6 &amp; Flux</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        SOTA image synthesis engines capable of photorealism, volumetric lighting, and precise typographical rendering inside images.
+      </p>
+      <div class="mt-3 p-2 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-400">
+        /imagine prompt: cinematic 35mm photograph of architectural model, studio rim lighting --ar 16:9 --v 6.1
+      </div>
+    </div>
+    <div class="mt-2 text-[11px] font-mono text-pink-300 border-t border-slate-800 pt-2">
+      Photorealistic rendering &amp; concept art
+    </div>
+  </div>
 
-  <SlideCard title="Coding & Logic Suite" subtitle="Cursor, Antigravity, Copilot" accent="cyan" hoverEffect>
-    <ul class="space-y-2 text-xs">
-      <li>
-        <strong class="text-cyan-300">Cursor / Antigravity:</strong> Next-gen agentic code editors with full-repo semantic indexing, multi-file atomic edits, and terminal execution.
-      </li>
-      <li>
-        <strong class="text-cyan-300">GitHub Copilot:</strong> Real-time ghost text code autocomplete integrated into everyday developer environments.
-      </li>
-    </ul>
-  </SlideCard>
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="text-xs font-mono font-bold text-cyan-400">DESIGN AUTOMATION</div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Canva Magic Studio</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        Converts text briefs directly into multi-slide presentations, multi-format social cards, background removal, and automated brand resizing.
+      </p>
+      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
+        <li>• Magic Switch: 1-click resize from 16:9 to 9:16</li>
+        <li>• Magic Eraser: Instant background element cleanup</li>
+        <li>• Brand Kit: Auto-applies institutional color palettes</li>
+      </ul>
+    </div>
+    <div class="mt-2 text-[11px] font-mono text-cyan-300 border-t border-slate-800 pt-2">
+      High-velocity marketing asset adaptation
+    </div>
+  </div>
+
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="text-xs font-mono font-bold text-amber-400">GENERATIVE VIDEO</div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Runway Gen-3 &amp; Kling</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        Generates 5-10 second cinematic video clips from image keyframes or detailed physics prompts with motion camera controls.
+      </p>
+      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
+        <li>• Image-to-Video: Animate static graphics</li>
+        <li>• Camera Pan/Tilt: Programmable trajectory</li>
+        <li>• High FPS: Temporal frame consistency</li>
+      </ul>
+    </div>
+    <div class="mt-2 text-[11px] font-mono text-amber-300 border-t border-slate-800 pt-2">
+      Dynamic social video hooks &amp; b-roll
+    </div>
+  </div>
+</div>
+
+---
+
+# Coding & Logic Engines
+Agentic editors that move beyond simple inline autocomplete to whole-repository reasoning.
+
+<div class="grid grid-cols-3 gap-4 mt-6">
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="text-xs font-mono font-bold text-indigo-400">AGENTIC REPO IDE</div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Cursor IDE</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        VS Code fork with full-codebase vector embeddings. Evaluates symbols, references, and dependencies to perform multi-file diffs.
+      </p>
+      <div class="mt-3 p-2 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-300 space-y-1">
+        <div>• <strong>@codebase:</strong> Semantic AST graph indexing</div>
+        <div>• <strong>Composer:</strong> Edits 10 files simultaneously</div>
+      </div>
+    </div>
+    <div class="mt-2 text-[11px] font-mono text-indigo-300 border-t border-slate-800 pt-2">
+      Standard for full-stack prototype construction
+    </div>
+  </div>
+
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="text-xs font-mono font-bold text-cyan-400">DEEP REASONING AGENT</div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Google Antigravity</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        Autonomous coding partner capable of subagent delegation, terminal execution, artifact generation, and verified self-correction.
+      </p>
+      <div class="mt-3 p-2 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-300 space-y-1">
+        <div>• <strong>Terminal Execution:</strong> Runs npm/git in sandbox</div>
+        <div>• <strong>Subagent Teams:</strong> Parallel research &amp; write</div>
+      </div>
+    </div>
+    <div class="mt-2 text-[11px] font-mono text-cyan-300 border-t border-slate-800 pt-2">
+      Self-contained build &amp; verify workflows
+    </div>
+  </div>
+
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+    <div>
+      <div class="text-xs font-mono font-bold text-emerald-400">GHOST-TEXT AUTOCOMPLETE</div>
+      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">GitHub Copilot</h3>
+      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+        Zero-friction inline code suggestion engine. Predicts repetitive boilerplate functions and unit tests as you type in your editor.
+      </p>
+      <div class="mt-3 p-2 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-300 space-y-1">
+        <div>• <strong>Tab Completion:</strong> Microsecond latency</div>
+        <div>• <strong>Test Scaffolding:</strong> Fills repetitive assertions</div>
+      </div>
+    </div>
+    <div class="mt-2 text-[11px] font-mono text-emerald-300 border-t border-slate-800 pt-2">
+      Daily productivity booster for active developers
+    </div>
+  </div>
 </div>
 
 ---
 
 # AI for Every Major: Interactive Recommender
-Select your field and objective to determine your optimal modern AI stack.
+Select your domain and target objective to review the optimal tool stack and live production prompt.
 
 <ToolRecommender />
