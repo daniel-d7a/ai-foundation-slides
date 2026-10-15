@@ -3,6 +3,7 @@ layout: section
 ---
 
 # Module 02
+
 <div class="text-3xl font-bold text-white font-serif">
   The Modern AI Toolbox
 </div>
@@ -12,70 +13,67 @@ layout: section
 
 ---
 
-# Foundation LLMs: The Core Landscape
-All modern chat models share autoregressive transformer foundations, but diverge in specialization.
+# Foundation LLMs: The Commodity Era
 
-<div class="grid grid-cols-3 gap-4 mt-6">
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+Intelligence is largely commoditized across frontier models. Stop comparing benchmark hype—pick by **cost, context, and hosting control**.
+
+<div class="grid grid-cols-2 gap-4 mt-5 w-full text-left" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+  <div v-click class="p-4 rounded-xl bg-slate-900/85 border border-indigo-500/50 flex flex-col justify-between">
     <div>
-      <div class="flex items-center justify-between mb-1">
-        <span class="text-xs font-mono font-bold text-indigo-400">GOOGLE</span>
-        <span class="text-[10px] font-mono bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded font-bold">2M TOKENS</span>
+      <div class="flex items-center justify-between mb-1.5">
+        <span class="text-[11px] font-mono font-bold text-indigo-400 tracking-wider">AMERICAN MODELS</span>
       </div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Gemini 2.0 Flash / Pro</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Native multimodal processing designed to ingest hours of video, audio, and multi-thousand page documents without chunking.
-      </p>
-      <ul class="text-[11px] text-slate-300 mt-2.5 space-y-1 font-mono">
-        <li>• Massive Context: Ingest entire repos</li>
-        <li>• Multimodal: Audio/video understanding</li>
-        <li>• Ecosystem: Deep Google Workspace sync</li>
-      </ul>
-    </div>
-    <div class="mt-2 text-[11px] font-mono text-indigo-300 border-t border-slate-800 pt-2">
-      Best for: Long-form document synthesis &amp; video QA
+      <h3 class="font-bold text-base text-white font-serif">Frontier Pioneers &amp; Enterprise Platforms</h3>
+      <div class="flex flex-wrap gap-1.5 mt-2">
+        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">ChatGPT</span>
+        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Claude</span>
+        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Gemini</span>
+        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Llama</span>
+      </div>
+      <div class="mt-3.5 space-y-2 text-xs text-slate-200 font-sans">
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-sparkles w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></span>
+          <span><strong>Frontier Reasoning:</strong> Pioneered transformers, test-time compute, and autonomous computer use.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-layers w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></span>
+          <span><strong>Native Multimodal:</strong> 2M+ token windows with real-time video, audio, and code sandboxes.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-shield-check w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></span>
+          <span><strong>Enterprise Tooling:</strong> Turnkey cloud integration (Azure, AWS, Vertex AI) and SOC2/HIPAA compliance.</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
+  <div v-click class="p-4 rounded-xl bg-slate-900/85 border border-emerald-500/50 flex flex-col justify-between">
     <div>
-      <div class="flex items-center justify-between mb-1">
-        <span class="text-xs font-mono font-bold text-amber-400">ANTHROPIC</span>
-        <span class="text-[10px] font-mono bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-bold">CODE &amp; REASON</span>
+      <div class="flex items-center justify-between mb-1.5">
+        <span class="text-[11px] font-mono font-bold text-emerald-400 tracking-wider">CHINESE MODELS</span>
       </div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Claude 3.5 Sonnet</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Industry benchmark for software engineering, complex multi-step reasoning, and articulate academic prose.
-      </p>
-      <ul class="text-[11px] text-slate-300 mt-2.5 space-y-1 font-mono">
-        <li>• Code Architecture: SOTA benchmark performance</li>
-        <li>• Nuanced Prose: Eliminates corporate buzzwords</li>
-        <li>• Artifacts: Live interactive UI canvas rendering</li>
-      </ul>
-    </div>
-    <div class="mt-2 text-[11px] font-mono text-amber-300 border-t border-slate-800 pt-2">
-      Best for: Programming, nuanced writing, system design
-    </div>
-  </div>
-
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
-    <div>
-      <div class="flex items-center justify-between mb-1">
-        <span class="text-xs font-mono font-bold text-emerald-400">OPENAI</span>
-        <span class="text-[10px] font-mono bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-bold">VOICE &amp; SANDBOX</span>
+      <h3 class="font-bold text-base text-white font-serif">Cost Disruptors &amp; Open-Weights Titans</h3>
+      <div class="flex flex-wrap gap-1.5 mt-2">
+        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">DeepSeek</span>
+        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">Qwen</span>
+        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">Kimi</span>
+        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">GLM</span>
+        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">MiniMax</span>
       </div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">ChatGPT-4o</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Versatile generalist platform featuring native low-latency voice dialogue and server-side Python runtime execution.
-      </p>
-      <ul class="text-[11px] text-slate-300 mt-2.5 space-y-1 font-mono">
-        <li>• Python Sandbox: Run code on CSVs in-memory</li>
-        <li>• Real-Time Voice: Interruption-capable audio</li>
-        <li>• Custom GPTs: Tailored instruction workflows</li>
-      </ul>
-    </div>
-    <div class="mt-2 text-[11px] font-mono text-emerald-300 border-t border-slate-800 pt-2">
-      Best for: Data crunching, spoken coaching, daily versatility
+      <div class="mt-3.5 space-y-2 text-xs text-slate-200 font-sans">
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-zap w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></span>
+          <span><strong>Radical Efficiency:</strong> Architectural breakthroughs (MLA, sparse MoE) cutting API costs by 90%.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-server w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></span>
+          <span><strong>Open Weights:</strong> Full weight releases enabling private, offline hosting with zero data leaks.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="i-lucide-repeat w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></span>
+          <span><strong>Rapid Distillation:</strong> Open reasoning models democratizing SOTA intelligence globally.</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -83,46 +81,83 @@ All modern chat models share autoregressive transformer foundations, but diverge
 ---
 
 # Grounded Research: Citations vs Hallucinations
+
 Comparing real-time multi-source retrieval against document-grounded notebooks.
 
-<div class="grid grid-cols-2 gap-4 mt-6">
-  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-slate-700/60 flex flex-col justify-between h-72">
-    <div>
-      <div class="flex items-center justify-between mb-1">
-        <span class="text-xs font-mono font-bold text-cyan-400">WEB-GROUNDED RAG</span>
-        <span class="text-[10px] font-mono bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded font-bold">LIVE SOURCES</span>
+<div class="grid grid-cols-2 gap-4 mt-5 w-full text-left" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/40">
+    <h3 class="font-bold text-xl text-white font-serif">Perplexity AI</h3>
+    <div class="text-xs text-cyan-300/80 font-mono mt-0.5">The Real-Time Research Engine</div>
+    <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+      An AI search engine querying live web indices, synthesizing real-time answers with verified citations.
+    </p>
+    <div class="mt-3 space-y-2 text-xs font-sans">
+      <div class="flex items-start gap-2.5">
+        <span class="i-lucide-globe w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></span>
+        <div>
+          <strong class="text-white block">Live Web Crawl</strong>
+          <span class="text-[11px] text-slate-400">Scrapes real-time web indexes while filtering low-quality SEO farms.</span>
+        </div>
       </div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Perplexity AI</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Scrapes live search indexes, filters low-quality SEO farms, and summarizes multi-page findings with numbered superscript citations.
-      </p>
-      <div class="mt-3 p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300 space-y-1">
-        <div><strong>Pipeline:</strong> Query &rarr; Web Crawl &rarr; Cross-Reference &rarr; Verified Citations</div>
-        <div class="text-slate-400"><strong>Use Case:</strong> Competitive analysis, technical docs, market research.</div>
+      <div class="flex items-start gap-2.5">
+        <span class="i-lucide-link-2 w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></span>
+        <div>
+          <strong class="text-white block">Inline Citations</strong>
+          <span class="text-[11px] text-slate-400">Every factual claim references verifiable, clickable external sources.</span>
+        </div>
       </div>
-    </div>
-    <div class="mt-2 text-[11px] font-mono text-cyan-300 border-t border-slate-800 pt-2">
-      Ensures zero stale data or fabricated URLs
+      <div class="flex items-start gap-2.5">
+        <span class="i-lucide-filter w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></span>
+        <div>
+          <strong class="text-white block">Focus Filters</strong>
+          <span class="text-[11px] text-slate-400">Restricts queries to academic papers, YouTube videos, or Reddit discussions.</span>
+        </div>
+      </div>
+      <div class="flex items-start gap-2.5">
+        <span class="i-lucide-search w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></span>
+        <div>
+          <strong class="text-white block">Deep Research</strong>
+          <span class="text-[11px] text-slate-400">Autonomous multi-step research agent synthesizing exhaustive briefs.</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-slate-700/60 flex flex-col justify-between h-72">
-    <div>
-      <div class="flex items-center justify-between mb-1">
-        <span class="text-xs font-mono font-bold text-indigo-400">SOURCE-CONSTRAINED NOTEBOOK</span>
-        <span class="text-[10px] font-mono bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded font-bold">ZERO HALLUCINATION</span>
+  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-indigo-500/40">
+    <h3 class="font-bold text-xl text-white font-serif">Google NotebookLM</h3>
+    <div class="text-xs text-indigo-300/80 font-mono mt-0.5">The Source-Constrained Thinker</div>
+    <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
+      A personalized research assistant strictly grounded in uploaded notes and documents with zero external hallucination.
+    </p>
+    <div class="mt-3 space-y-2 text-xs font-sans">
+      <div class="flex items-start gap-2.5">
+        <span class="i-lucide-shield-check w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></span>
+        <div>
+          <strong class="text-white block">Zero Hallucination</strong>
+          <span class="text-[11px] text-slate-400">Answers are strictly bounded to uploaded PDFs and notes.</span>
+        </div>
       </div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Google NotebookLM</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Upload up to 50 textbook PDFs, raw notes, or transcripts. Answers are 100% constrained to uploaded corpus with exact paragraph quotes.
-      </p>
-      <div class="mt-3 p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[11px] text-slate-300 space-y-1">
-        <div><strong>Audio Overview:</strong> Generates two-host deep dive conversational podcast.</div>
-        <div class="text-slate-400"><strong>Constraint:</strong> If missing from notes, model explicitly admits absence.</div>
+      <div class="flex items-start gap-2.5">
+        <span class="i-lucide-bookmark w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></span>
+        <div>
+          <strong class="text-white block">Direct Paragraph Excerpts</strong>
+          <span class="text-[11px] text-slate-400">Citations jump directly to exact quotes inside your source documents.</span>
+        </div>
       </div>
-    </div>
-    <div class="mt-2 text-[11px] font-mono text-indigo-300 border-t border-slate-800 pt-2">
-      Guarantees grounded study guides and board exam synthesis
+      <div class="flex items-start gap-2.5">
+        <span class="i-lucide-circle-alert w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></span>
+        <div>
+          <strong class="text-white block">Honest Uncertainty</strong>
+          <span class="text-[11px] text-slate-400">Explicitly refuses to answer if missing from provided notes.</span>
+        </div>
+      </div>
+      <div class="flex items-start gap-2.5">
+        <span class="i-lucide-headphones w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></span>
+        <div>
+          <strong class="text-white block">Audio Overviews</strong>
+          <span class="text-[11px] text-slate-400">Converts complex source documents into two-host conversational podcasts.</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -130,116 +165,172 @@ Comparing real-time multi-source retrieval against document-grounded notebooks.
 ---
 
 # Visual & Marketing AI Suite
+
 Transforming natural language descriptions into production-ready visual assets and campaign creative.
 
-<div class="grid grid-cols-3 gap-4 mt-6">
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
-    <div>
-      <div class="text-xs font-mono font-bold text-pink-400">DIFFUSION ENGINE</div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Midjourney v6 &amp; Flux</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        SOTA image synthesis engines capable of photorealism, volumetric lighting, and precise typographical rendering inside images.
-      </p>
-      <div class="mt-3 p-2 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-400">
-        /imagine prompt: cinematic 35mm photograph of architectural model, studio rim lighting --ar 16:9 --v 6.1
+<div class="grid grid-cols-3 gap-4 mt-6 w-full text-left" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-pink-500/30 flex flex-col justify-start">
+    <div class="text-[11px] font-mono font-bold text-pink-400 uppercase tracking-wider mb-1">Image Generation</div>
+    <h3 class="font-bold text-lg text-white font-serif">Still Synthesis</h3>
+    <div class="flex flex-wrap gap-1.5 mt-2">
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-pink-300">Midjourney</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-pink-300">Flux</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-pink-300">Ideogram</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-pink-300">Recraft</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-pink-300">Firefly</span>
+    </div>
+    <div class="space-y-3 mt-4 text-xs font-medium text-slate-200 font-sans">
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-camera w-4 h-4 text-pink-400 shrink-0"></span>
+        <span>Photorealistic Concept Rendering</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-type w-4 h-4 text-pink-400 shrink-0"></span>
+        <span>In-Image Typography &amp; Lettering</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-pen-tool w-4 h-4 text-pink-400 shrink-0"></span>
+        <span>Brand Assets &amp; Vector Icons</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-wand-sparkles w-4 h-4 text-pink-400 shrink-0"></span>
+        <span>Generative Fill &amp; Outpainting</span>
       </div>
     </div>
-    <div class="mt-2 text-[11px] font-mono text-pink-300 border-t border-slate-800 pt-2">
-      Photorealistic rendering &amp; concept art
+  </div>
+
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-amber-500/30 flex flex-col justify-start">
+    <div class="text-[11px] font-mono font-bold text-amber-400 uppercase tracking-wider mb-1">Video Generation</div>
+    <h3 class="font-bold text-lg text-white font-serif">Motion Synthesis</h3>
+    <div class="flex flex-wrap gap-1.5 mt-2">
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-amber-300">Kling</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-amber-300">Runway</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-amber-300">Luma</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-amber-300">Hailuo</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-amber-300">Sora</span>
+    </div>
+    <div class="space-y-3 mt-4 text-xs font-medium text-slate-200 font-sans">
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-film w-4 h-4 text-amber-400 shrink-0"></span>
+        <span>Image-to-Video Animation</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-camera w-4 h-4 text-amber-400 shrink-0"></span>
+        <span>Cinematic Camera Trajectories</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-sparkles w-4 h-4 text-amber-400 shrink-0"></span>
+        <span>Consistent Physics Simulation</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-clapperboard w-4 h-4 text-amber-400 shrink-0"></span>
+        <span>Multi-Shot B-Roll Generation</span>
+      </div>
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
-    <div>
-      <div class="text-xs font-mono font-bold text-cyan-400">DESIGN AUTOMATION</div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Canva Magic Studio</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Converts text briefs directly into multi-slide presentations, multi-format social cards, background removal, and automated brand resizing.
-      </p>
-      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
-        <li>• Magic Switch: 1-click resize from 16:9 to 9:16</li>
-        <li>• Magic Eraser: Instant background element cleanup</li>
-        <li>• Brand Kit: Auto-applies institutional color palettes</li>
-      </ul>
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-cyan-500/30 flex flex-col justify-start">
+    <div class="text-[11px] font-mono font-bold text-cyan-400 uppercase tracking-wider mb-1">Creative Suite</div>
+    <h3 class="font-bold text-lg text-white font-serif">Design &amp; Production</h3>
+    <div class="flex flex-wrap gap-1.5 mt-2">
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-cyan-300">Canva</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-cyan-300">CapCut</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-cyan-300">ElevenLabs</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-cyan-300">Magnific</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-cyan-300">Topaz</span>
     </div>
-    <div class="mt-2 text-[11px] font-mono text-cyan-300 border-t border-slate-800 pt-2">
-      High-velocity marketing asset adaptation
-    </div>
-  </div>
-
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
-    <div>
-      <div class="text-xs font-mono font-bold text-amber-400">GENERATIVE VIDEO</div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Runway Gen-3 &amp; Kling</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Generates 5-10 second cinematic video clips from image keyframes or detailed physics prompts with motion camera controls.
-      </p>
-      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
-        <li>• Image-to-Video: Animate static graphics</li>
-        <li>• Camera Pan/Tilt: Programmable trajectory</li>
-        <li>• High FPS: Temporal frame consistency</li>
-      </ul>
-    </div>
-    <div class="mt-2 text-[11px] font-mono text-amber-300 border-t border-slate-800 pt-2">
-      Dynamic social video hooks &amp; b-roll
+    <div class="space-y-3 mt-4 text-xs font-medium text-slate-200 font-sans">
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-refresh-cw w-4 h-4 text-cyan-400 shrink-0"></span>
+        <span>1-Click Multi-Format Resizing</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-mic w-4 h-4 text-cyan-400 shrink-0"></span>
+        <span>Voice Cloning &amp; Lip-Sync Dubbing</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-maximize w-4 h-4 text-cyan-400 shrink-0"></span>
+        <span>AI 4K Detail Upscaling</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-scissors w-4 h-4 text-cyan-400 shrink-0"></span>
+        <span>Automated Social Cutdowns</span>
+      </div>
     </div>
   </div>
 </div>
 
 ---
 
-# Coding & Logic Engines
-Agentic editors that move beyond simple inline autocomplete to whole-repository reasoning.
+# Coding & Logic Engines: Agents vs Builders
 
-<div class="grid grid-cols-3 gap-4 mt-6">
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
-    <div>
-      <div class="text-xs font-mono font-bold text-indigo-400">AGENTIC REPO IDE</div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Cursor IDE</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        VS Code fork with full-codebase vector embeddings. Evaluates symbols, references, and dependencies to perform multi-file diffs.
-      </p>
-      <div class="mt-3 p-2 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-300 space-y-1">
-        <div>• <strong>@codebase:</strong> Semantic AST graph indexing</div>
-        <div>• <strong>Composer:</strong> Edits 10 files simultaneously</div>
-      </div>
+Moving beyond inline autocomplete to whole-repository autonomous agents and full-stack app builders.
+
+<div class="grid grid-cols-2 gap-4 mt-6 w-full text-left" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-indigo-500/30 flex flex-col justify-start">
+    <div class="text-[11px] font-mono font-bold text-indigo-400 uppercase tracking-wider mb-1">Code Agents &amp; Editors</div>
+    <h3 class="font-bold text-lg text-white font-serif">Agentic Code Partners</h3>
+    <div class="flex flex-wrap gap-1.5 mt-2">
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Claude Code</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Cursor</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Antigravity</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Codex</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">OpenCode</span>
     </div>
-    <div class="mt-2 text-[11px] font-mono text-indigo-300 border-t border-slate-800 pt-2">
-      Standard for full-stack prototype construction
+    <div class="space-y-3 mt-4 text-xs font-medium text-slate-200 font-sans">
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-folder-git-2 w-4 h-4 text-indigo-400 shrink-0"></span>
+        <span>Whole-Repository Semantic Refactoring</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-terminal w-4 h-4 text-indigo-400 shrink-0"></span>
+        <span>Sandbox Terminal &amp; Test Execution</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-bug w-4 h-4 text-indigo-400 shrink-0"></span>
+        <span>Automated Stacktrace &amp; Error Remediation</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-git-pull-request w-4 h-4 text-indigo-400 shrink-0"></span>
+        <span>Autonomous Multi-File Diff &amp; PR Generation</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-users w-4 h-4 text-indigo-400 shrink-0"></span>
+        <span>Subagent Task Delegation &amp; Code Search</span>
+      </div>
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
-    <div>
-      <div class="text-xs font-mono font-bold text-cyan-400">DEEP REASONING AGENT</div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">Google Antigravity</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Autonomous coding partner capable of subagent delegation, terminal execution, artifact generation, and verified self-correction.
-      </p>
-      <div class="mt-3 p-2 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-300 space-y-1">
-        <div>• <strong>Terminal Execution:</strong> Runs npm/git in sandbox</div>
-        <div>• <strong>Subagent Teams:</strong> Parallel research &amp; write</div>
+  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-emerald-500/30 flex flex-col justify-start">
+    <div class="text-[11px] font-mono font-bold text-emerald-400 uppercase tracking-wider mb-1">AI App Builders</div>
+    <h3 class="font-bold text-lg text-white font-serif">Autonomous Full-Stack Builders</h3>
+    <div class="flex flex-wrap gap-1.5 mt-2">
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">Lovable</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">Replit Agent</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">Bolt.new</span>
+      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">v0</span>
+    </div>
+    <div class="space-y-3 mt-4 text-xs font-medium text-slate-200 font-sans">
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-sparkles w-4 h-4 text-emerald-400 shrink-0"></span>
+        <span>Prompt-to-Fullstack Web Application</span>
       </div>
-    </div>
-    <div class="mt-2 text-[11px] font-mono text-cyan-300 border-t border-slate-800 pt-2">
-      Self-contained build &amp; verify workflows
-    </div>
-  </div>
-
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-72">
-    <div>
-      <div class="text-xs font-mono font-bold text-emerald-400">GHOST-TEXT AUTOCOMPLETE</div>
-      <h3 class="font-bold text-lg text-white mt-1 font-serif min-h-[2.5rem] flex items-center">GitHub Copilot</h3>
-      <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Zero-friction inline code suggestion engine. Predicts repetitive boilerplate functions and unit tests as you type in your editor.
-      </p>
-      <div class="mt-3 p-2 rounded bg-slate-950 border border-slate-800 text-[10px] font-mono text-slate-300 space-y-1">
-        <div>• <strong>Tab Completion:</strong> Microsecond latency</div>
-        <div>• <strong>Test Scaffolding:</strong> Fills repetitive assertions</div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-database w-4 h-4 text-emerald-400 shrink-0"></span>
+        <span>Automatic DB, Auth &amp; API Provisioning</span>
       </div>
-    </div>
-    <div class="mt-2 text-[11px] font-mono text-emerald-300 border-t border-slate-800 pt-2">
-      Daily productivity booster for active developers
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-rocket w-4 h-4 text-emerald-400 shrink-0"></span>
+        <span>1-Click Cloud Hosting &amp; Instant Deployment</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-layout w-4 h-4 text-emerald-400 shrink-0"></span>
+        <span>Live Interactive Prototyping &amp; Chat Edits</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="i-lucide-code w-4 h-4 text-emerald-400 shrink-0"></span>
+        <span>Production Codebase Export (React / Node)</span>
+      </div>
     </div>
   </div>
 </div>
@@ -247,6 +338,7 @@ Agentic editors that move beyond simple inline autocomplete to whole-repository 
 ---
 
 # AI for Every Major: Interactive Recommender
-Select your domain and target objective to review the optimal tool stack and live production prompt.
+
+Select your domain and target objective to review the production prompt and expected model output.
 
 <ToolRecommender />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 
 interface Subfield {
   id: string
@@ -10,6 +10,18 @@ interface Subfield {
   desc: string
   mechanisms: string[]
   productionStack: string[]
+}
+
+interface PredictionCandidate {
+  word: string
+  prob: number
+  percent: string
+}
+
+interface PredictionStep {
+  context: string[]
+  candidates: PredictionCandidate[]
+  selectedWord: string
 }
 
 const subfields: Subfield[] = [
@@ -62,6 +74,87 @@ const sampleTokens = ref([
   { word: ' software', id: 3749 },
   { word: ' engineering', id: 9284 },
 ])
+
+const predictionSteps: PredictionStep[] = [
+  {
+    context: ['AI'],
+    selectedWord: 'creates',
+    candidates: [
+      { word: 'creates', prob: 0.68, percent: '68%' },
+      { word: 'processes', prob: 0.20, percent: '20%' },
+      { word: 'learns', prob: 0.12, percent: '12%' },
+    ],
+  },
+  {
+    context: ['AI', 'creates'],
+    selectedWord: 'intelligent',
+    candidates: [
+      { word: 'intelligent', prob: 0.74, percent: '74%' },
+      { word: 'digital', prob: 0.17, percent: '17%' },
+      { word: 'complex', prob: 0.09, percent: '9%' },
+    ],
+  },
+  {
+    context: ['AI', 'creates', 'intelligent'],
+    selectedWord: 'autonomous',
+    candidates: [
+      { word: 'autonomous', prob: 0.65, percent: '65%' },
+      { word: 'automated', prob: 0.23, percent: '23%' },
+      { word: 'scalable', prob: 0.12, percent: '12%' },
+    ],
+  },
+  {
+    context: ['AI', 'creates', 'intelligent', 'autonomous'],
+    selectedWord: 'systems.',
+    candidates: [
+      { word: 'systems.', prob: 0.81, percent: '81%' },
+      { word: 'agents.', prob: 0.13, percent: '13%' },
+      { word: 'models.', prob: 0.06, percent: '6%' },
+    ],
+  },
+]
+
+const currentStepIdx = ref(0)
+const isSelectedPhase = ref(false)
+let timer: any = null
+
+function runAnimationCycle() {
+  clearTimeout(timer)
+  isSelectedPhase.value = false
+  timer = setTimeout(() => {
+    isSelectedPhase.value = true
+    timer = setTimeout(() => {
+      if (currentStepIdx.value < predictionSteps.length - 1) {
+        currentStepIdx.value++
+        runAnimationCycle()
+      } else {
+        timer = setTimeout(() => {
+          currentStepIdx.value = 0
+          runAnimationCycle()
+        }, 2200)
+      }
+    }, 900)
+  }, 950)
+}
+
+function resetAnimation() {
+  clearTimeout(timer)
+  currentStepIdx.value = 0
+  runAnimationCycle()
+}
+
+watch(() => active.value.id, (id) => {
+  if (id === 'llm') resetAnimation()
+  else clearTimeout(timer)
+})
+
+onMounted(() => {
+  if (active.value.id === 'llm') resetAnimation()
+})
+
+onUnmounted(() => {
+  clearTimeout(timer)
+})
 </script>
 
 <template>
@@ -136,10 +229,13 @@ const sampleTokens = ref([
               <!-- Grid background -->
               <div class="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
               <!-- Simulated Bounding Box -->
-              <div class="relative z-10 w-36 h-24 border-2 border-indigo-400 rounded bg-indigo-500/10 flex flex-col justify-between p-1 animate-pulse">
+              <div class="relative z-10 w-36 h-24 border-2 border-indigo-400 rounded bg-indigo-500/10 flex flex-col justify-between p-1.5 animate-pulse">
                 <div class="flex justify-between items-center text-[10px] font-mono text-indigo-300 bg-indigo-950/80 px-1 rounded">
                   <span>object: car</span>
                   <span>98.4%</span>
+                </div>
+                <div class="flex-1 flex items-center justify-center">
+                  <span class="i-lucide-car size-10 text-indigo-300/80"></span>
                 </div>
                 <div class="text-[9px] font-mono text-slate-400">[x: 142, y: 88, w: 220, h: 140]</div>
               </div>
@@ -167,32 +263,71 @@ const sampleTokens = ref([
             </div>
           </div>
 
-          <!-- Visual for LLMs -->
+          <!-- Visual for LLMs: Animated Autoregressive Next-Token Prediction -->
           <div v-else-if="active.id === 'llm'" class="w-full flex flex-col gap-2">
-            <div class="text-xs font-mono text-slate-400">Autoregressive Next-Token Probability:</div>
-            <div class="p-3 rounded-lg bg-slate-950 border border-slate-800 space-y-1.5 font-mono text-xs">
-              <div class="flex justify-between items-center text-amber-300">
-                <span>1. "systems"</span>
-                <span class="text-[11px] text-slate-400">p = 0.72 (Selected)</span>
-              </div>
-              <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div class="bg-amber-400 h-full w-[72%]"></div>
+            <!-- Context Stream Prompt -->
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Token Sequence Context:</span>
+              <button
+                @click="resetAnimation"
+                class="hover:text-amber-300 transition-colors flex items-center gap-1 cursor-pointer text-[10px]"
+                title="Restart animation"
+              >
+                <span class="i-lucide-rotate-ccw w-3 h-3"></span> Restart
+              </button>
+            </div>
+
+            <!-- Context words chip strip -->
+            <div class="p-2 rounded-lg bg-slate-950 border border-slate-800 flex flex-wrap items-center gap-1.5 min-h-[38px]">
+              <span
+                v-for="(w, idx) in predictionSteps[currentStepIdx].context"
+                :key="idx"
+                class="px-2 py-0.5 rounded text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700"
+              >
+                {{ w }}
+              </span>
+              <!-- Newly appended word during selected phase -->
+              <span
+                v-if="isSelectedPhase"
+                class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/60 animate-pulse"
+              >
+                + {{ predictionSteps[currentStepIdx].selectedWord }}
+              </span>
+              <span v-else class="text-amber-400 font-mono text-xs animate-ping ml-0.5">_</span>
+            </div>
+
+            <!-- Top-3 candidate distribution -->
+            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 space-y-1.5 font-mono text-xs">
+              <div class="flex justify-between items-center text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">
+                <span>Candidate Distribution (Top 3):</span>
+                <span>Step {{ currentStepIdx + 1 }}/4</span>
               </div>
 
-              <div class="flex justify-between items-center text-slate-400 text-[11px] pt-1">
-                <span>2. "interfaces"</span>
-                <span>p = 0.16</span>
-              </div>
-              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
-                <div class="bg-slate-500 h-full w-[16%]"></div>
-              </div>
-
-              <div class="flex justify-between items-center text-slate-400 text-[11px]">
-                <span>3. "pipelines"</span>
-                <span>p = 0.08</span>
-              </div>
-              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
-                <div class="bg-slate-500 h-full w-[8%]"></div>
+              <div
+                v-for="cand in predictionSteps[currentStepIdx].candidates"
+                :key="cand.word"
+                class="p-1 rounded transition-all duration-300"
+                :class="[
+                  isSelectedPhase && cand.word === predictionSteps[currentStepIdx].selectedWord
+                    ? 'bg-amber-500/15 border border-amber-500/50'
+                    : isSelectedPhase
+                      ? 'opacity-40'
+                      : 'border border-transparent'
+                ]"
+              >
+                <div class="flex justify-between items-center text-[11px]" :class="cand.word === predictionSteps[currentStepIdx].selectedWord && isSelectedPhase ? 'text-amber-300 font-bold' : 'text-slate-300'">
+                  <span>"{{ cand.word }}"</span>
+                  <span class="text-[10px]" :class="cand.word === predictionSteps[currentStepIdx].selectedWord && isSelectedPhase ? 'text-amber-400 font-bold' : 'text-slate-400'">
+                    p = {{ cand.prob }} {{ cand.word === predictionSteps[currentStepIdx].selectedWord && isSelectedPhase ? '(Selected)' : '' }}
+                  </span>
+                </div>
+                <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden mt-0.5">
+                  <div
+                    class="h-full transition-all duration-500 rounded-full"
+                    :class="cand.word === predictionSteps[currentStepIdx].selectedWord && isSelectedPhase ? 'bg-amber-400' : 'bg-slate-500'"
+                    :style="{ width: cand.percent }"
+                  ></div>
+                </div>
               </div>
             </div>
           </div>

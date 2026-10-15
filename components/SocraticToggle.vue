@@ -6,41 +6,41 @@ const activeTab = ref<'socratic' | 'direct'>('socratic')
 
 <template>
   <div class="flex flex-col gap-2.5 text-left">
-    <!-- Student Prompt Question Displayed Outside & Above Card -->
-    <div class="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800">
-      <div class="flex items-center gap-2.5">
+    <!-- 1. Student Question on Top -->
+    <div class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800">
+      <div class="flex items-center gap-2 shrink-0">
         <span class="i-lucide-help-circle w-4 h-4 text-indigo-400 shrink-0"></span>
-        <span class="text-xs font-mono text-slate-400">Student Question:</span>
-        <span class="text-xs font-bold text-white font-serif">"Why does QuickSort run in O(n log n) average time, but O(n²) worst case?"</span>
+        <span class="text-xs font-mono text-slate-400 uppercase tracking-wider font-semibold">Student Question:</span>
       </div>
+      <span class="text-xs font-bold text-white font-serif">"Why does QuickSort run in O(n log n) average time, but O(n²) worst case?"</span>
+    </div>
 
-      <!-- Mode Switcher -->
-      <div class="flex p-0.5 rounded-lg bg-slate-900 border border-slate-800">
-        <button
-          @click="activeTab = 'socratic'"
-          class="flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer"
-          :class="activeTab === 'socratic' ? 'bg-emerald-600/30 text-emerald-200 border border-emerald-500/50 shadow-sm' : 'text-slate-400 hover:text-slate-200'"
-        >
-          <span class="i-lucide-brain-circuit w-3.5 h-3.5 text-emerald-400"></span>
-          <span>Socratic Tutor (Active Mastery)</span>
-        </button>
+    <!-- 2. Two Selectors Below It -->
+    <div class="grid grid-cols-2 gap-2.5">
+      <button
+        @click="activeTab = 'socratic'"
+        class="flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer border"
+        :class="activeTab === 'socratic' ? 'bg-emerald-950/60 border-emerald-500/80 text-emerald-200 shadow-md shadow-emerald-950/30' : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'"
+      >
+        <span class="i-lucide-brain-circuit w-4 h-4 text-emerald-400 shrink-0"></span>
+        <span class="font-semibold">Socratic Tutor (Active Inquiry &amp; Mastery)</span>
+      </button>
 
-        <button
-          @click="activeTab = 'direct'"
-          class="flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer"
-          :class="activeTab === 'direct' ? 'bg-red-600/30 text-red-200 border border-red-500/50 shadow-sm' : 'text-slate-400 hover:text-slate-200'"
-        >
-          <span class="i-lucide-file-x w-3.5 h-3.5 text-red-400"></span>
-          <span>Passive Answer (Textbook Dump)</span>
-        </button>
-      </div>
+      <button
+        @click="activeTab = 'direct'"
+        class="flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer border"
+        :class="activeTab === 'direct' ? 'bg-red-950/60 border-red-500/80 text-red-200 shadow-md shadow-red-950/30' : 'bg-slate-950/60 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'"
+      >
+        <span class="i-lucide-file-x w-4 h-4 text-red-400 shrink-0"></span>
+        <span class="font-semibold">Passive Answer (Textbook Dump)</span>
+      </button>
     </div>
 
     <!-- Main Card Body -->
-    <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-700/60">
-      <div v-if="activeTab === 'socratic'" class="grid grid-cols-12 gap-4">
+    <div class="p-3.5 rounded-xl bg-slate-900/90 h-80 border border-slate-700/60">
+      <div v-if="activeTab === 'socratic'" class="grid grid-cols-12 gap-3.5">
         <!-- Multi-turn Socratic Transcript -->
-        <div class="col-span-8 p-3 rounded-xl bg-slate-950 border border-emerald-500/30 font-mono text-xs leading-relaxed h-64 overflow-y-auto space-y-2.5">
+        <div class="col-span-8 p-3 rounded-xl bg-slate-950 border border-emerald-500/30 font-mono text-xs leading-relaxed h-72 overflow-y-auto space-y-2">
           <div class="p-2 rounded bg-indigo-950/40 border border-indigo-500/30 text-indigo-200 text-[11px]">
             <div class="text-[10px] uppercase font-bold text-indigo-400 mb-0.5">Tutor AI:</div>
             "Let's build the intuition from scratch! Imagine you have an unsorted deck of 8 cards. If you pick one pivot card and partition the other 7 cards into 'lower' and 'higher' piles, how many card comparisons did that single pass require?"
@@ -83,9 +83,9 @@ const activeTab = ref<'socratic' | 'direct'>('socratic')
         </div>
       </div>
 
-      <div v-else class="grid grid-cols-12 gap-4">
+      <div v-else class="grid grid-cols-12 gap-3.5">
         <!-- Direct Answer Dump -->
-        <div class="col-span-8 p-3.5 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300 leading-relaxed h-64 overflow-y-auto">
+        <div class="col-span-8 p-3.5 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300 leading-relaxed h-72 overflow-y-auto">
           <div class="text-[10px] text-slate-500 uppercase font-bold mb-2">Prompt: "Explain QuickSort complexity."</div>
           <p class="text-slate-400">
             QuickSort exhibits an average-case time complexity of O(n log n) based on recurrence relation T(n) = 2T(n/2) + O(n). In the ideal partition case, the array is partitioned evenly around the pivot, yielding a recursion tree depth bounded by log₂(n). Since each level of the recursion tree requires a linear O(n) scan to partition elements, the total work across all levels is O(n &times; log n).

@@ -3,6 +3,7 @@ layout: section
 ---
 
 # Module 03
+
 <div class="text-3xl font-bold text-white font-serif">
   Speaking to the Machine
 </div>
@@ -13,6 +14,7 @@ layout: section
 ---
 
 # Why Most Prompts Fail: The Ambiguity Trap
+
 LLMs are probabilistic token predictors: under-specified inputs guarantee generic corporate clichés.
 
 <div class="grid grid-cols-2 gap-5 mt-6">
@@ -72,65 +74,96 @@ LLMs are probabilistic token predictors: under-specified inputs guarantee generi
 ---
 
 # The 6 Pillars of a Master Prompt
+
 Every elite prompt decomposes into these 6 modular architectural building blocks.
 
-<div class="grid grid-cols-3 gap-3.5 mt-5 text-xs">
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-purple-500/40 flex flex-col justify-between h-44">
+<div class="grid grid-cols-3 gap-3 mt-3 w-full max-w-full text-left" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; width: 100%;">
+  <div v-click class="p-3 rounded-xl bg-slate-900/85 border border-purple-500/40 flex flex-col justify-between min-h-[165px] h-full min-w-0">
     <div>
-      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">1. Persona</h3>
-      <p class="text-slate-300 font-sans mt-1">Defines seniority, domain authority, perspective, and voice calibration.</p>
+      <div class="flex items-center justify-between mb-1">
+        <span class="font-bold text-white font-serif flex items-center gap-1.5">
+          <span class="i-lucide-user-check size-5 text-purple-400 shrink-0"></span>
+          <span class="text-xl">1. Persona</span>
+        </span>
+      </div>
+      <p class="text-[11px] text-slate-300 font-sans leading-snug">Defines seniority, domain authority, perspective, and voice calibration.</p>
     </div>
-    <div class="font-mono text-[11px] text-purple-300 bg-purple-950/30 p-1.5 rounded border border-purple-500/30">
+    <div class="font-mono text-[10px] text-purple-300 bg-purple-950/40 p-2 rounded border border-purple-500/30 mt-2 break-words leading-tight">
       "Act as a Principal Staff Engineer..."
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-blue-500/40 flex flex-col justify-between h-44">
+  <div v-click class="p-3 rounded-xl bg-slate-900/85 border border-blue-500/40 flex flex-col justify-between min-h-[165px] h-full min-w-0">
     <div>
-      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">2. Context</h3>
-      <p class="text-slate-300 font-sans mt-1">Background environment, user constraints, target audience, and project state.</p>
+      <div class="flex items-center justify-between mb-1">
+        <span class="font-bold text-white font-serif flex items-center gap-1.5">
+          <span class="i-lucide-compass size-5 text-blue-400 shrink-0"></span>
+          <span class="text-xl">2. Context</span>
+        </span>
+      </div>
+      <p class="text-[11px] text-slate-300 font-sans leading-snug">Background environment, user constraints, target audience, and project state.</p>
     </div>
-    <div class="font-mono text-[11px] text-blue-300 bg-blue-950/30 p-1.5 rounded border border-blue-500/30">
+    <div class="font-mono text-[10px] text-blue-300 bg-blue-950/40 p-2 rounded border border-blue-500/30 mt-2 break-words leading-tight">
       "Building for 1st-year biology students..."
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-emerald-500/40 flex flex-col justify-between h-44">
+  <div v-click class="p-3 rounded-xl bg-slate-900/85 border border-emerald-500/40 flex flex-col justify-between min-h-[165px] h-full min-w-0">
     <div>
-      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">3. Task</h3>
-      <p class="text-slate-300 font-sans mt-1">The unambiguous, verb-driven primary mission to be completed.</p>
+      <div class="flex items-center justify-between mb-1">
+        <span class="font-bold text-white font-serif flex items-center gap-1.5">
+          <span class="i-lucide-check-circle-2 size-5 text-emerald-400 shrink-0"></span>
+          <span class="text-xl">3. Task</span>
+        </span>
+      </div>
+      <p class="text-[11px] text-slate-300 font-sans leading-snug">The unambiguous, verb-driven primary mission to be completed.</p>
     </div>
-    <div class="font-mono text-[11px] text-emerald-300 bg-emerald-950/30 p-1.5 rounded border border-emerald-500/30">
+    <div class="font-mono text-[10px] text-emerald-300 bg-emerald-950/40 p-2 rounded border border-emerald-500/30 mt-2 break-words leading-tight">
       "Construct a 3-part onboarding sequence..."
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-cyan-500/40 flex flex-col justify-between h-44">
+  <div v-click class="p-3 rounded-xl bg-slate-900/85 border border-cyan-500/40 flex flex-col justify-between min-h-[165px] h-full min-w-0">
     <div>
-      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">4. Instructions</h3>
-      <p class="text-slate-300 font-sans mt-1">Strict guardrails on banned buzzwords, tone rules, and scope limitations.</p>
+      <div class="flex items-center justify-between mb-1">
+        <span class="font-bold text-white font-serif flex items-center gap-1.5">
+          <span class="i-lucide-shield-alert size-5 text-cyan-400 shrink-0"></span>
+          <span class="text-xl">4. Instructions</span>
+        </span>
+      </div>
+      <p class="text-[11px] text-slate-300 font-sans leading-snug">Strict guardrails on banned buzzwords, tone rules, and scope limitations.</p>
     </div>
-    <div class="font-mono text-[11px] text-cyan-300 bg-cyan-950/30 p-1.5 rounded border border-cyan-500/30">
-      "Ban buzzwords ('supercharge'). Under 150 words."
+    <div class="font-mono text-[10px] text-cyan-300 bg-cyan-950/40 p-2 rounded border border-cyan-500/30 mt-2 break-words leading-tight">
+      "Ban buzzwords ('synergy'). Max 150 words."
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-amber-500/40 flex flex-col justify-between h-44">
+  <div v-click class="p-3 rounded-xl bg-slate-900/85 border border-amber-500/40 flex flex-col justify-between min-h-[165px] h-full min-w-0">
     <div>
-      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">5. Format</h3>
-      <p class="text-slate-300 font-sans mt-1">Enforces concrete output structure: Markdown tables, JSON, or codeblocks.</p>
+      <div class="flex items-center justify-between mb-1">
+        <span class="font-bold text-white font-serif flex items-center gap-1.5">
+          <span class="i-lucide-layout-grid size-5 text-amber-400 shrink-0"></span>
+          <span class="text-xl">5. Format</span>
+        </span>
+      </div>
+      <p class="text-[11px] text-slate-300 font-sans leading-snug">Enforces concrete output structure: Markdown tables, JSON, or codeblocks.</p>
     </div>
-    <div class="font-mono text-[11px] text-amber-300 bg-amber-950/30 p-1.5 rounded border border-amber-500/30">
+    <div class="font-mono text-[10px] text-amber-300 bg-amber-950/40 p-2 rounded border border-amber-500/30 mt-2 break-words leading-tight">
       "Output strictly as a 4-column Markdown table."
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-pink-500/40 flex flex-col justify-between h-44">
+  <div v-click class="p-3 rounded-xl bg-slate-900/85 border border-pink-500/40 flex flex-col justify-between min-h-[165px] h-full min-w-0">
     <div>
-      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">6. Chain of Thought</h3>
-      <p class="text-slate-300 font-sans mt-1">Forces step-by-step intermediate deduction before rendering final output.</p>
+      <div class="flex items-center justify-between mb-1">
+        <span class="font-bold text-white font-serif flex items-center gap-1.5">
+          <span class="i-lucide-git-commit size-5 text-pink-400 shrink-0"></span>
+          <span class="text-xl">6. Reasoning (CoT)</span>
+        </span>
+      </div>
+      <p class="text-[11px] text-slate-300 font-sans leading-snug">Forces step-by-step intermediate deduction before rendering final output.</p>
     </div>
-    <div class="font-mono text-[11px] text-pink-300 bg-pink-950/30 p-1.5 rounded border border-pink-500/30">
+    <div class="font-mono text-[10px] text-pink-300 bg-pink-950/40 p-2 rounded border border-pink-500/30 mt-2 break-words leading-tight">
       "First diagnose student pain points, then write."
     </div>
   </div>
@@ -139,6 +172,7 @@ Every elite prompt decomposes into these 6 modular architectural building blocks
 ---
 
 # Live Evolution: Morphing with Magic Move
+
 Watch a basic request evolve into an engineered prompt across sequential clicks.
 
 ````md magic-move {lines: true}
@@ -159,7 +193,7 @@ Write a launch campaign for our new study app.
 Act as an EdTech Growth Marketer specializing in Gen-Z university students.
 
 [CONTEXT]
-Launching "FocusPulse", an app turning messy lecture notes into 5-minute flashcards. 
+Launching "FocusPulse", an app turning messy lecture notes into 5-minute flashcards.
 Audience is exhausted by midterms and ignores traditional ads.
 
 [TASK]
@@ -171,7 +205,7 @@ Write a 3-part social campaign.
 Act as an EdTech Growth Marketer specializing in Gen-Z university students.
 
 [CONTEXT]
-Launching "FocusPulse", an app turning messy lecture notes into 5-minute flashcards. 
+Launching "FocusPulse", an app turning messy lecture notes into 5-minute flashcards.
 Audience is exhausted by midterms and ignores traditional ads.
 
 [TASK]
@@ -182,7 +216,7 @@ Write a 3-part social campaign.
 - Format as a Markdown table: [Slide] | [Visual] | [Hook] | [CTA].
 
 [CHAIN OF THOUGHT]
-First, outline 3 emotional anxieties students feel 48 hours before an exam. 
+First, outline 3 emotional anxieties students feel 48 hours before an exam.
 Then, map each slide directly to alleviate one anxiety.
 ```
 ````
@@ -190,6 +224,7 @@ Then, map each slide directly to alleviate one anxiety.
 ---
 
 # Interactive Lab: Construct Your Prompt
+
 Toggle building blocks across three real-world domain scenarios to observe live output changes.
 
 <PromptLegoBuilder />
@@ -197,6 +232,7 @@ Toggle building blocks across three real-world domain scenarios to observe live 
 ---
 
 # Chatbot Mechanics: The Context Window
+
 LLM working memory is finite. Test memory saturation and trigger context compaction.
 
 <ContextGauge />
@@ -204,78 +240,79 @@ LLM working memory is finite. Test memory saturation and trigger context compact
 ---
 
 # Agent Abilities & Tool Use
+
 Modern foundation models don't just generate text: they orchestrate external tools autonomously.
 
-<div class="grid grid-cols-4 gap-4 mt-6 text-xs">
-  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-indigo-500/40 flex flex-col justify-between h-72">
-    <div>
-      <div class="text-xs font-mono text-indigo-400 font-bold uppercase mb-1">TOOL 01</div>
-      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">Web Search Engine</h3>
-      <p class="text-slate-300 font-sans mt-2 leading-relaxed">
-        Autonomous query dispatching to live search indexes to retrieve real-time data beyond model cutoff dates.
-      </p>
-      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
-        <li>• Retrieves live API documentation</li>
-        <li>• Validates recent regulatory changes</li>
-        <li>• Emits direct URL citations</li>
-      </ul>
-    </div>
-    <div class="text-[10px] font-mono text-indigo-300 border-t border-slate-800 pt-2">
-      Perplexity, Gemini Google Search
-    </div>
-  </div>
-
-  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/40 flex flex-col justify-between h-72">
-    <div>
-      <div class="text-xs font-mono text-emerald-400 font-bold uppercase mb-1">TOOL 02</div>
-      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">Code Interpreter</h3>
-      <p class="text-slate-300 font-sans mt-2 leading-relaxed">
-        Spins up an isolated sandboxed Python REPL to execute calculations and verify code assertions in real time.
-      </p>
-      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
-        <li>• Exact math calculation without hallucination</li>
-        <li>• In-memory Pandas dataframe operations</li>
-        <li>• Renders Matplotlib &amp; Seaborn charts</li>
-      </ul>
-    </div>
-    <div class="text-[10px] font-mono text-emerald-300 border-t border-slate-800 pt-2">
-      ChatGPT ADA, Claude Artifacts
+<div class="grid grid-cols-2 gap-3.5 mt-4 text-xs">
+  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-indigo-500/40 flex flex-col">
+    <h3 class="text-base font-bold text-white font-serif h-8 flex items-center">Web Search Engine</h3>
+    <div class="text-[11px] text-slate-300 mt-3 space-y-3 font-mono">
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-globe w-3.5 h-3.5 text-indigo-400 shrink-0"></span>
+        <span>Retrieves live API documentation</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-calendar w-3.5 h-3.5 text-indigo-400 shrink-0"></span>
+        <span>Validates recent regulatory changes</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-link-2 w-3.5 h-3.5 text-indigo-400 shrink-0"></span>
+        <span>Emits direct URL citations</span>
+      </div>
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/40 flex flex-col justify-between h-72">
-    <div>
-      <div class="text-xs font-mono text-cyan-400 font-bold uppercase mb-1">TOOL 03</div>
-      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">Visual Diagramming</h3>
-      <p class="text-slate-300 font-sans mt-2 leading-relaxed">
-        Synthesizes Mermaid diagrams, SVG flowcharts, and architecture maps to communicate complex topologies.
-      </p>
-      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
-        <li>• Sequence &amp; distributed system traces</li>
-        <li>• Database ERD entity modeling</li>
-        <li>• State transition diagrams</li>
-      </ul>
-    </div>
-    <div class="text-[10px] font-mono text-cyan-300 border-t border-slate-800 pt-2">
-      Mermaid.js, SVG canvas rendering
+  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-emerald-500/40 flex flex-col">
+    <h3 class="text-base font-bold text-white font-serif h-8 flex items-center">Code Interpreter</h3>
+    <div class="text-[11px] text-slate-300 mt-3 space-y-3 font-mono">
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-calculator w-3.5 h-3.5 text-emerald-400 shrink-0"></span>
+        <span>Exact math calculation without hallucination</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-table w-3.5 h-3.5 text-emerald-400 shrink-0"></span>
+        <span>In-memory Pandas dataframe operations</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-chart-bar w-3.5 h-3.5 text-emerald-400 shrink-0"></span>
+        <span>Renders Matplotlib &amp; Seaborn charts</span>
+      </div>
     </div>
   </div>
 
-  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-amber-500/40 flex flex-col justify-between h-72">
-    <div>
-      <div class="text-xs font-mono text-amber-400 font-bold uppercase mb-1">TOOL 04</div>
-      <h3 class="text-base font-bold text-white font-serif min-h-[2.5rem] flex items-center">Function Calling</h3>
-      <p class="text-slate-300 font-sans mt-2 leading-relaxed">
-        Emits strict validated JSON payloads matching OpenAPI schemas to invoke backend databases and webhooks.
-      </p>
-      <ul class="text-[11px] text-slate-300 mt-3 space-y-1 font-mono">
-        <li>• Executes SQL database transactions</li>
-        <li>• Dispatches webhook payloads to n8n</li>
-        <li>• Authenticates third-party API mutations</li>
-      </ul>
+  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/40 flex flex-col">
+    <h3 class="text-base font-bold text-white font-serif h-8 flex items-center">Visual Diagramming</h3>
+    <div class="text-[11px] text-slate-300 mt-3 space-y-3 font-mono">
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-git-commit-horizontal w-3.5 h-3.5 text-cyan-400 shrink-0"></span>
+        <span>Sequence &amp; distributed system traces</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-database w-3.5 h-3.5 text-cyan-400 shrink-0"></span>
+        <span>Database ERD entity modeling</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-workflow w-3.5 h-3.5 text-cyan-400 shrink-0"></span>
+        <span>State transition diagrams</span>
+      </div>
     </div>
-    <div class="text-[10px] font-mono text-amber-300 border-t border-slate-800 pt-2">
-      OpenAPI Tools, Anthropic Tool Use
+  </div>
+
+  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-amber-500/40 flex flex-col">
+    <h3 class="text-base font-bold text-white font-serif h-8 flex items-center">Function Calling</h3>
+    <div class="text-[11px] text-slate-300 mt-3 space-y-3 font-mono">
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-database w-3.5 h-3.5 text-amber-400 shrink-0"></span>
+        <span>Executes SQL database transactions</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-send w-3.5 h-3.5 text-amber-400 shrink-0"></span>
+        <span>Dispatches webhook payloads to n8n</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="i-lucide-key w-3.5 h-3.5 text-amber-400 shrink-0"></span>
+        <span>Authenticates third-party API mutations</span>
+      </div>
     </div>
   </div>
 </div>
@@ -283,42 +320,10 @@ Modern foundation models don't just generate text: they orchestrate external too
 ---
 
 # Applied AI: Production Scenarios & Live Prompts
-Full, battle-tested prompt templates ready to copy and test live across your workflows.
 
-<div class="grid grid-cols-2 gap-4 mt-4 text-xs">
-  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-purple-500/40 flex flex-col justify-between h-54">
-    <div>
-      <h3 class="text-sm font-bold text-white font-serif min-h-[1.75rem] flex items-center">Marketing Persona &amp; Angle Generation</h3>
-      <div class="p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[10.5px] text-slate-300 leading-relaxed overflow-y-auto max-h-32">
-Act as a Senior Conversion Strategist. We are launching an AI-powered code review assistant. Generate 3 distinct developer buyer personas: 1) Overwhelmed Startup CTO, 2) Junior Bootcamper afraid of PR rejections, 3) Staff Engineer enforcing compliance. For each persona, provide: Primary Anxiety, Unvarnished Internal Monologue, and a 1-Sentence High-Converting Value Prop.
-      </div>
-    </div>
-  </div>
+Full, battle-tested prompt templates dissected into their architectural building blocks.
 
-  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-emerald-500/40 flex flex-col justify-between h-54">
-    <div>
-      <h3 class="text-sm font-bold text-white font-serif min-h-[1.75rem] flex items-center">Data Analysis &amp; Anomaly Extraction</h3>
-      <div class="p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[10.5px] text-slate-300 leading-relaxed overflow-y-auto max-h-32">
-I have uploaded server_latency_logs.csv with columns [timestamp, endpoint, status_code, latency_ms]. Run a Python analysis to calculate the p50, p95, and p99 latency by endpoint. Identify any endpoints exhibiting statistical latency degradation after 14:00 UTC, and output a markdown table accompanied by a line plot code snippet.
-      </div>
-    </div>
-  </div>
-
-  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/40 flex flex-col justify-between h-54">
-    <div>
-      <h3 class="text-sm font-bold text-white font-serif min-h-[1.75rem] flex items-center">Code Debugging &amp; Test Generation</h3>
-      <div class="p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[10.5px] text-slate-300 leading-relaxed overflow-y-auto max-h-32">
-Act as a Principal Node.js Engineer. Review the attached async function. 1) Pinpoint the unhandled Promise rejection race condition causing memory leaks, 2) Write a minimal reproduction unit test using Vitest that fails on current code, 3) Provide the refactored production function with exponential backoff retry.
-      </div>
-    </div>
-  </div>
-
-  <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-amber-500/40 flex flex-col justify-between h-54">
-    <div>
-      <h3 class="text-sm font-bold text-white font-serif min-h-[1.75rem] flex items-center">Custom Daily Intelligence Aggregator</h3>
-      <div class="p-2.5 rounded bg-slate-950 border border-slate-800 font-mono text-[10.5px] text-slate-300 leading-relaxed overflow-y-auto max-h-32">
-Search the web for the top 5 technical announcements or open-source releases regarding LLM inference optimization published in the last 24 hours. Filter out promotional press releases. For each breakthrough, output: Headline, 2-Sentence Technical Mechanism Summary, Architectural Trade-off, and Primary Source URL.
-      </div>
-    </div>
-  </div>
+<div class="mt-2">
+  <PromptDissector />
 </div>
+

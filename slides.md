@@ -12,6 +12,7 @@ mdc: true
 aspectRatio: '16/9'
 css: unocss
 colorSchema: dark
+clicks: 5
 ---
 
 <CoverSlide />

@@ -18,7 +18,7 @@ mdc: true
     :enter="{ opacity: 1, y: 0, transition: { duration: 600 } }"
     class="px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-sm font-mono mb-6"
   >
-    AI FOUNDATION CURRICULUM • MODULES 1–5
+    AI FOUNDATION CURRICULUM  MODULES 1–5
   </div>
 
   <h1 
@@ -64,10 +64,12 @@ mdc: true
 </div>
 
 ---
+
 transition: fade-out
 ---
 
 # Module 3: Live Prompt Evolution
+
 Watch how adding structured layers transforms a vague request into a precision instruction using **Magic Move**.
 
 ````md magic-move {lines: true}
@@ -118,10 +120,12 @@ First, list 3 core emotional anxieties students feel 48 hours before an exam. Th
 </div>
 
 ---
+
 layout: default
 ---
 
 # Interactive Lab: Build Your Prompt
+
 Toggle the building blocks below to see how an LLM's output changes in real time.
 
 <PromptLegoBuilder />

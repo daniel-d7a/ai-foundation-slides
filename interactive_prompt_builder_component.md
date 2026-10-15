@@ -64,7 +64,7 @@ const simulatedOutput = computed(() => {
     out += `🧬 Lab Analogy: Think of a "for loop" like an automated pipette machine processing a tray of test tubes one by one.\n\n`
   }
   if (s.cot) {
-    out += `🔍 Step-by-Step Trace:\n• Tube 1: Picks up "ATCG" -> checks length\n• Tube 2: Picks up "GGCA" -> checks length\n\n`
+    out += `🔍 Step-by-Step Trace:\n Tube 1: Picks up "ATCG" -> checks length\n Tube 2: Picks up "GGCA" -> checks length\n\n`
   }
   out += `💻 Python Code:\nsequences = ["ATCG", "GGCA"]\nfor seq in sequences:\n    print(f"Analyzing: {seq}")\n\n`
   if (s.format) {
@@ -113,5 +113,6 @@ const simulatedOutput = computed(() => {
         {{ simulatedOutput }}
       </div>
     </div>
+
   </div>
 </template>

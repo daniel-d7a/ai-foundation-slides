@@ -6,8 +6,7 @@ interface Domain {
   name: string
   iconClass: string
   fields: { name: string; tag: string }[]
-  jobs: string[]
-  useCase: string
+  useCases: string[]
 }
 
 const domains: Domain[] = [
@@ -20,8 +19,11 @@ const domains: Domain[] = [
       { name: 'Deep Learning', tag: 'Protein folding prediction (AlphaFold)' },
       { name: 'NLP & LLMs', tag: 'Clinical EHR summarization' },
     ],
-    jobs: ['Medical AI Researcher', 'Bioinformatics Scientist', 'Clinical Data Engineer'],
-    useCase: 'Analyzing thousands of pathology histology slides per hour to detect early-stage tumor cells.',
+    useCases: [
+      'Analyzing thousands of pathology histology slides per hour to detect early-stage tumor cells.',
+      'Screening millions of candidate molecular structures against target proteins to accelerate clinical trials.',
+      'Ambient AI scribes summarizing 45-minute physician patient consults directly into structured EHR charts.',
+    ],
   },
   {
     id: 'finance',
@@ -32,8 +34,11 @@ const domains: Domain[] = [
       { name: 'Deep Learning', tag: 'High-frequency market signals' },
       { name: 'Automation', tag: 'Regulatory KYC / Transaction scrutiny' },
     ],
-    jobs: ['Quantitative ML Researcher', 'Financial Risk Specialist', 'FinTech Solutions Architect'],
-    useCase: 'Flagging fraudulent credit card transactions in under 50 milliseconds using anomaly detection.',
+    useCases: [
+      'Flagging fraudulent credit card transactions in under 50 milliseconds using stream anomaly detection.',
+      'Synthesizing earnings calls, SEC 10-K filings, and breaking news into quantitative portfolio risk metrics.',
+      'Scanning incoming KYC customer documentation and biometric identity feeds against global sanctions databases.',
+    ],
   },
   {
     id: 'creative',
@@ -44,8 +49,11 @@ const domains: Domain[] = [
       { name: 'Computer Vision', tag: 'Generative diffusion & brand design' },
       { name: 'Automation', tag: 'Multi-platform content orchestration' },
     ],
-    jobs: ['AI Content Strategist', 'Prompt Systems Designer', 'Creative Tech Director'],
-    useCase: 'Generating 20 personalized ad variants with matching visuals for segmented audiences in minutes.',
+    useCases: [
+      'Generating 20 personalized ad variants with custom visuals and copy tuned per demographic in minutes.',
+      'Auto-dubbing marketing campaigns with synthetic voice cloning and frame-accurate lip-sync across 14 languages.',
+      'Translating natural language briefs into brand-aligned vector illustrations, 3D mockups, and packaging concepts.',
+    ],
   },
   {
     id: 'software',
@@ -56,8 +64,11 @@ const domains: Domain[] = [
       { name: 'NLP', tag: 'Semantic AST indexing & code search' },
       { name: 'Automation', tag: 'CI/CD self-healing pipeline triggers' },
     ],
-    jobs: ['AI Systems Engineer', 'Full-stack AI Developer', 'DevOps Automation Lead'],
-    useCase: 'Autonomous PR reviews, bug remediation drafts, and converting legacy codebases across languages.',
+    useCases: [
+      'Autonomous PR reviews, security audits, and legacy syntax modernization across repositories.',
+      'Auto-generating unit test suites, integration mocks, and boundary condition test fixtures with 90%+ coverage.',
+      'Diagnosing broken continuous integration builds from terminal logs and creating verified zero-shot hotfixes.',
+    ],
   },
   {
     id: 'ops',
@@ -68,8 +79,11 @@ const domains: Domain[] = [
       { name: 'Computer Vision', tag: 'Automated assembly defect detection' },
       { name: 'Automation', tag: 'Warehouse ERP synchronizers' },
     ],
-    jobs: ['Supply Chain Data Scientist', 'Industrial Vision Engineer', 'n8n Solutions Architect'],
-    useCase: 'Predicting warehouse stockouts 14 days in advance and auto-triggering purchase orders.',
+    useCases: [
+      'Predicting warehouse stockouts 14 days in advance and auto-triggering replenishment purchase orders.',
+      'Inspecting assembly lines at 1,200 parts/min using high-speed computer vision to detect micro-surface defects.',
+      'Continuously re-optimizing fleet delivery routes in real time based on port delays, traffic, and fuel costs.',
+    ],
   },
 ]
 
@@ -96,53 +110,40 @@ const selected = ref<Domain>(domains[0])
       </button>
     </div>
 
-    <!-- Active Details Grid with Normalized Heights -->
+    <!-- Active Details Grid with 2 Columns -->
     <transition name="fade" mode="out-in">
-      <div :key="selected.id" class="grid grid-cols-12 gap-3 text-left">
+      <div :key="selected.id" class="grid grid-cols-2 gap-4 text-left">
         <!-- AI Fields Active -->
-        <div class="col-span-4 p-3.5 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-56">
+        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between min-h-[250px]">
           <div>
-            <div class="text-[10px] font-mono uppercase tracking-wider text-indigo-400 font-bold mb-2">Primary AI Subfields</div>
-            <div class="flex flex-col gap-1.5">
+            <div class="text-sm font-mono uppercase tracking-wider text-indigo-400 font-bold mb-2.5">Primary AI Subfields</div>
+            <div class="flex flex-col gap-2">
               <div
                 v-for="f in selected.fields"
                 :key="f.name"
-                class="p-2 rounded-lg bg-slate-800/60 border border-slate-700/40 text-xs"
+                class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/40 text-xs"
               >
-                <div class="font-bold text-slate-200 font-serif">{{ f.name }}</div>
-                <div class="text-[11px] text-slate-400 font-sans">{{ f.tag }}</div>
+                <div class="font-bold text-slate-200 font-serif text-sm">{{ f.name }}</div>
+                <div class="text-xs text-slate-400 font-sans mt-0.5">{{ f.tag }}</div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Real-World Impact -->
-        <div class="col-span-4 p-3.5 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-56">
+        <!-- Real-World Impact: Production Use Cases -->
+        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between min-h-[250px]">
           <div>
-            <div class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold mb-2">Production Use Case</div>
-            <p class="text-xs text-slate-200 leading-relaxed bg-emerald-500/10 p-2.5 rounded-lg border border-emerald-500/30 font-sans">
-              "{{ selected.useCase }}"
-            </p>
-          </div>
-          <div class="text-[11px] text-slate-400 font-mono">
-            Direct business leverage without raw model training.
-          </div>
-        </div>
-
-        <!-- Job Titles -->
-        <div class="col-span-4 p-3.5 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-56">
-          <div>
-            <div class="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold mb-2">Emerging Career Titles</div>
-            <ul class="flex flex-col gap-1.5 text-xs text-slate-300">
-              <li
-                v-for="job in selected.jobs"
-                :key="job"
-                class="flex items-center gap-2 p-2 rounded-md bg-slate-800/60 border border-slate-800 text-[11px] font-mono"
+            <div class="text-sm font-mono uppercase tracking-wider text-emerald-400 font-bold mb-2.5">Production Use Cases</div>
+            <div class="flex flex-col gap-2">
+              <div
+                v-for="(uc, idx) in selected.useCases"
+                :key="idx"
+                class="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs text-slate-200 leading-relaxed font-sans flex items-start gap-2"
               >
-                <span class="i-lucide-check w-3.5 h-3.5 text-amber-400 shrink-0"></span>
-                <span>{{ job }}</span>
-              </li>
-            </ul>
+                <span class="text-emerald-400 font-mono font-bold text-[11px] mt-0.5 shrink-0">{{ String(idx + 1).padStart(2, '0') }}.</span>
+                <span>{{ uc }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
