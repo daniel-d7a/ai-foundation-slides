@@ -1,14 +1,14 @@
 ---
-layout: section
+layout: default
 ---
 
-# Module 05
-<div class="text-3xl font-bold text-white font-serif">
-  Putting It on Autopilot
-</div>
-<p class="text-slate-300 mt-2 font-sans">
-  From Reactive Chatbot Prompting to 24/7 Autonomous Visual Pipelines with n8n.
-</p>
+<ModuleTitleCard
+  moduleNo="MODULE 05"
+  title="Putting It on Autopilot"
+  subtitle="From Reactive Chatbot Prompting to 24/7 Autonomous Visual Pipelines with n8n."
+  image="/images/05-automation.jpg"
+  color="cyan"
+/>
 
 ---
 
@@ -145,6 +145,6 @@ Interactive exploration of Triggers, AI Reasoning Transforms, and Action Nodes.
 # Production Automation Pipeline Simulator
 Run real-world pipelines across Study, Marketing, and DevOps architectures with zero overflow.
 
-<MiniN8nCanvas />
+<N8nCanvasSimulator />
 
 

@@ -1,15 +1,14 @@
 ---
-layout: section
+layout: default
 ---
 
-# Module 01
-
-<div class="text-3xl font-bold text-white font-serif">
-  The AI Landscape
-</div>
-<p class="text-slate-300 mt-2 font-sans">
-  From Symbolic Rules to Foundation Models: Building a True Mental Model.
-</p>
+<ModuleTitleCard
+  moduleNo="MODULE 01"
+  title="The AI Landscape"
+  subtitle="From Symbolic Rules to Foundation Models: Building a True Mental Model."
+  image="/images/01-landscape.jpg"
+  color="indigo"
+/>
 
 ---
 

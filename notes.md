@@ -1,0 +1,13 @@
+- fix the analogy animations
+- change the analogy animations for polymorphism
+- fix the overflow on the output pages
+- fix the timeline pages
+- add proper images to the hero slides
+- add images to use cases
+- in prompting slide 1 replace that wall of text with blabbering vs building a prompt
+- replace agent tools with arms and hands
+- replace automation slide 1 with a simple comparison drawing
+- in automation tiers add a simple diagram to each card
+- in automation animation, reverse the output order
+- add more work on automations
+- add a better ending slide with my name on it

@@ -1,15 +1,14 @@
 ---
-layout: section
+layout: default
 ---
 
-# Module 04
-
-<div class="text-3xl font-bold text-white font-serif">
-  Supercharging Personal Growth
-</div>
-<p class="text-slate-300 mt-2 font-sans">
-  From Passive Answer-Copying to Cognitive Acceleration: The AI Tutor Framework.
-</p>
+<ModuleTitleCard
+  moduleNo="MODULE 04"
+  title="Supercharging Personal Growth"
+  subtitle="From Passive Answer-Copying to Cognitive Acceleration: The AI Tutor Framework."
+  image="/images/04-learning.jpg"
+  color="pink"
+/>
 
 ---
 
@@ -89,12 +88,32 @@ Bridge unfamiliar programming concepts directly to real-world domains you alread
 
 ---
 
-# Study Material Synthesis Pipeline
+# Study Synthesis: Grounded Ingestion
 
-Transform messy lecture PDFs into high-retention study assets using modern AI tools.
+Step 1: Anchor AI strictly to lecture PDFs to eliminate hallucinations and generate deep-dive audio.
 
 <div class="mt-2">
-  <StudyPipeline />
+  <StudyPipelineStep :step="1" />
+</div>
+
+---
+
+# Study Synthesis: Active Recall
+
+Step 2: Transform passive slides into high-yield spaced repetition flashcards with optimal decay intervals.
+
+<div class="mt-2">
+  <StudyPipelineStep :step="2" />
+</div>
+
+---
+
+# Study Synthesis: Visual Sandbox Drill
+
+Step 3: Generate interactive simulations to directly manipulate abstract concepts in real-time.
+
+<div class="mt-2">
+  <StudyPipelineStep :step="3" />
 </div>
 
 
@@ -105,3 +124,33 @@ Transform messy lecture PDFs into high-retention study assets using modern AI to
 Visual architecture for diagnosing underlying cognitive misconceptions before exam day.
 
 <GapAnalysis />
+
+<!--
+PRESENTER NOTES - CONCRETE EXAMPLES FOR GAP ANALYSIS:
+
+Use this 5-stage loop when coaching students who are stuck on concepts despite re-reading notes.
+
+EXAMPLE 1: OOP & INHERITANCE (Design Patterns)
+- Benchmark: "Design a simulation with Birds, Ducks, and Penguins. How do you model Flying behavior?"
+- Student Attempt (Scratchpad): "Make parent Bird class with fly(), inherit Penguin and override fly() to throw an exception or return null."
+- AI Diagnosis: Penguin is a Bird, but cannot Fly. Forcing inheritance violates Liskov Substitution (LSP) and causes runtime exceptions. Root cause: using inheritance for code reuse instead of composition.
+- AI Help / Prescription: Apply Strategy Pattern or CanFly ability interface ("Favor composition over inheritance").
+- Again / Drill: "Now model a toy drone, an ostrich, and a bat. Which classes share flight without shared parentage?"
+- Diagnostic Prompt: "Act as a CS Tutor. Here is my OOP code where Penguin inherits from Bird and overrides fly() to throw an error. Explain why this breaks Liskov Substitution and demonstrate the composition alternative."
+
+EXAMPLE 2: DATA STRUCTURES (Stacks vs Queues)
+- Benchmark: "Implement an 'Undo' feature for a text editor. Which data structure stores previous keystrokes?"
+- Student Attempt (Scratchpad): "Use a FIFO Queue because actions must be processed in the order they occurred."
+- AI Diagnosis: Queue reverses operations in First-In, First-Out order, undoing your initial keystroke from an hour ago! Undo requires Last-In, First-Out (LIFO = Stack).
+- AI Help / Prescription: Trace Stack push/pop timeline on 3 keystrokes; build twin-stack Undo/Redo pattern.
+- Again / Drill: "Contrast browser Back/Forward navigation vs print spooler queuing."
+- Diagnostic Prompt: "I confused Stacks and Queues when building an undo feature. Provide 2 intuitive real-world analogies and 2 quick drills to cement LIFO vs FIFO."
+
+EXAMPLE 3: RECURSION & BASE CASES
+- Benchmark: "Write a recursive function to calculate the sum of numbers in a list."
+- Student Attempt (Scratchpad): "return list[0] + sum(list[1:]) without if-checks because the slice naturally shrinks."
+- AI Diagnosis: Implicit termination without explicit base case. When list becomes empty [], list[0] raises IndexError / RecursionError call stack overflow.
+- AI Help / Prescription: Always write base condition first (if not list: return 0); visualize expanding/collapsing stack frames.
+- Again / Drill: "Write recursive factorial and palindrome checks with explicit base guards."
+- Diagnostic Prompt: "Review my recursive list sum that crashed with RecursionError. Walk me through the missing base case and trace the call stack step-by-step."
+-->

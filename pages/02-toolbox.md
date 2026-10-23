@@ -1,15 +1,14 @@
 ---
-layout: section
+layout: default
 ---
 
-# Module 02
-
-<div class="text-3xl font-bold text-white font-serif">
-  The Modern AI Toolbox
-</div>
-<p class="text-slate-300 mt-2 font-sans">
-  Stop using one chatbot for everything: Selecting precision foundation engines.
-</p>
+<ModuleTitleCard
+  moduleNo="MODULE 02"
+  title="The Modern AI Toolbox"
+  subtitle="Stop using one chatbot for everything: Selecting precision foundation engines."
+  image="/images/02-toolbox.jpg"
+  color="emerald"
+/>
 
 ---
 
@@ -24,11 +23,11 @@ Intelligence is largely commoditized across frontier models. Stop comparing benc
         <span class="text-[11px] font-mono font-bold text-indigo-400 tracking-wider">AMERICAN MODELS</span>
       </div>
       <h3 class="font-bold text-base text-white font-serif">Frontier Pioneers &amp; Enterprise Platforms</h3>
-      <div class="flex flex-wrap gap-1.5 mt-2">
-        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">ChatGPT</span>
-        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Claude</span>
-        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Gemini</span>
-        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Llama</span>
+      <div class="flex items-center gap-2 mt-2.5">
+        <AppIconTooltip name="ChatGPT (OpenAI)" icon="i-logos-openai-icon brightness-0 invert text-white" size="size-6" />
+        <AppIconTooltip name="Claude (Anthropic)" icon="i-logos-claude-icon" size="size-6" />
+        <AppIconTooltip name="Gemini (Google)" icon="i-logos-google-gemini" size="size-6" />
+        <AppIconTooltip name="Llama (Meta)" icon="i-logos-meta-icon" size="size-6" />
       </div>
       <div class="mt-3.5 space-y-2 text-xs text-slate-200 font-sans">
         <div class="flex items-start gap-2">
@@ -53,12 +52,12 @@ Intelligence is largely commoditized across frontier models. Stop comparing benc
         <span class="text-[11px] font-mono font-bold text-emerald-400 tracking-wider">CHINESE MODELS</span>
       </div>
       <h3 class="font-bold text-base text-white font-serif">Cost Disruptors &amp; Open-Weights Titans</h3>
-      <div class="flex flex-wrap gap-1.5 mt-2">
-        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">DeepSeek</span>
-        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">Qwen</span>
-        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">Kimi</span>
-        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">GLM</span>
-        <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">MiniMax</span>
+      <div class="flex items-center gap-2 mt-2.5">
+        <AppIconTooltip name="DeepSeek" icon="i-logos-deepseek-icon" size="size-6" />
+        <AppIconTooltip name="Qwen (Alibaba)" icon="i-logos-qwen-icon" size="size-6" />
+        <AppIconTooltip name="Kimi (Moonshot AI)" icon="i-logos-moonshot-ai-icon brightness-0 invert text-white" size="size-6" />
+        <AppIconTooltip name="GLM (Zhipu AI)" icon="glm text-blue-400" size="size-6" />
+        <AppIconTooltip name="MiniMax" icon="i-logos-minimax-icon" size="size-6" />
       </div>
       <div class="mt-3.5 space-y-2 text-xs text-slate-200 font-sans">
         <div class="flex items-start gap-2">
@@ -86,8 +85,13 @@ Comparing real-time multi-source retrieval against document-grounded notebooks.
 
 <div class="grid grid-cols-2 gap-4 mt-5 w-full text-left" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
   <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/40">
-    <h3 class="font-bold text-xl text-white font-serif">Perplexity AI</h3>
-    <div class="text-xs text-cyan-300/80 font-mono mt-0.5">The Real-Time Research Engine</div>
+    <div class="flex items-center gap-3 mb-2">
+      <AppIconTooltip name="Perplexity AI" icon="i-logos-perplexity-icon" size="size-7" />
+      <div>
+        <h3 class="font-bold text-xl text-white font-serif">Perplexity AI</h3>
+        <div class="text-xs text-cyan-300/80 font-mono">The Real-Time Research Engine</div>
+      </div>
+    </div>
     <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
       An AI search engine querying live web indices, synthesizing real-time answers with verified citations.
     </p>
@@ -124,8 +128,13 @@ Comparing real-time multi-source retrieval against document-grounded notebooks.
   </div>
 
   <div v-click class="p-4 rounded-xl bg-slate-900/90 border border-indigo-500/40">
-    <h3 class="font-bold text-xl text-white font-serif">Google NotebookLM</h3>
-    <div class="text-xs text-indigo-300/80 font-mono mt-0.5">The Source-Constrained Thinker</div>
+    <div class="flex items-center gap-3 mb-2">
+      <AppIconTooltip name="Google NotebookLM" icon="notebooklm text-indigo-400" size="size-7" />
+      <div>
+        <h3 class="font-bold text-xl text-white font-serif">Google NotebookLM</h3>
+        <div class="text-xs text-indigo-300/80 font-mono">The Source-Constrained Thinker</div>
+      </div>
+    </div>
     <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
       A personalized research assistant strictly grounded in uploaded notes and documents with zero external hallucination.
     </p>
@@ -172,12 +181,12 @@ Transforming natural language descriptions into production-ready visual assets a
   <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-pink-500/30 flex flex-col justify-start">
     <div class="text-[11px] font-mono font-bold text-pink-400 uppercase tracking-wider mb-1">Image Generation</div>
     <h3 class="font-bold text-lg text-white font-serif">Still Synthesis</h3>
-    <div class="flex flex-wrap gap-1.5 mt-2">
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-pink-300">Midjourney</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-pink-300">Flux</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-pink-300">Ideogram</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-pink-300">Recraft</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-pink-300">Firefly</span>
+    <div class="flex flex-wrap items-center gap-2 mt-2.5">
+      <AppIconTooltip name="Midjourney" icon="i-logos-midjourney brightness-0 invert text-white" size="size-5.5" />
+      <AppIconTooltip name="Flux (Black Forest Labs)" icon="flux text-white" size="size-5.5" />
+      <AppIconTooltip name="Ideogram" icon="ideogram text-[#FF2E93]" size="size-5.5" />
+      <AppIconTooltip name="Recraft" icon="recraft text-[#FF4438]" size="size-5.5" />
+      <AppIconTooltip name="Adobe Firefly" icon="i-logos-adobe-icon" size="size-5.5" />
     </div>
     <div class="space-y-3 mt-4 text-xs font-medium text-slate-200 font-sans">
       <div class="flex items-center gap-2">
@@ -202,12 +211,12 @@ Transforming natural language descriptions into production-ready visual assets a
   <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-amber-500/30 flex flex-col justify-start">
     <div class="text-[11px] font-mono font-bold text-amber-400 uppercase tracking-wider mb-1">Video Generation</div>
     <h3 class="font-bold text-lg text-white font-serif">Motion Synthesis</h3>
-    <div class="flex flex-wrap gap-1.5 mt-2">
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-amber-300">Kling</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-amber-300">Runway</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-amber-300">Luma</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-amber-300">Hailuo</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-amber-300">Sora</span>
+    <div class="flex flex-wrap items-center gap-2 mt-2.5">
+      <AppIconTooltip name="Kling AI" icon="kling text-[#00C8FF]" size="size-5.5" />
+      <AppIconTooltip name="Runway (Gen-3)" icon="runway text-white" size="size-5.5" />
+      <AppIconTooltip name="Luma Dream Machine" icon="luma text-[#8B5CF6]" size="size-5.5" />
+      <AppIconTooltip name="Hailuo AI (MiniMax)" icon="hailuo text-[#0066FF]" size="size-5.5" />
+      <AppIconTooltip name="Sora (OpenAI)" icon="sora text-white" size="size-5.5" />
     </div>
     <div class="space-y-3 mt-4 text-xs font-medium text-slate-200 font-sans">
       <div class="flex items-center gap-2">
@@ -232,12 +241,12 @@ Transforming natural language descriptions into production-ready visual assets a
   <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-cyan-500/30 flex flex-col justify-start">
     <div class="text-[11px] font-mono font-bold text-cyan-400 uppercase tracking-wider mb-1">Creative Suite</div>
     <h3 class="font-bold text-lg text-white font-serif">Design &amp; Production</h3>
-    <div class="flex flex-wrap gap-1.5 mt-2">
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-cyan-300">Canva</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-cyan-300">CapCut</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-cyan-300">ElevenLabs</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-cyan-300">Magnific</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-cyan-300">Topaz</span>
+    <div class="flex flex-wrap items-center gap-2 mt-2.5">
+      <AppIconTooltip name="Canva" icon="canva text-[#00C4CC]" size="size-5.5" />
+      <AppIconTooltip name="CapCut" icon="capcut text-white" size="size-5.5" />
+      <AppIconTooltip name="ElevenLabs" icon="i-logos-elevenlabs-icon brightness-0 invert text-white" size="size-5.5" />
+      <AppIconTooltip name="Magnific AI" icon="magnific text-[#9333EA]" size="size-5.5" />
+      <AppIconTooltip name="Topaz Labs" icon="topaz text-[#0066FF]" size="size-5.5" />
     </div>
     <div class="space-y-3 mt-4 text-xs font-medium text-slate-200 font-sans">
       <div class="flex items-center gap-2">
@@ -270,12 +279,12 @@ Moving beyond inline autocomplete to whole-repository autonomous agents and full
   <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-indigo-500/30 flex flex-col justify-start">
     <div class="text-[11px] font-mono font-bold text-indigo-400 uppercase tracking-wider mb-1">Code Agents &amp; Editors</div>
     <h3 class="font-bold text-lg text-white font-serif">Agentic Code Partners</h3>
-    <div class="flex flex-wrap gap-1.5 mt-2">
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Claude Code</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Cursor</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Antigravity</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">Codex</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-indigo-300">OpenCode</span>
+    <div class="flex flex-wrap items-center gap-2 mt-2.5">
+      <AppIconTooltip name="Claude Code" icon="i-logos-claude-icon" size="size-5.5" />
+      <AppIconTooltip name="Cursor" icon="cursor text-white" size="size-5.5" />
+      <AppIconTooltip name="Antigravity" icon="antigravity text-[#38BDF8]" size="size-5.5" />
+      <AppIconTooltip name="Codex (OpenAI)" icon="i-logos-openai-icon brightness-0 invert text-white" size="size-5.5" />
+      <AppIconTooltip name="OpenCode" icon="opencode text-emerald-400" size="size-5.5" />
     </div>
     <div class="space-y-3 mt-4 text-xs font-medium text-slate-200 font-sans">
       <div class="flex items-center gap-2">
@@ -304,11 +313,11 @@ Moving beyond inline autocomplete to whole-repository autonomous agents and full
   <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-emerald-500/30 flex flex-col justify-start">
     <div class="text-[11px] font-mono font-bold text-emerald-400 uppercase tracking-wider mb-1">AI App Builders</div>
     <h3 class="font-bold text-lg text-white font-serif">Autonomous Full-Stack Builders</h3>
-    <div class="flex flex-wrap gap-1.5 mt-2">
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">Lovable</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">Replit Agent</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">Bolt.new</span>
-      <span class="px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700/60 text-[10px] font-mono font-medium text-emerald-300">v0</span>
+    <div class="flex flex-wrap items-center gap-2 mt-2.5">
+      <AppIconTooltip name="Lovable" icon="lovable text-[#FF2E93]" size="size-5.5" />
+      <AppIconTooltip name="Replit Agent" icon="i-logos-replit-icon" size="size-5.5" />
+      <AppIconTooltip name="Bolt.new" icon="bolt text-white" size="size-5.5" />
+      <AppIconTooltip name="v0 (Vercel)" icon="v0 text-white" size="size-5.5" />
     </div>
     <div class="space-y-3 mt-4 text-xs font-medium text-slate-200 font-sans">
       <div class="flex items-center gap-2">

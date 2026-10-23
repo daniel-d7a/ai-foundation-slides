@@ -18,6 +18,42 @@ clicks: 5
 <CoverSlide />
 
 ---
+layout: default
+---
+
+<AboutInstructor />
+
+---
+layout: default
+---
+
+<TimelineRoadmap :part="1" />
+
+---
+layout: default
+---
+
+<TimelineRoadmap :part="2" />
+
+---
+layout: default
+---
+
+<OutcomeStudents />
+
+---
+layout: default
+---
+
+<OutcomeBeginners />
+
+---
+layout: default
+---
+
+<OutcomePowerUsers />
+
+---
 src: ./pages/01-landscape.md
 ---
 

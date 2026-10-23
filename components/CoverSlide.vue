@@ -5,30 +5,35 @@ const modules = [
     title: "The AI Landscape",
     desc: "Evolution & Ecosystem",
     badge: "text-indigo-400",
+    icon: "i-lucide-globe",
   },
   {
     no: "MODULE 02",
     title: "Modern Toolbox",
     desc: "Tools for Every Major",
     badge: "text-emerald-400",
+    icon: "i-lucide-boxes",
   },
   {
     no: "MODULE 03",
     title: "Prompting",
     desc: "6 Pillars & Context",
     badge: "text-amber-400",
+    icon: "i-lucide-sparkles",
   },
   {
     no: "MODULE 04",
     title: "AI for Learning",
     desc: "Socratic Framework",
     badge: "text-pink-400",
+    icon: "i-lucide-graduation-cap",
   },
   {
     no: "MODULE 05",
     title: "n8n Automation",
     desc: "Autonomous Pipelines",
     badge: "text-cyan-400",
+    icon: "i-lucide-workflow",
   },
 ];
 </script>
@@ -59,8 +64,11 @@ const modules = [
         v-click
         class="cover-card p-3.5 rounded-xl bg-slate-900/80 border border-slate-700/60 hover:border-indigo-500/50 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/10 flex flex-col justify-between h-28"
       >
-        <div class="text-[10px] font-mono font-bold" :class="m.badge">
-          {{ m.no }}
+        <div class="flex items-center justify-between">
+          <div class="text-[10px] font-mono font-bold" :class="m.badge">
+            {{ m.no }}
+          </div>
+          <span :class="[m.icon, m.badge]" class="w-4 h-4 shrink-0"></span>
         </div>
         <div class="font-bold text-sm text-white font-serif">{{ m.title }}</div>
         <div class="text-[11px] text-slate-400 font-sans">{{ m.desc }}</div>

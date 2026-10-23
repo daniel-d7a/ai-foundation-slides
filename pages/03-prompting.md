@@ -1,15 +1,14 @@
 ---
-layout: section
+layout: default
 ---
 
-# Module 03
-
-<div class="text-3xl font-bold text-white font-serif">
-  Speaking to the Machine
-</div>
-<p class="text-slate-300 mt-2 font-sans">
-  Prompt Engineering, Context Windows, Agent Tooling, and Applied Workflows.
-</p>
+<ModuleTitleCard
+  moduleNo="MODULE 03"
+  title="Speaking to the Machine"
+  subtitle="Prompt Engineering, Context Windows, Agent Tooling, and Applied Workflows."
+  image="/images/03-prompting.jpg"
+  color="amber"
+/>
 
 ---
 
@@ -170,10 +169,24 @@ Every elite prompt decomposes into these 6 modular architectural building blocks
 </div>
 
 ---
+clicks: 3
+---
+
+<script setup>
+import { ref } from 'vue'
+
+const isArabic = ref(false)
+</script>
+
+<div class="absolute top-8 right-12 z-20">
+  <ExampleLangButton v-model="isArabic" />
+</div>
 
 # Live Evolution: Morphing with Magic Move
 
 Watch a basic request evolve into an engineered prompt across sequential clicks.
+
+<div v-if="!isArabic">
 
 ````md magic-move {lines: true}
 ```text
@@ -220,6 +233,58 @@ First, outline 3 emotional anxieties students feel 48 hours before an exam.
 Then, map each slide directly to alleviate one anxiety.
 ```
 ````
+
+</div>
+
+<div v-else dir="rtl" class="text-right arabic-code-example">
+
+````md magic-move {at: 0, lines: true}
+```text
+اكتب حملة إطلاق لتطبيقنا الدراسي الجديد.
+```
+
+```text
+[الدور - Persona]
+تصرّف كخبير نمو تسويقي في تكنولوجيا التعليم متخصص في طلاب الجامعات من الجيل Z.
+
+[المهمة - Task]
+اكتب حملة إطلاق لتطبيقنا الدراسي الجديد.
+```
+
+```text
+[الدور - Persona]
+تصرّف كخبير نمو تسويقي في تكنولوجيا التعليم متخصص في طلاب الجامعات من الجيل Z.
+
+[السياق - Context]
+نطلق تطبيق "FocusPulse"، وهو تطبيق يحول مذكرات المحاضرات غير المنظمة إلى بطاقات استذكار في 5 دقائق.
+الجمهور مستنزف من الامتحانات النصفية ويتجاهل الإعلانات التقليدية.
+
+[المهمة - Task]
+اكتب حملة إعلانية عبر وسائل التواصل من 3 أجزاء.
+```
+
+```text
+[الدور - Persona]
+تصرّف كخبير نمو تسويقي في تكنولوجيا التعليم متخصص في طلاب الجامعات من الجيل Z.
+
+[السياق - Context]
+نطلق تطبيق "FocusPulse"، وهو تطبيق يحول مذكرات المحاضرات غير المنظمة إلى بطاقات استذكار في 5 دقائق.
+الجمهور مستنزف من الامتحانات النصفية ويتجاهل الإعلانات التقليدية.
+
+[المهمة - Task]
+اكتب حملة إعلانية عبر وسائل التواصل من 3 أجزاء.
+
+[التعليمات والصيغة - Instructions & Format]
+- استبعد العبارات المبتذلة ("أحدث ثورة"، "غيّر قواعد اللعبة").
+- نسّق المخرج كجدول ماركداون: [الشريحة] | [المشهد البصري] | [العنصر الجاذب] | [دعوة لاتخاذ إجراء].
+
+[تسلسل التفكير - Chain of Thought]
+أولاً، حدد 3 مخاوف وضغوط يشعر بها الطلاب قبل 48 ساعة من الامتحان.
+ثم، اربط كل شريحة مباشرة بمعالجة أحد هذه المخاوف.
+```
+````
+
+</div>
 
 ---
 

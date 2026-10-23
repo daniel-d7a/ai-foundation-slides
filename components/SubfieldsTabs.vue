@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, onUnmounted } from 'vue'
+import AppIconTooltip from './AppIconTooltip.vue'
 
 interface Subfield {
   id: string
@@ -11,6 +12,65 @@ interface Subfield {
   mechanisms: string[]
   productionStack: string[]
 }
+
+const appsMap: Record<string, { name: string; icon: string }[]> = {
+  cv: [
+    { name: 'Google Photos', icon: 'i-logos-google-photos' },
+    { name: 'Instagram', icon: 'i-lucide-instagram text-white' },
+    { name: 'TikTok', icon: 'i-logos-tiktok-icon' },
+    { name: 'Pinterest', icon: 'i-logos-pinterest' },
+  ],
+  nlp: [
+    { name: 'Grammarly', icon: 'i-logos-grammarly-icon' },
+    { name: 'Google Translate', icon: 'i-logos-google' },
+    { name: 'Spotify', icon: 'i-logos-spotify-icon' },
+    { name: 'Hugging Face', icon: 'i-logos-hugging-face-icon' },
+  ],
+  llm: [
+    { name: 'ChatGPT', icon: 'i-logos-openai-icon brightness-0 invert text-white' },
+    { name: 'Claude', icon: 'i-logos-claude-icon' },
+    { name: 'Gemini', icon: 'i-logos-google-gemini' },
+    { name: 'GitHub Copilot', icon: 'i-logos-github-copilot brightness-0 invert text-white' },
+  ],
+  auto: [
+    { name: 'n8n', icon: 'i-logos-n8n-icon' },
+    { name: 'Zapier', icon: 'i-logos-zapier-icon' },
+    { name: 'Airtable', icon: 'i-logos-airtable' },
+  ],
+}
+
+const automationSteps = [
+  {
+    title: '1. Webhook Event',
+    role: 'Trigger Source',
+    color: 'border-cyan-500/40 text-cyan-400',
+    apps: [
+      { name: 'Stripe', icon: 'i-logos-stripe' },
+      { name: 'GitHub', icon: 'i-lucide-github text-white' },
+      { name: 'Slack', icon: 'i-logos-slack-icon' },
+    ],
+  },
+  {
+    title: '2. LLM Parse',
+    role: 'Model Engine',
+    color: 'border-indigo-500/40 text-indigo-400',
+    apps: [
+      { name: 'OpenAI (ChatGPT)', icon: 'i-logos-openai-icon brightness-0 invert text-white' },
+      { name: 'Claude', icon: 'i-logos-claude-icon' },
+      { name: 'Gemini', icon: 'i-logos-google-gemini' },
+    ],
+  },
+  {
+    title: '3. Action / DB',
+    role: 'Storage / CRM',
+    color: 'border-emerald-500/40 text-emerald-400',
+    apps: [
+      { name: 'Notion', icon: 'i-logos-notion-icon' },
+      { name: 'Airtable', icon: 'i-logos-airtable' },
+      { name: 'Supabase', icon: 'i-logos-supabase-icon' },
+    ],
+  },
+]
 
 interface PredictionCandidate {
   word: string
@@ -225,17 +285,17 @@ onUnmounted(() => {
         <div class="col-span-6 flex flex-col justify-center items-center pl-2">
           <!-- Visual for CV -->
           <div v-if="active.id === 'cv'" class="w-full flex flex-col items-center gap-2">
-            <div class="relative w-64 h-36 rounded-lg bg-slate-950 border border-slate-700 overflow-hidden flex items-center justify-center">
+            <div class="relative w-64 h-32 rounded-lg bg-slate-950 border border-slate-700 overflow-hidden flex items-center justify-center">
               <!-- Grid background -->
               <div class="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
               <!-- Simulated Bounding Box -->
-              <div class="relative z-10 w-36 h-24 border-2 border-indigo-400 rounded bg-indigo-500/10 flex flex-col justify-between p-1.5 animate-pulse">
+              <div class="relative z-10 w-36 h-20 border-2 border-indigo-400 rounded bg-indigo-500/10 flex flex-col justify-between p-1.5 animate-pulse">
                 <div class="flex justify-between items-center text-[10px] font-mono text-indigo-300 bg-indigo-950/80 px-1 rounded">
                   <span>object: car</span>
                   <span>98.4%</span>
                 </div>
                 <div class="flex-1 flex items-center justify-center">
-                  <span class="i-lucide-car size-10 text-indigo-300/80"></span>
+                  <span class="i-lucide-car size-8 text-indigo-300/80"></span>
                 </div>
                 <div class="text-[9px] font-mono text-slate-400">[x: 142, y: 88, w: 220, h: 140]</div>
               </div>
@@ -243,10 +303,22 @@ onUnmounted(() => {
             <div class="text-[11px] font-mono text-slate-400 text-center">
               Matrix decomposition into convolutional feature activations.
             </div>
+            <!-- Popular Apps -->
+            <div class="flex items-center gap-3 pt-1 border-t border-slate-800/80 mt-1">
+              <span class="text-[10px] font-mono uppercase text-slate-400">Apps:</span>
+              <div class="flex items-center gap-2">
+                <AppIconTooltip
+                  v-for="app in appsMap.cv"
+                  :key="app.name"
+                  :name="app.name"
+                  :icon="app.icon"
+                />
+              </div>
+            </div>
           </div>
 
           <!-- Visual for NLP -->
-          <div v-else-if="active.id === 'nlp'" class="w-full flex flex-col items-center gap-3">
+          <div v-else-if="active.id === 'nlp'" class="w-full flex flex-col items-center gap-2">
             <div class="text-xs font-mono text-slate-400">Byte-Pair Tokenization & Vector IDs:</div>
             <div class="flex gap-2">
               <div
@@ -258,8 +330,20 @@ onUnmounted(() => {
                 <div class="text-[10px] font-mono text-slate-400 mt-1">ID: {{ t.id }}</div>
               </div>
             </div>
-            <div class="text-[11px] font-mono text-slate-400 text-center mt-1">
+            <div class="text-[11px] font-mono text-slate-400 text-center">
               Words map to high-dimensional embedding vectors in continuous semantic space.
+            </div>
+            <!-- Popular Apps -->
+            <div class="flex items-center gap-3 pt-1 border-t border-slate-800/80 mt-1">
+              <span class="text-[10px] font-mono uppercase text-slate-400">Apps:</span>
+              <div class="flex items-center gap-2">
+                <AppIconTooltip
+                  v-for="app in appsMap.nlp"
+                  :key="app.name"
+                  :name="app.name"
+                  :icon="app.icon"
+                />
+              </div>
             </div>
           </div>
 
@@ -297,7 +381,7 @@ onUnmounted(() => {
             </div>
 
             <!-- Top-3 candidate distribution -->
-            <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 space-y-1.5 font-mono text-xs">
+            <div class="p-2 rounded-lg bg-slate-950 border border-slate-800 space-y-1 font-mono text-xs">
               <div class="flex justify-between items-center text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">
                 <span>Candidate Distribution (Top 3):</span>
                 <span>Step {{ currentStepIdx + 1 }}/4</span>
@@ -330,25 +414,60 @@ onUnmounted(() => {
                 </div>
               </div>
             </div>
+
+            <!-- Popular Apps -->
+            <div class="flex items-center gap-3 pt-1 border-t border-slate-800/80">
+              <span class="text-[10px] font-mono uppercase text-slate-400">Apps:</span>
+              <div class="flex items-center gap-2">
+                <AppIconTooltip
+                  v-for="app in appsMap.llm"
+                  :key="app.name"
+                  :name="app.name"
+                  :icon="app.icon"
+                />
+              </div>
+            </div>
           </div>
 
           <!-- Visual for Automation -->
-          <div v-else class="w-full flex flex-col items-center gap-2">
-            <div class="flex items-center gap-2 font-mono text-xs">
-              <div class="p-2 rounded bg-slate-950 border border-cyan-500/40 text-cyan-300">
-                Webhook Event
-              </div>
-              <span class="text-slate-500">→</span>
-              <div class="p-2 rounded bg-slate-950 border border-indigo-500/40 text-indigo-300">
-                LLM Parse
-              </div>
-              <span class="text-slate-500">→</span>
-              <div class="p-2 rounded bg-slate-950 border border-emerald-500/40 text-emerald-300">
-                Post DB
+          <div v-else class="w-full flex flex-col items-center gap-3">
+            <!-- 3 Pipeline Steps with What They Could Be -->
+            <div class="grid grid-cols-3 gap-2 w-full font-mono">
+              <div
+                v-for="step in automationSteps"
+                :key="step.title"
+                class="p-2.5 rounded-lg bg-slate-950 border flex flex-col gap-1.5"
+                :class="step.color"
+              >
+                <div class="text-[10px] uppercase font-bold tracking-wider">{{ step.title }}</div>
+                <div class="text-[11px] text-slate-300 font-sans">{{ step.role }}:</div>
+                <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
+                  <AppIconTooltip
+                    v-for="app in step.apps"
+                    :key="app.name"
+                    :name="app.name"
+                    :icon="app.icon"
+                    size="size-6"
+                  />
+                </div>
               </div>
             </div>
-            <div class="text-[11px] font-mono text-slate-400 text-center mt-2">
-              System actions fire autonomously with zero human copy-paste required.
+
+            <div class="text-[11px] font-mono text-slate-400 text-center">
+              Autonomous execution bridges real triggers directly to databases.
+            </div>
+
+            <!-- Popular Automation Platforms -->
+            <div class="flex items-center gap-3 pt-1 border-t border-slate-800/80 w-full justify-center">
+              <span class="text-[10px] font-mono uppercase text-slate-400">Platforms:</span>
+              <div class="flex items-center gap-2">
+                <AppIconTooltip
+                  v-for="app in appsMap.auto"
+                  :key="app.name"
+                  :name="app.name"
+                  :icon="app.icon"
+                />
+              </div>
             </div>
           </div>
         </div>

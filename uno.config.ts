@@ -1,6 +1,33 @@
 import { defineConfig, presetIcons, presetUno, presetWebFonts } from 'unocss'
+import { customIcons } from './customIcons'
 
 export default defineConfig({
+  content: {
+    pipeline: {
+      include: [
+        /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
+        'components/**/*.vue',
+      ],
+    },
+    filesystem: [
+      'components/**/*.vue',
+      'pages/**/*.md',
+      'slides.md',
+    ],
+  },
+  safelist: [
+    'i-lucide-rotate-ccw',
+    'i-lucide-refresh-cw',
+    'i-lucide-zoom-in',
+    'i-lucide-octagon-pause',
+    'i-lucide-scissors',
+    'i-lucide-undo-2',
+    'i-lucide-play',
+    'i-lucide-pause',
+    'i-lucide-layers-3',
+    'i-lucide-sparkles',
+    'i-lucide-check-circle-2',
+  ],
   presets: [
     presetUno(),
     presetIcons({
@@ -9,6 +36,9 @@ export default defineConfig({
       extraProperties: {
         'display': 'inline-block',
         'vertical-align': 'middle',
+      },
+      collections: {
+        custom: customIcons,
       },
     }),
     presetWebFonts({
