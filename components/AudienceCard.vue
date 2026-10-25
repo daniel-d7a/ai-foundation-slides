@@ -1,13 +1,13 @@
 <script setup lang="ts">
 defineProps<{
-  role: string
-  subtitle: string
-  icon: string
-  badgeColor: string
-  borderAccent: string
-  points: string[]
-  takeaway: string
-}>()
+  role: string;
+  subtitle: string;
+  icon: string;
+  badgeColor: string;
+  borderAccent: string;
+  points: string[];
+  takeaway: string;
+}>();
 </script>
 
 <template>
@@ -25,7 +25,13 @@ defineProps<{
           {{ role }}
         </span>
       </div>
-
+      <div class="flex items-center gap-2">
+        <span
+          class="text-xs font-mono tracking-widest text-indigo-400 font-bold uppercase"
+        >
+          Curriculum Timeline &bull;
+        </span>
+      </div>
       <h3 class="text-base font-bold text-white font-serif mb-3 leading-snug">
         {{ subtitle }}
       </h3>
@@ -36,13 +42,17 @@ defineProps<{
           :key="idx"
           class="flex items-start gap-2 leading-relaxed"
         >
-          <span class="i-lucide-check-circle-2 w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></span>
+          <span
+            class="i-lucide-check-circle-2 w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"
+          ></span>
           <span>{{ pt }}</span>
         </li>
       </ul>
     </div>
 
-    <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between">
+    <div
+      class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between"
+    >
       <span>Outcome:</span>
       <span class="text-white font-semibold">{{ takeaway }}</span>
     </div>

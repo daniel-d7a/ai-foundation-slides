@@ -2,19 +2,6 @@ import { defineConfig, presetIcons, presetUno, presetWebFonts } from 'unocss'
 import { customIcons } from './customIcons'
 
 export default defineConfig({
-  content: {
-    pipeline: {
-      include: [
-        /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
-        'components/**/*.vue',
-      ],
-    },
-    filesystem: [
-      'components/**/*.vue',
-      'pages/**/*.md',
-      'slides.md',
-    ],
-  },
   safelist: [
     'i-lucide-rotate-ccw',
     'i-lucide-refresh-cw',
