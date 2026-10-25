@@ -39,13 +39,13 @@ layout: default
 layout: default
 ---
 
-<OutcomeStudents />
+<OutcomeBeginners />
 
 ---
 layout: default
 ---
 
-<OutcomeBeginners />
+<OutcomeStudents />
 
 ---
 layout: default

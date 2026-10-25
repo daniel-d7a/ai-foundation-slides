@@ -14,60 +14,10 @@ layout: default
 
 # Why Most Prompts Fail: The Ambiguity Trap
 
-LLMs are probabilistic token predictors: under-specified inputs guarantee generic corporate clichés.
+LLMs are probabilistic token predictors: raw gibberish guarantees generic hallucinations, while modular blocks engineer precision.
 
-<div class="grid grid-cols-2 gap-5 mt-6">
-  <div v-click class="p-5 rounded-xl bg-slate-900/90 border-2 border-red-500/50 flex flex-col justify-between">
-    <div>
-      <div class="text-xs font-mono text-red-400 font-bold uppercase tracking-wider mb-2">Passive Vague Instruction</div>
-      <div class="p-3.5 rounded-lg bg-slate-950 border border-slate-800 font-mono text-sm text-red-300 font-bold">
-        "Write a marketing email for my study app."
-      </div>
-      <div class="mt-4 space-y-2.5 text-sm text-slate-200 font-sans">
-        <div class="flex items-start gap-2">
-          <span class="i-lucide-x-circle w-4 h-4 text-red-400 shrink-0 mt-0.5"></span>
-          <span><strong>Zero Audience Persona:</strong> Model falls back on corporate filler words ("unleash", "synergy").</span>
-        </div>
-        <div class="flex items-start gap-2">
-          <span class="i-lucide-x-circle w-4 h-4 text-red-400 shrink-0 mt-0.5"></span>
-          <span><strong>Unbounded Output Space:</strong> Generates either 6 rambling paragraphs or a useless 2-line snippet.</span>
-        </div>
-        <div class="flex items-start gap-2">
-          <span class="i-lucide-x-circle w-4 h-4 text-red-400 shrink-0 mt-0.5"></span>
-          <span><strong>No Reasoning Constraints:</strong> Model guesses answers without validating logical deduction.</span>
-        </div>
-      </div>
-    </div>
-    <div class="mt-4 pt-3 border-t border-red-900/40 text-xs font-mono text-red-400">
-      Result: Unusable zero-shot filler
-    </div>
-  </div>
-
-  <div v-click class="p-5 rounded-xl bg-slate-900/90 border-2 border-emerald-500/50 flex flex-col justify-between">
-    <div>
-      <div class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider mb-2">Deterministic Structured Architecture</div>
-      <div class="p-3.5 rounded-lg bg-slate-950 border border-slate-800 font-mono text-sm text-emerald-300 font-bold">
-        [Persona] + [Context] + [Task] + [Constraints] + [Format] + [CoT]
-      </div>
-      <div class="mt-4 space-y-2.5 text-sm text-slate-200 font-sans">
-        <div class="flex items-start gap-2">
-          <span class="i-lucide-check-circle-2 w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></span>
-          <span><strong>Domain Role Authority:</strong> Forces precise vocabulary, tone calibration, and perspective.</span>
-        </div>
-        <div class="flex items-start gap-2">
-          <span class="i-lucide-check-circle-2 w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></span>
-          <span><strong>Strict Output Schemas:</strong> Enforces tables, Markdown codeblocks, JSON, or step sequences.</span>
-        </div>
-        <div class="flex items-start gap-2">
-          <span class="i-lucide-check-circle-2 w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></span>
-          <span><strong>Chain of Thought:</strong> Requires intermediate deductive reasoning before generating final tokens.</span>
-        </div>
-      </div>
-    </div>
-    <div class="mt-4 pt-3 border-t border-emerald-900/40 text-xs font-mono text-emerald-300">
-      Result: Deterministic, production-ready output
-    </div>
-  </div>
+<div class="mt-2">
+  <PromptComparison />
 </div>
 
 ---
@@ -308,79 +258,7 @@ LLM working memory is finite. Test memory saturation and trigger context compact
 
 Modern foundation models don't just generate text: they orchestrate external tools autonomously.
 
-<div class="grid grid-cols-2 gap-3.5 mt-4 text-xs">
-  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-indigo-500/40 flex flex-col">
-    <h3 class="text-base font-bold text-white font-serif h-8 flex items-center">Web Search Engine</h3>
-    <div class="text-[11px] text-slate-300 mt-3 space-y-3 font-mono">
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-globe w-3.5 h-3.5 text-indigo-400 shrink-0"></span>
-        <span>Retrieves live API documentation</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-calendar w-3.5 h-3.5 text-indigo-400 shrink-0"></span>
-        <span>Validates recent regulatory changes</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-link-2 w-3.5 h-3.5 text-indigo-400 shrink-0"></span>
-        <span>Emits direct URL citations</span>
-      </div>
-    </div>
-  </div>
-
-  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-emerald-500/40 flex flex-col">
-    <h3 class="text-base font-bold text-white font-serif h-8 flex items-center">Code Interpreter</h3>
-    <div class="text-[11px] text-slate-300 mt-3 space-y-3 font-mono">
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-calculator w-3.5 h-3.5 text-emerald-400 shrink-0"></span>
-        <span>Exact math calculation without hallucination</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-table w-3.5 h-3.5 text-emerald-400 shrink-0"></span>
-        <span>In-memory Pandas dataframe operations</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-chart-bar w-3.5 h-3.5 text-emerald-400 shrink-0"></span>
-        <span>Renders Matplotlib &amp; Seaborn charts</span>
-      </div>
-    </div>
-  </div>
-
-  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-cyan-500/40 flex flex-col">
-    <h3 class="text-base font-bold text-white font-serif h-8 flex items-center">Visual Diagramming</h3>
-    <div class="text-[11px] text-slate-300 mt-3 space-y-3 font-mono">
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-git-commit-horizontal w-3.5 h-3.5 text-cyan-400 shrink-0"></span>
-        <span>Sequence &amp; distributed system traces</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-database w-3.5 h-3.5 text-cyan-400 shrink-0"></span>
-        <span>Database ERD entity modeling</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-workflow w-3.5 h-3.5 text-cyan-400 shrink-0"></span>
-        <span>State transition diagrams</span>
-      </div>
-    </div>
-  </div>
-
-  <div v-click class="p-3.5 rounded-xl bg-slate-900/90 border border-amber-500/40 flex flex-col">
-    <h3 class="text-base font-bold text-white font-serif h-8 flex items-center">Function Calling</h3>
-    <div class="text-[11px] text-slate-300 mt-3 space-y-3 font-mono">
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-database w-3.5 h-3.5 text-amber-400 shrink-0"></span>
-        <span>Executes SQL database transactions</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-send w-3.5 h-3.5 text-amber-400 shrink-0"></span>
-        <span>Dispatches webhook payloads to n8n</span>
-      </div>
-      <div class="flex items-center gap-1.5">
-        <span class="i-lucide-key w-3.5 h-3.5 text-amber-400 shrink-0"></span>
-        <span>Authenticates third-party API mutations</span>
-      </div>
-    </div>
-  </div>
-</div>
+<AgentRobotArms />
 
 ---
 
