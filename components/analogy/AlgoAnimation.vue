@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -35,7 +35,13 @@ const spiceJars = [
   { id: "garlic", name: "GARLIC", fill: "#f1f5f9", cap: "#334155" },
   { id: "mint", name: "MINT", fill: "#059669", cap: "#1e293b" },
   { id: "paprika", name: "PAPRIKA", fill: "#dc2626", cap: "#7f1d1d" },
-  { id: "oregano", name: "OREGANO", fill: "#15803d", cap: "#14532d", isTarget: true },
+  {
+    id: "oregano",
+    name: "OREGANO",
+    fill: "#15803d",
+    cap: "#14532d",
+    isTarget: true,
+  },
 ];
 
 const targetJarIndex = 6; // Oregano is at index 6
@@ -71,46 +77,64 @@ function runRace() {
       }
     }, 420);
   } else if (props.domain === "maps") {
-    // Dijkstra: Hugs highway bypass swiftly (0 to 3)
+    // Dijkstra: Hugs highway bypass swiftly (0 to 4 hops)
     timerOptimal = setInterval(() => {
-      if (dijkstraStep.value < 3) {
+      if (dijkstraStep.value < 4) {
         dijkstraStep.value++;
       } else {
         if (timerOptimal) clearInterval(timerOptimal);
       }
     }, 320);
 
-    // BFS: Concentric waves expand blindly everywhere (0 to 5)
+    // Naive BFS: 0 -> 1 (branch to both first nodes) -> 2 (bottom hits goal) -> 3 (confirm path)
     timerLinear = setInterval(() => {
-      if (bfsStep.value < 5) {
+      if (bfsStep.value < 3) {
         bfsStep.value++;
       } else {
         if (timerLinear) clearInterval(timerLinear);
         isRunning.value = false;
       }
-    }, 400);
+    }, 600);
   } else {
     // Library:
-    // Binary split: cuts in half 4 times
+    // Binary split: cuts in half 4 times (slower pace: 850ms per cut)
     timerOptimal = setInterval(() => {
       if (binaryCutStep.value < 4) {
         binaryCutStep.value++;
       } else {
         if (timerOptimal) clearInterval(timerOptimal);
       }
-    }, 380);
+    }, 850);
 
-    // Linear page flip: flips sequentially page-by-page to 42
+    // Linear page flip: flips sequentially page-by-page 1-by-1 to 42
     timerLinear = setInterval(() => {
       if (linearFlipPage.value < 42) {
-        linearFlipPage.value += 7;
-        if (linearFlipPage.value > 42) linearFlipPage.value = 42;
+        linearFlipPage.value++;
       } else {
         if (timerLinear) clearInterval(timerLinear);
         isRunning.value = false;
       }
-    }, 320);
+    }, 100);
   }
+}
+
+function stepBinary(delta: number) {
+  if (timerLinear) clearInterval(timerLinear);
+  if (timerOptimal) clearInterval(timerOptimal);
+  isRunning.value = false;
+  const next = Math.max(0, Math.min(4, binaryCutStep.value + delta));
+  binaryCutStep.value = next;
+  const pagesByStep = [1, 11, 21, 32, 42];
+  linearFlipPage.value = pagesByStep[next];
+}
+
+function setBinaryStep(step: number) {
+  if (timerLinear) clearInterval(timerLinear);
+  if (timerOptimal) clearInterval(timerOptimal);
+  isRunning.value = false;
+  binaryCutStep.value = step;
+  const pagesByStep = [1, 11, 21, 32, 42];
+  linearFlipPage.value = pagesByStep[step];
 }
 
 function resetRace() {
@@ -218,12 +242,7 @@ onUnmounted(() => {
                 'animate-ping': isRunning && cookingLinearIdx < targetJarIndex,
               }"
             ></span>
-            <span class="font-bold text-rose-300"
-              >Linear Shelf Walk O(n)</span
-            >
-            <span class="text-[10px] text-slate-500"
-              >(Dark Pantry: Checks jar by jar)</span
-            >
+            <span class="font-bold text-rose-300">Linear Shelf Walk O(n)</span>
           </div>
           <div class="text-[10.5px] font-bold text-rose-400">
             Checks: {{ cookingLinearIdx + 1 }} / 7 &bull; Time:
@@ -259,7 +278,7 @@ onUnmounted(() => {
               <polygon
                 points="13,-8 19,-8 16,-2"
                 fill="#f43f5e"
-                class="animate-bounce"
+                class="animate-pulse"
               />
             </g>
 
@@ -342,7 +361,7 @@ onUnmounted(() => {
               x="12"
               y="30"
               fill="#78350f"
-              font-size="3.5"
+              font-size="1.5"
               font-family="monospace"
               font-weight="bold"
               text-anchor="middle"
@@ -356,7 +375,7 @@ onUnmounted(() => {
               x="12"
               y="56"
               fill="#f43f5e"
-              font-size="4.5"
+              font-size="2"
               font-family="monospace"
               font-weight="bold"
               text-anchor="middle"
@@ -364,11 +383,13 @@ onUnmounted(() => {
               &cross;
             </text>
             <text
-              v-else-if="idx === targetJarIndex && cookingLinearIdx >= targetJarIndex"
+              v-else-if="
+                idx === targetJarIndex && cookingLinearIdx >= targetJarIndex
+              "
               x="12"
               y="56"
               fill="#10b981"
-              font-size="4.5"
+              font-size="2"
               font-family="monospace"
               font-weight="bold"
               text-anchor="middle"
@@ -392,9 +413,6 @@ onUnmounted(() => {
             <span class="font-bold text-emerald-300"
               >Indexed Hash Carousel O(1)</span
             >
-            <span class="text-[10px] text-slate-500"
-              >(Hash function maps "Oregano" &rarr; Slot 6 directly)</span
-            >
           </div>
           <div class="text-[10.5px] font-bold text-emerald-400">
             Checks: 1 Direct Hit &bull; Time: 12 ms
@@ -402,7 +420,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Carousel / Direct Slot Bar -->
-        <svg class="w-full h-24" viewBox="0 0 310 75">
+        <svg class="w-full h-24 overflow-visible" viewBox="0 0 310 75">
           <!-- Carousel Rotating Base Rail -->
           <rect
             x="5"
@@ -448,9 +466,9 @@ onUnmounted(() => {
             />
             <text
               x="12"
-              y="-7"
+              y="-6"
               :fill="jar.isTarget && cookingHashHit ? '#000000' : '#94a3b8'"
-              font-size="4"
+              font-size="2"
               font-family="monospace"
               font-weight="bold"
               text-anchor="middle"
@@ -519,7 +537,7 @@ onUnmounted(() => {
               x="12"
               y="30"
               fill="#78350f"
-              font-size="3.5"
+              font-size="1.5"
               font-family="monospace"
               font-weight="bold"
               text-anchor="middle"
@@ -528,20 +546,23 @@ onUnmounted(() => {
             </text>
 
             <!-- Target Extracted Badge -->
-            <g v-if="jar.isTarget && cookingHashHit" transform="translate(4, -20)">
+            <g
+              v-if="jar.isTarget && cookingHashHit"
+              transform="translate(4, -20)"
+            >
               <rect
-                x="0"
-                y="0"
-                width="16"
-                height="7"
+                x="-2"
+                y="-2"
+                width="20"
+                height="8"
                 rx="1.5"
                 fill="#10b981"
               />
               <text
-                x="8"
+                x="9"
                 y="5"
                 fill="#ffffff"
-                font-size="4"
+                font-size="2"
                 font-family="monospace"
                 font-weight="bold"
                 text-anchor="middle"
@@ -567,23 +588,27 @@ onUnmounted(() => {
           <div class="flex items-center gap-1.5">
             <span
               class="w-2 h-2 rounded-full bg-rose-400"
-              :class="{ 'animate-ping': isRunning && bfsStep < 5 }"
+              :class="{ 'animate-ping': isRunning && bfsStep < 3 }"
             ></span>
             <span class="font-bold text-rose-300"
-              >Unweighted BFS (Breadth-First Search)</span
-            >
-            <span class="text-[10px] text-slate-500"
-              >(Blind hop count: explores all directions &amp; traffic)</span
+              >Unweighted BFS (Minimizes Hops)</span
             >
           </div>
           <div class="text-[10.5px] font-bold text-rose-400">
-            Nodes Explored: {{ (bfsStep + 1) * 3 }} &bull; Wasted in Traffic:
-            {{ bfsStep >= 2 ? 6 : 0 }}
+            {{
+              bfsStep === 0
+                ? "Picks 2 Hops • Cost: 20"
+                : bfsStep === 1
+                  ? "1. Branch to both 1st nodes"
+                  : bfsStep === 2
+                    ? "2. Bottom reaches Goal!"
+                    : "Confirmed: 2 Hops (Cost: 20)"
+            }}
           </div>
         </div>
 
         <!-- BFS Grid SVG -->
-        <svg class="w-full h-24" viewBox="0 0 310 75">
+        <svg class="w-full h-24 overflow-visible" viewBox="0 0 310 75">
           <!-- Background Grid Area -->
           <rect
             x="5"
@@ -596,12 +621,12 @@ onUnmounted(() => {
             stroke-width="1"
           />
 
-          <!-- Central Road Jam (High cost bottleneck = 10) -->
+          <!-- Central Road Jam (High cost bottleneck = 20) -->
           <rect
-            x="110"
-            y="26"
-            width="90"
-            height="22"
+            x="105"
+            y="24"
+            width="100"
+            height="26"
             rx="3"
             fill="#450a0a"
             stroke="#dc2626"
@@ -609,17 +634,17 @@ onUnmounted(() => {
           />
           <text
             x="155"
-            y="39"
+            y="31"
             fill="#fca5a5"
-            font-size="4.5"
-            font-family="monospace"
+            font-size="2"
+            font-family="sans-serif"
             font-weight="bold"
             text-anchor="middle"
           >
-            TRAFFIC JAM (Cost 10)
+            Traffic (Cost: 20)
           </text>
 
-          <!-- North Highway Bypass Edge -->
+          <!-- North Highway Bypass Base Arc -->
           <path
             d="M 30,37 Q 155,-5 280,37"
             fill="none"
@@ -628,53 +653,121 @@ onUnmounted(() => {
           />
           <text
             x="155"
-            y="12"
-            fill="#64748b"
-            font-size="4"
-            font-family="monospace"
+            y="6"
+            fill="#94a3b8"
+            font-size="2"
+            font-family="sans-serif"
+            font-weight="bold"
             text-anchor="middle"
           >
-            Highway Bypass (Cost 2)
+            Highway (Cost: 4)
           </text>
 
-          <!-- Concentric BFS Circular Wavefronts (blindly expanding) -->
+          <!-- Central Slow Road Base Line -->
+          <line
+            x1="30"
+            y1="37"
+            x2="280"
+            y2="37"
+            stroke="#334155"
+            stroke-width="2"
+          />
+
+          <!-- BFS Branch Lines Step 1: Source to BOTH first nodes -->
+          <g v-if="bfsStep >= 1">
+            <!-- Top branch to H1 (95,21) -->
+            <path
+              d="M 30,37 Q 62,25 95,21"
+              fill="none"
+              :stroke="bfsStep >= 3 ? '#64748b' : '#f43f5e'"
+              :stroke-width="bfsStep >= 3 ? 1.5 : 2.5"
+              :opacity="bfsStep >= 3 ? 0.35 : 1"
+              class="transition-all duration-300"
+            />
+            <!-- Bottom branch to Jam Node (155,38) -->
+            <line
+              x1="30"
+              y1="37"
+              x2="155"
+              y2="38"
+              :stroke="bfsStep >= 3 ? '#ef4444' : '#f43f5e'"
+              :stroke-width="bfsStep >= 3 ? 3.5 : 2.5"
+              class="transition-all duration-300"
+            />
+          </g>
+
+          <!-- BFS Branch Lines Step 2: Advance to second nodes -->
+          <g v-if="bfsStep >= 2">
+            <!-- Top branch advances H1 to H2 (155,16) -->
+            <path
+              d="M 95,21 Q 125,17 155,16"
+              fill="none"
+              :stroke="bfsStep >= 3 ? '#64748b' : '#f43f5e'"
+              :stroke-width="bfsStep >= 3 ? 1.5 : 2"
+              :opacity="bfsStep >= 3 ? 0.25 : 0.8"
+              stroke-dasharray="3 2"
+              class="transition-all duration-300"
+            />
+            <!-- Bottom branch advances Jam Node to Goal G (280,37) -->
+            <line
+              x1="155"
+              y1="38"
+              x2="280"
+              y2="37"
+              :stroke="bfsStep >= 3 ? '#ef4444' : '#f43f5e'"
+              :stroke-width="bfsStep >= 3 ? 3.5 : 2.5"
+              class="transition-all duration-300"
+            />
+          </g>
+
+          <!-- Fast Highway Waypoint Nodes -->
+          <circle
+            cx="95"
+            cy="21"
+            r="4"
+            :fill="
+              bfsStep >= 1 ? (bfsStep >= 3 ? '#475569' : '#f43f5e') : '#334155'
+            "
+          />
+          <circle
+            cx="155"
+            cy="16"
+            r="4"
+            :fill="
+              bfsStep >= 2 ? (bfsStep >= 3 ? '#334155' : '#f43f5e') : '#334155'
+            "
+          />
+          <circle cx="215" cy="21" r="4" fill="#334155" />
+
+          <!-- Start Node S -->
           <circle
             cx="30"
             cy="37"
-            :r="bfsStep * 28"
-            fill="none"
-            stroke="#f43f5e"
+            r="7"
+            fill="#0284c7"
+            stroke="#38bdf8"
             stroke-width="1.5"
-            stroke-dasharray="3 3"
-            class="transition-all duration-300 opacity-60"
           />
-
-          <!-- Start Node S -->
-          <circle cx="30" cy="37" r="7" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5" />
           <text
             x="30"
-            y="39"
+            y="38.5"
             fill="#ffffff"
-            font-size="4.5"
-            font-family="monospace"
+            font-size="2"
+            font-family="sans-serif"
             font-weight="bold"
             text-anchor="middle"
           >
             S
           </text>
 
-          <!-- Center Jam Nodes explored by BFS -->
+          <!-- Bottleneck Node (First Bottom Node) -->
           <circle
-            cx="135"
-            cy="37"
-            r="4"
-            :fill="bfsStep >= 2 ? '#ef4444' : '#334155'"
-          />
-          <circle
-            cx="175"
-            cy="37"
-            r="4"
-            :fill="bfsStep >= 3 ? '#ef4444' : '#334155'"
+            cx="155"
+            cy="38"
+            r="4.5"
+            :fill="bfsStep >= 1 ? '#ef4444' : '#334155'"
+            stroke="#f43f5e"
+            stroke-width="1"
           />
 
           <!-- Goal Node G -->
@@ -682,32 +775,48 @@ onUnmounted(() => {
             cx="280"
             cy="37"
             r="7"
-            :fill="bfsStep >= 5 ? '#f59e0b' : '#1e293b'"
-            stroke="#f59e0b"
-            stroke-width="1.5"
+            :fill="bfsStep >= 2 ? '#ef4444' : '#1e293b'"
+            :stroke="
+              bfsStep >= 3 ? '#ffffff' : bfsStep >= 2 ? '#f43f5e' : '#f59e0b'
+            "
+            :stroke-width="bfsStep >= 3 ? 2 : 1.5"
           />
           <text
             x="280"
-            y="39"
+            y="38.5"
             fill="#ffffff"
-            font-size="4.5"
-            font-family="monospace"
+            font-size="2"
+            font-family="sans-serif"
             font-weight="bold"
             text-anchor="middle"
           >
             G
           </text>
 
-          <!-- Wave status -->
-          <text
-            x="30"
-            y="65"
-            fill="#f43f5e"
-            font-size="4.5"
-            font-family="monospace"
-          >
-            BFS Wave {{ bfsStep }} / 5 &rarr; Stuck checking congested center!
-          </text>
+          <!-- Confirmation / Result Tag -->
+          <g v-if="bfsStep >= 2" transform="translate(230, 50)">
+            <rect
+              x="0"
+              y="0"
+              width="50"
+              height="8.5"
+              rx="1.5"
+              :fill="bfsStep >= 3 ? '#b91c1c' : '#991b1b'"
+              :stroke="bfsStep >= 3 ? '#ef4444' : '#f87171'"
+              stroke-width="0.8"
+            />
+            <text
+              x="25"
+              y="5.8"
+              fill="#ffffff"
+              font-size="1.8"
+              font-family="sans-serif"
+              font-weight="bold"
+              text-anchor="middle"
+            >
+              {{ bfsStep >= 3 ? "Cost: 20" : "Goal Hit (2 Hops)" }}
+            </text>
+          </g>
         </svg>
       </div>
 
@@ -719,22 +828,19 @@ onUnmounted(() => {
           <div class="flex items-center gap-1.5">
             <span
               class="w-2 h-2 rounded-full bg-emerald-400"
-              :class="{ 'animate-ping': dijkstraStep >= 3 }"
+              :class="{ 'animate-ping': dijkstraStep >= 4 }"
             ></span>
             <span class="font-bold text-emerald-300"
-              >Dijkstra's Shortest Path (Weighted)</span
-            >
-            <span class="text-[10px] text-slate-500"
-              >(Priority Queue favors cheapest highway, bypasses traffic)</span
+              >Dijkstra's Algorithm: Prioritizes Low Cost</span
             >
           </div>
           <div class="text-[10.5px] font-bold text-emerald-400">
-            Total Path Cost: 8 &bull; Skips 100% of Traffic
+            Hops: {{ dijkstraStep }} / 4 &bull; Total Cost: 4
           </div>
         </div>
 
         <!-- Dijkstra Grid SVG -->
-        <svg class="w-full h-24" viewBox="0 0 310 75">
+        <svg class="w-full h-24 overflow-visible" viewBox="0 0 310 75">
           <!-- Background Grid Area -->
           <rect
             x="5"
@@ -749,10 +855,10 @@ onUnmounted(() => {
 
           <!-- Traffic Bottleneck (Skipped!) -->
           <rect
-            x="110"
-            y="26"
-            width="90"
-            height="22"
+            x="105"
+            y="24"
+            width="100"
+            height="26"
             rx="3"
             fill="#1f1315"
             stroke="#451a1a"
@@ -761,14 +867,26 @@ onUnmounted(() => {
           />
           <text
             x="155"
-            y="39"
+            y="31"
             fill="#7f1d1d"
-            font-size="4.5"
-            font-family="monospace"
+            font-size="2"
+            font-family="sans-serif"
             text-anchor="middle"
           >
-            TRAFFIC JAM (Skipped by Priority Q)
+            Traffic (Cost: 20)
           </text>
+
+          <!-- Central Slow Road (Bypassed by Dijkstra) -->
+          <line
+            x1="30"
+            y1="37"
+            x2="280"
+            y2="37"
+            stroke="#1e293b"
+            stroke-width="1.8"
+            stroke-dasharray="3 3"
+          />
+          <circle cx="155" cy="38" r="3.5" fill="#334155" opacity="0.4" />
 
           <!-- North Highway Flowing Active Path -->
           <path
@@ -776,28 +894,35 @@ onUnmounted(() => {
             fill="none"
             :stroke="dijkstraStep >= 1 ? '#10b981' : '#334155'"
             stroke-width="2.5"
-            :stroke-dasharray="dijkstraStep >= 3 ? 'none' : '4 3'"
+            :stroke-dasharray="dijkstraStep >= 4 ? 'none' : '4 3'"
           />
           <text
             x="155"
-            y="12"
+            y="6"
             fill="#34d399"
-            font-size="4"
-            font-family="monospace"
+            font-size="2"
+            font-family="sans-serif"
             font-weight="bold"
             text-anchor="middle"
           >
-            Fast Highway Arc (Cost = 2 &bull; Prioritized!)
+            Highway (Cost: 4)
           </text>
 
           <!-- Start Node S -->
-          <circle cx="30" cy="37" r="7" fill="#0284c7" stroke="#38bdf8" stroke-width="1.5" />
+          <circle
+            cx="30"
+            cy="37"
+            r="7"
+            fill="#0284c7"
+            stroke="#38bdf8"
+            stroke-width="1.5"
+          />
           <text
             x="30"
-            y="39"
+            y="38.5"
             fill="#ffffff"
-            font-size="4.5"
-            font-family="monospace"
+            font-size="2"
+            font-family="sans-serif"
             font-weight="bold"
             text-anchor="middle"
           >
@@ -807,19 +932,19 @@ onUnmounted(() => {
           <!-- Highway Waypoint Nodes -->
           <circle
             cx="95"
-            cy="19"
+            cy="21"
             r="4.5"
             :fill="dijkstraStep >= 1 ? '#10b981' : '#334155'"
           />
           <circle
             cx="155"
-            cy="15"
+            cy="16"
             r="4.5"
             :fill="dijkstraStep >= 2 ? '#10b981' : '#334155'"
           />
           <circle
             cx="215"
-            cy="19"
+            cy="21"
             r="4.5"
             :fill="dijkstraStep >= 3 ? '#10b981' : '#334155'"
           />
@@ -829,16 +954,16 @@ onUnmounted(() => {
             cx="280"
             cy="37"
             r="7"
-            :fill="dijkstraStep >= 3 ? '#10b981' : '#1e293b'"
+            :fill="dijkstraStep >= 4 ? '#10b981' : '#1e293b'"
             stroke="#34d399"
             stroke-width="2"
           />
           <text
             x="280"
-            y="39"
+            y="38.5"
             fill="#ffffff"
-            font-size="4.5"
-            font-family="monospace"
+            font-size="2"
+            font-family="sans-serif"
             font-weight="bold"
             text-anchor="middle"
           >
@@ -846,18 +971,27 @@ onUnmounted(() => {
           </text>
 
           <!-- Result Tag -->
-          <g v-if="dijkstraStep >= 3" transform="translate(245, 52)">
-            <rect x="0" y="0" width="35" height="9" rx="1.5" fill="#059669" />
+          <g v-if="dijkstraStep >= 4" transform="translate(235, 50)">
+            <rect
+              x="0"
+              y="0"
+              width="46"
+              height="10"
+              rx="1.5"
+              fill="#065f46"
+              stroke="#34d399"
+              stroke-width="0.8"
+            />
             <text
-              x="17.5"
-              y="6.5"
+              x="23"
+              y="7"
               fill="#ffffff"
-              font-size="4"
-              font-family="monospace"
+              font-size="1.8"
+              font-family="sans-serif"
               font-weight="bold"
               text-anchor="middle"
             >
-              OPTIMAL PATH!
+              Cost: 16
             </text>
           </g>
         </svg>
@@ -881,9 +1015,6 @@ onUnmounted(() => {
             ></span>
             <span class="font-bold text-rose-300"
               >Linear Search (Page-by-Page Flip)</span
-            >
-            <span class="text-[10px] text-slate-500"
-              >(Flipping 1 page at a time from page 1)</span
             >
           </div>
           <div class="text-[10.5px] font-bold text-rose-400">
@@ -919,20 +1050,48 @@ onUnmounted(() => {
           />
           <text
             x="95"
-            y="26"
+            y="24"
             fill="#64748b"
-            font-size="4"
+            font-size="2"
             font-family="monospace"
             text-anchor="middle"
           >
             Page 1: Introduction
           </text>
-          <line x1="55" y1="32" x2="140" y2="32" stroke="#cbd5e1" stroke-width="1" />
-          <line x1="55" y1="38" x2="140" y2="38" stroke="#cbd5e1" stroke-width="1" />
-          <line x1="55" y1="44" x2="120" y2="44" stroke="#cbd5e1" stroke-width="1" />
+          <line
+            x1="55"
+            y1="32"
+            x2="140"
+            y2="32"
+            stroke="#cbd5e1"
+            stroke-width="1"
+          />
+          <line
+            x1="55"
+            y1="38"
+            x2="140"
+            y2="38"
+            stroke="#cbd5e1"
+            stroke-width="1"
+          />
+          <line
+            x1="55"
+            y1="44"
+            x2="120"
+            y2="44"
+            stroke="#cbd5e1"
+            stroke-width="1"
+          />
 
           <!-- Center Spine Crease -->
-          <line x1="150" y1="12" x2="150" y2="64" stroke="#475569" stroke-width="3" />
+          <line
+            x1="150"
+            y1="12"
+            x2="150"
+            y2="64"
+            stroke="#475569"
+            stroke-width="3"
+          />
 
           <!-- Right Page Stack -->
           <rect
@@ -947,16 +1106,16 @@ onUnmounted(() => {
           />
           <text
             x="205"
-            y="26"
+            y="24"
             fill="#334155"
-            font-size="4.5"
+            font-size="2"
             font-family="monospace"
             font-weight="bold"
             text-anchor="middle"
           >
             {{
               linearFlipPage >= 42
-                ? 'Page 42: QUANTUM HIT!'
+                ? "Page 42: QUANTUM HIT!"
                 : `Flipping Page ${linearFlipPage}...`
             }}
           </text>
@@ -973,9 +1132,35 @@ onUnmounted(() => {
           />
 
           <!-- Page Flip Counter Meter -->
-          <rect x="262" y="16" width="38" height="44" rx="2" fill="#1e1b4b" stroke="#6366f1" stroke-width="0.8" />
-          <text x="281" y="27" fill="#a5b4fc" font-size="3.5" font-family="monospace" text-anchor="middle">CURRENT</text>
-          <text x="281" y="42" fill="#ffffff" font-size="5" font-family="monospace" font-weight="bold" text-anchor="middle">
+          <rect
+            x="262"
+            y="16"
+            width="38"
+            height="44"
+            rx="2"
+            fill="#1e1b4b"
+            stroke="#6366f1"
+            stroke-width="0.8"
+          />
+          <text
+            x="281"
+            y="32"
+            fill="#a5b4fc"
+            font-size="1.8"
+            font-family="monospace"
+            text-anchor="middle"
+          >
+            CURRENT
+          </text>
+          <text
+            x="281"
+            y="44"
+            fill="#ffffff"
+            font-size="2"
+            font-family="monospace"
+            font-weight="bold"
+            text-anchor="middle"
+          >
             p.{{ linearFlipPage }}
           </text>
         </svg>
@@ -994,12 +1179,47 @@ onUnmounted(() => {
             <span class="font-bold text-emerald-300"
               >Binary Search (50% Page Halving)</span
             >
-            <span class="text-[10px] text-slate-500"
-              >(Splits 500 pages in half: 250 &rarr; 125 &rarr; 62 &rarr; 42)</span
+            <span class="text-[10px] text-slate-500 hidden sm:inline"
+              >({{ [0, 250, 375, 438, 458][binaryCutStep] }} Discarded)</span
             >
           </div>
-          <div class="text-[10.5px] font-bold text-emerald-400">
-            Splits: {{ binaryCutStep }} / 4 &bull; 458 Pages Discarded
+          <div
+            class="flex items-center gap-1 bg-slate-900 border border-emerald-500/30 rounded px-1.5 py-0.5"
+          >
+            <span class="text-[10px] text-slate-400 font-semibold mr-1"
+              >STEPPER</span
+            >
+            <button
+              @click="stepBinary(-1)"
+              :disabled="binaryCutStep <= 0"
+              class="px-1.5 py-0.5 rounded bg-emerald-950/80 hover:bg-emerald-800 disabled:opacity-30 disabled:cursor-not-allowed text-emerald-300 font-bold text-[10px] cursor-pointer transition-colors"
+              title="Previous Step"
+            >
+              &larr; Prev
+            </button>
+            <div class="flex items-center gap-0.5">
+              <button
+                v-for="s in [0, 1, 2, 3, 4]"
+                :key="s"
+                @click="setBinaryStep(s)"
+                class="w-4 h-4 rounded text-[9.5px] font-bold flex items-center justify-center cursor-pointer transition-all"
+                :class="
+                  binaryCutStep === s
+                    ? 'bg-emerald-500 text-slate-950 shadow-sm'
+                    : 'bg-slate-800 text-slate-400 hover:text-emerald-300'
+                "
+              >
+                {{ s }}
+              </button>
+            </div>
+            <button
+              @click="stepBinary(1)"
+              :disabled="binaryCutStep >= 4"
+              class="px-1.5 py-0.5 rounded bg-emerald-950/80 hover:bg-emerald-800 disabled:opacity-30 disabled:cursor-not-allowed text-emerald-300 font-bold text-[10px] cursor-pointer transition-colors"
+              title="Next Step"
+            >
+              Next &rarr;
+            </button>
           </div>
         </div>
 
@@ -1028,7 +1248,14 @@ onUnmounted(() => {
             stroke="#94a3b8"
             stroke-width="1"
           />
-          <line x1="150" y1="12" x2="150" y2="64" stroke="#475569" stroke-width="3" />
+          <line
+            x1="150"
+            y1="12"
+            x2="150"
+            y2="64"
+            stroke="#475569"
+            stroke-width="3"
+          />
 
           <!-- Right Half Page Stack (Discarded in huge chunks) -->
           <rect
@@ -1054,30 +1281,115 @@ onUnmounted(() => {
             class="animate-pulse"
           />
 
-          <!-- Active Search Chunk Banner -->
-          <g v-if="binaryCutStep >= 1" transform="translate(160, 24)">
-            <rect x="0" y="0" width="85" height="15" rx="2" fill="#064e3b" stroke="#10b981" stroke-width="0.8" />
-            <text x="42.5" y="10" fill="#a7f3d0" font-size="4" font-family="monospace" font-weight="bold" text-anchor="middle">
-              Cut 1: Discard Pages 250-500
+          <!-- Active Search Chunk Banner (Tall, 2-line format) -->
+          <g v-if="binaryCutStep >= 1" transform="translate(182, 27)">
+            <rect
+              x="-12"
+              y="0"
+              width="80"
+              height="22"
+              rx="2"
+              fill="#064e3b"
+              stroke="#10b981"
+              stroke-width="0.8"
+            />
+            <text
+              x="27"
+              y="9"
+              fill="#a7f3d0"
+              font-size="2"
+              font-family="monospace"
+              font-weight="bold"
+              text-anchor="middle"
+            >
+              Cut {{ binaryCutStep }}: Discard
+            </text>
+            <text
+              x="27"
+              y="16"
+              fill="#6ee7b7"
+              font-size="2"
+              font-family="monospace"
+              font-weight="bold"
+              text-anchor="middle"
+            >
+              {{
+                binaryCutStep === 1
+                  ? "Pages 250-500"
+                  : binaryCutStep === 2
+                    ? "Pages 125-250"
+                    : binaryCutStep === 3
+                      ? "Pages 63-125"
+                      : "Pages 43-62"
+              }}
             </text>
           </g>
 
           <!-- Step 4 Base Case Target Hit -->
           <g v-if="binaryCutStep >= 4" transform="translate(42, 20)">
-            <rect x="0" y="0" width="98" height="36" rx="2.5" fill="#022c22" stroke="#34d399" stroke-width="1.5" />
-            <text x="49" y="12" fill="#a7f3d0" font-size="4" font-family="monospace" text-anchor="middle">
-              TARGET ISOLATED IN 4 SPLITS!
+            <rect
+              x="0"
+              y="0"
+              width="98"
+              height="36"
+              rx="2.5"
+              fill="#022c22"
+              stroke="#34d399"
+              stroke-width="1.5"
+            />
+            <text
+              x="49"
+              y="17"
+              fill="#a7f3d0"
+              font-size="1.8"
+              font-family="monospace"
+              text-anchor="middle"
+            >
+              FOUND IN 4 SPLITS!
             </text>
-            <text x="49" y="24" fill="#ffffff" font-size="5" font-family="monospace" font-weight="bold" text-anchor="middle">
+            <text
+              x="49"
+              y="25"
+              fill="#ffffff"
+              font-size="2"
+              font-family="monospace"
+              font-weight="bold"
+              text-anchor="middle"
+            >
               PAGE 42: QUANTUM
             </text>
-            <circle cx="49" cy="30" r="3" fill="#10b981" />
           </g>
 
           <!-- Splits Telemetry Panel -->
-          <rect x="272" y="14" width="28" height="48" rx="2" fill="#064e3b" stroke="#10b981" stroke-width="0.8" />
-          <text x="286" y="26" fill="#a7f3d0" font-size="3.5" font-family="monospace" text-anchor="middle">CUTS</text>
-          <text x="286" y="42" fill="#ffffff" font-size="5" font-family="monospace" font-weight="bold" text-anchor="middle">
+          <rect
+            x="272"
+            y="14"
+            width="28"
+            height="48"
+            rx="2"
+            fill="#064e3b"
+            stroke="#10b981"
+            stroke-width="0.8"
+          />
+          <text
+            x="286"
+            y="32"
+            fill="#a7f3d0"
+            font-size="1.8"
+            font-family="monospace"
+            text-anchor="middle"
+          >
+            CUTS
+          </text>
+          <text
+            x="286"
+            y="44"
+            fill="#ffffff"
+            font-size="2"
+            font-family="monospace"
+            font-weight="bold"
+            text-anchor="middle"
+          >
             {{ binaryCutStep }} / 4
           </text>
         </svg>

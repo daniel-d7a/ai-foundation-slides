@@ -3,20 +3,20 @@ const modules = [
   {
     no: "MODULE 01",
     title: "The AI Landscape",
-    desc: "Evolution & Ecosystem",
+    desc: "History & Structure",
     badge: "text-indigo-400",
     icon: "i-lucide-globe",
   },
   {
     no: "MODULE 02",
-    title: "Modern Toolbox",
-    desc: "Tools for Every Major",
+    title: "Modern AI Tools",
+    desc: "Tools for All Fields",
     badge: "text-emerald-400",
     icon: "i-lucide-boxes",
   },
   {
     no: "MODULE 03",
-    title: "Prompting",
+    title: "Prompt Engineering",
     desc: "6 Pillars & Context",
     badge: "text-amber-400",
     icon: "i-lucide-sparkles",
@@ -24,14 +24,14 @@ const modules = [
   {
     no: "MODULE 04",
     title: "AI for Learning",
-    desc: "Socratic Framework",
+    desc: "Active Study Methods",
     badge: "text-pink-400",
     icon: "i-lucide-graduation-cap",
   },
   {
     no: "MODULE 05",
-    title: "n8n Automation",
-    desc: "Autonomous Pipelines",
+    title: "Automation with n8n",
+    desc: "Automated Workflows",
     badge: "text-cyan-400",
     icon: "i-lucide-workflow",
   },
@@ -45,16 +45,15 @@ const modules = [
     <div
       class="px-4 py-1.5 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 text-xs font-mono mb-4"
     >
-      AI FOUNDATIONS CURRICULUM MASTER DECK
+      AI FOUNDATIONS CURRICULUM
     </div>
 
     <h1 class="text-6xl font-extrabold tracking-tight text-white font-serif">
-      From AI Consumer to AI Architect
+      From AI User to AI System Designer
     </h1>
 
     <p class="mt-3 text-lg text-slate-300 max-w-2xl font-sans">
-      Mastering the landscape, the modern toolbox, prompt engineering,
-      accelerated learning, and visual automation.
+      Learn the core concepts, modern tools, prompt engineering, active study methods, and visual automation.
     </p>
 
     <div class="grid grid-cols-5 gap-3 mt-10 w-full max-w-4xl text-left">

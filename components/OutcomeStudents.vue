@@ -3,18 +3,18 @@ import BenefitSlide from './BenefitSlide.vue'
 
 const benefits = [
   {
-    title: '24/7 Socratic Mentor',
-    desc: 'Never get stuck on hard concepts. Prompt AI to quiz you and explain difficult topics through your specific major or interests.',
+    title: 'Continuous Socratic Tutor',
+    desc: 'Ask AI to explain complex topics and test your knowledge at any time.',
     icon: 'i-lucide-brain'
   },
   {
-    title: 'Instant Study Pipelines',
-    desc: 'Turn dense PDF textbooks and lecture recordings into active-recall flashcards, practice quizzes, and executive summaries in seconds.',
+    title: 'Fast Study Materials',
+    desc: 'Convert textbooks and lecture notes into flashcards, test questions, and summaries in seconds.',
     icon: 'i-lucide-sparkles'
   },
   {
-    title: 'Career-Ready Portfolio',
-    desc: 'Graduate ahead of the curve with real practical AI workflow skills that recruiters and engineering managers actively prioritize.',
+    title: 'Job-Ready Portfolio',
+    desc: 'Complete your studies with practical AI workflow skills that employers require.',
     icon: 'i-lucide-trophy'
   }
 ]
@@ -22,13 +22,13 @@ const benefits = [
 
 <template>
   <BenefitSlide
-    audience="STUDENTS & LEARNERS"
-    headline="Cut Study Time in Half & Build an Unfair Career Edge"
-    subtitle="Active Recall &bull; Concept Deconstruction"
+    audience="STUDENTS AND LEARNERS"
+    headline="Reduce Study Time and Improve Your Career Opportunities"
+    subtitle="Active Recall &bull; Clear Explanations"
     accent="emerald"
-    stat-number="10x"
-    stat-label="Velocity & Exam Retention"
+    stat-number="2x"
+    stat-label="Faster Learning and Retention"
     :benefits="benefits"
-    verdict="Master coursework in a fraction of the time and graduate with practical AI skills that employers fight to hire."
+    verdict="Learn course material faster and acquire practical AI skills that employers require."
   />
 </template>

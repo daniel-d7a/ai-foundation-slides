@@ -4,38 +4,52 @@ layout: default
 
 <ModuleTitleCard
   moduleNo="MODULE 05"
-  title="Putting It on Autopilot"
-  subtitle="From Reactive Chatbot Prompting to 24/7 Autonomous Visual Pipelines with n8n."
+  title="Automation with n8n"
+  subtitle="From Manual Chat Prompts to Automated Background Workflows with n8n."
   image="/images/05-automation.jpg"
   color="cyan"
 />
 
 ---
 
-# The Paradigm Shift: Manual Labor vs AI Pipelines
-Why modern engineers stop copy-pasting into chat windows and orchestrate event-driven systems.
+# Manual Work vs Automated Workflows
+Do not copy and paste text between chat windows. Build automated, event-driven workflows.
 
 <ManualVsAutomationCanvas />
 
 ---
 
-# Why Automate? The Core Problem & The Fix
-Eliminating the "human middleware" bottleneck to unlock 24/7 leverage, consistency, and infinite scale.
+# Why Automate: Problems and Solutions
+Remove human bottlenecks to improve speed, consistency, and scale.
 
 <WhyAutomation />
 
 ---
 
-# Forms of Automation: Finding the Right Tier
-Automation exists on a spectrum from deterministic scripts to autonomous cognitive agents.
+# Levels of Automation
+Compare automation tiers from simple scripts to autonomous AI agents.
 
 <AutomationTiers />
 
 ---
 
-# Visual AI Automation in Action: The n8n Engine
-Connect live inbound triggers, foundation reasoning models, and multi-channel actions across real-world scenarios.
+# n8n Architecture: The 4 Primitives
+Every workflow combines four modular building blocks: triggers, logic, AI models, and action sinks.
+
+<N8nArchitectureBlocks />
+
+---
+
+# Visual Automation with n8n
+Connect inbound triggers, AI models, and action nodes to automate real-world tasks.
 
 <N8nWorkflowSimulator />
+
+---
+
+# Safe AI: Human-in-the-Loop
+Prevent hallucinations and critical errors by pausing workflows for interactive human approval.
+
+<HumanInTheLoopSimulator />
 
 

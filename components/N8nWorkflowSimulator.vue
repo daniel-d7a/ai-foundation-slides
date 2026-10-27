@@ -37,7 +37,7 @@ const scenarios: Scenario[] = [
     triggerApp: 'Gmail',
     triggerLogo: 'i-logos-google-gmail',
     triggerDetail: 'New high-priority lead from enterprise prospect',
-    aiModel: 'Claude 3.7 Sonnet',
+    aiModel: 'Claude',
     aiProvider: 'Anthropic',
     aiLogo: 'i-logos-claude-icon',
     aiPrompt: 'Classify intent, extract budget & generate CRM JSON',
@@ -55,7 +55,7 @@ const scenarios: Scenario[] = [
     triggerApp: 'Telegram',
     triggerLogo: 'i-logos-telegram',
     triggerDetail: 'Student sends 3-min audio note on bio midterm',
-    aiModel: 'Gemini 2.5 Flash',
+    aiModel: 'Gemini',
     aiProvider: 'Google AI',
     aiLogo: 'i-logos-google-gemini',
     aiPrompt: 'Digest voice audio & synthesize 5 active-recall flashcards',
@@ -73,7 +73,7 @@ const scenarios: Scenario[] = [
     triggerApp: 'GitHub / Sentry',
     triggerLogo: 'i-logos-github-icon',
     triggerDetail: 'POST /checkout DB connection pool timeout',
-    aiModel: 'DeepSeek R1',
+    aiModel: 'DeepSeek',
     aiProvider: 'DeepSeek',
     aiLogo: 'i-logos-deepseek-icon',
     aiPrompt: 'Diagnose trace, determine root cause & draft hotfix',
@@ -91,7 +91,7 @@ const scenarios: Scenario[] = [
     triggerApp: 'Stripe',
     triggerLogo: 'i-logos-stripe',
     triggerDetail: 'Subscription renewal declined on enterprise account',
-    aiModel: 'GPT-4o Omnimodal',
+    aiModel: 'ChatGPT',
     aiProvider: 'OpenAI',
     aiLogo: 'i-logos-openai-icon brightness-0 invert text-white',
     aiPrompt: 'Analyze customer churn risk & draft empathetic retention plan',
@@ -155,16 +155,17 @@ function selectScenario(id: string) {
         type="button"
         @click="runFlow"
         :disabled="flowState !== 'idle' && flowState !== 'completed'"
-        class="flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer shadow-md active:scale-95 disabled:opacity-50"
+        aria-label="Trigger workflow"
+        title="Trigger workflow"
+        class="flex items-center justify-center w-7.5 h-7.5 rounded-lg transition-all cursor-pointer active:scale-95 disabled:opacity-50"
         :class="flowState === 'idle' || flowState === 'completed'
-          ? 'bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white border border-cyan-400/40'
+          ? 'bg-slate-900 border border-cyan-500/50 text-cyan-400 hover:bg-cyan-950/60 hover:text-cyan-300 hover:border-cyan-400 shadow-sm'
           : 'bg-slate-800 text-slate-400 border border-slate-700'"
       >
         <span
           class="w-3.5 h-3.5"
           :class="flowState === 'idle' || flowState === 'completed' ? 'i-lucide-play' : 'i-lucide-refresh-cw animate-spin'"
         ></span>
-        <span>{{ flowState === 'idle' || flowState === 'completed' ? 'Trigger Event' : 'Running...' }}</span>
       </button>
     </div>
 
@@ -374,7 +375,7 @@ function selectScenario(id: string) {
           ></span>
         </span>
         <span class="text-slate-300">
-          <template v-if="flowState === 'idle'">Ready: click "Trigger Event" to execute pipeline</template>
+          <template v-if="flowState === 'idle'">Ready: click play icon to execute pipeline</template>
           <template v-else-if="flowState === 'triggering'">[Step 1/3] Ingesting {{ activeScenario.triggerApp }} event payload...</template>
           <template v-else-if="flowState === 'reasoning'">[Step 2/3] {{ activeScenario.aiModel }} reasoning & structuring JSON...</template>
           <template v-else-if="flowState === 'dispatching'">[Step 3/3] Broadcasting actions to {{ activeScenario.actions.map(a => a.app).join(' & ') }}...</template>

@@ -3,18 +3,18 @@ import BenefitSlide from './BenefitSlide.vue'
 
 const benefits = [
   {
-    title: 'Demystify the Tech Hype',
-    desc: 'Get an intuitive, hype-free mental model of how AI models think and work—no advanced mathematics or coding required.',
+    title: 'Understand AI Concepts',
+    desc: 'Learn how AI models operate without complex mathematics or programming.',
     icon: 'i-lucide-eye'
   },
   {
-    title: 'Conquer Replacement Fear',
-    desc: 'Replace job displacement anxiety with confidence by learning how to wield AI as your personal indefatigable assistant.',
+    title: 'Use AI with Confidence',
+    desc: 'Overcome fear of job loss. Use AI as a personal assistant to complete daily tasks.',
     icon: 'i-lucide-shield-check'
   },
   {
-    title: 'Instant Day-One Productivity',
-    desc: 'Automate tedious everyday chores: draft emails, summarize 50-page reports, extract key data points, and brainstorm solutions.',
+    title: 'Increase Daily Productivity',
+    desc: 'Automate routine tasks. Write messages, summarize long documents, and analyze data quickly.',
     icon: 'i-lucide-zap'
   }
 ]
@@ -22,13 +22,13 @@ const benefits = [
 
 <template>
   <BenefitSlide
-    audience="NON-AI USERS & BEGINNERS"
-    headline="Zero Coding Needed: From Overwhelmed to Confident Operator"
-    subtitle="Clarity &bull; Practical Daily Superpowers"
+    audience="NEW USERS AND BEGINNERS"
+    headline="No Programming Necessary: Become a Confident Operator"
+    subtitle="Clear Concepts &bull; Daily Practical Tools"
     accent="indigo"
     stat-number="Day 1"
-    stat-label="Immediate Practical Wins"
+    stat-label="Immediate Practical Results"
     :benefits="benefits"
-    verdict="AI will not replace humans, but professionals wielding AI will replace those who do not. Start effortlessly today."
+    verdict="AI will not replace humans. But people who use AI will replace people who do not. Start today."
   />
 </template>

@@ -120,12 +120,12 @@ onUnmounted(() => {
             <span
               class="text-[9px] font-mono font-bold tracking-widest uppercase px-1.5 py-0.5 rounded border border-red-500/40 bg-red-500/15 text-red-300"
             >
-              MANUAL PROMPTING (THE OLD WAY)
+              MANUAL PROMPTS (MANUAL METHOD)
             </span>
           </div>
 
           <h3 class="text-sm font-bold text-white font-serif leading-tight">
-            Human-in-the-Loop Bottleneck
+            Manual Labor Bottleneck
           </h3>
         </div>
 
@@ -221,12 +221,12 @@ onUnmounted(() => {
             <span
               class="text-[9px] font-mono font-bold tracking-widest uppercase px-1.5 py-0.5 rounded border border-cyan-500/40 bg-cyan-500/15 text-cyan-300"
             >
-              AUTONOMOUS PIPELINE (THE EVENT-DRIVEN WAY)
+              AUTOMATED PIPELINE (EVENT-DRIVEN METHOD)
             </span>
           </div>
 
           <h3 class="text-sm font-bold text-white font-serif leading-tight">
-            24/7 Autonomous Visual Pipeline (n8n)
+            Automated Workflow Engine (n8n)
           </h3>
         </div>
 

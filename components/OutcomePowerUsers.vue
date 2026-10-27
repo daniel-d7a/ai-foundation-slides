@@ -3,18 +3,18 @@ import BenefitSlide from './BenefitSlide.vue'
 
 const benefits = [
   {
-    title: 'Deterministic 6-Pillar Prompts',
-    desc: 'Replace fuzzy guessing with structured prompts: role, context, task, explicit constraints, format templates, and chain-of-thought.',
+    title: 'Structured Prompt Framework',
+    desc: 'Write clear prompts with specified roles, tasks, constraints, and output formats to get consistent results.',
     icon: 'i-lucide-terminal'
   },
   {
-    title: 'Full Context & Agent Mastery',
-    desc: 'Push frontier models to their limits with token budget management, file & data ingestion, and multi-step reasoning tools.',
+    title: 'Control Context and Agents',
+    desc: 'Manage context limits, connect external files, and use multi-step reasoning tools effectively.',
     icon: 'i-lucide-cpu'
   },
   {
     title: 'Visual Automation with n8n',
-    desc: 'Stop repetitive manual copy-pasting into chat boxes. Design background AI pipelines that execute tasks autonomously 24/7.',
+    desc: 'Do not copy and paste text manually. Build background workflows that run tasks automatically.',
     icon: 'i-lucide-workflow'
   }
 ]
@@ -22,13 +22,13 @@ const benefits = [
 
 <template>
   <BenefitSlide
-    audience="CURRENT AI USERS & PRACTITIONERS"
-    headline="Stop 'Chatting' With AI. Start Engineering Autonomous Systems"
-    subtitle="Frameworks &bull; Autonomous Background Pipelines"
+    audience="CURRENT AI USERS AND SPECIALISTS"
+    headline="Move Beyond Simple Chat: Build Automated Systems"
+    subtitle="Structured Methods &bull; Automated Pipelines"
     accent="amber"
     stat-number="100%"
-    stat-label="Deterministic System Outputs"
+    stat-label="Reliable System Outputs"
     :benefits="benefits"
-    verdict="Transition from an everyday AI consumer into a high-leverage systems architect who builds scalable autonomous workflows."
+    verdict="Change from a standard AI user to a system designer who builds automated workflows."
   />
 </template>

@@ -201,16 +201,16 @@ onUnmounted(() => {
             <!-- Typing indicator for step 1 -->
             <div
               v-if="currentStep === 1"
-              class="flex items-center gap-1.5 px-3 py-2 rounded-2xl rounded-tl-xs bg-rose-950/30 border border-rose-500/30 w-16 text-rose-400 self-start animate-pulse"
+              class="flex items-center gap-1.5 px-3 py-2 rounded-2xl rounded-tl-xs bg-rose-950/30 border border-rose-500/30 w-16 text-rose-400 self-start"
             >
               <span
-                class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-bounce"
+                class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse"
               ></span>
               <span
-                class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-bounce delay-100"
+                class="w-1.5 h-1.5 rounded-full bg-rose-400/80 animate-pulse delay-150"
               ></span>
               <span
-                class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-bounce delay-200"
+                class="w-1.5 h-1.5 rounded-full bg-rose-400/60 animate-pulse delay-300"
               ></span>
             </div>
 

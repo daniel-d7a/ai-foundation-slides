@@ -10,64 +10,64 @@ const tiers: TierConfig[] = [
     points: [
       {
         icon: 'i-lucide-binary',
-        bold: 'Brittle Logic',
-        text: 'Rigid If/Then rules with zero fault tolerance.',
+        bold: 'Rigid Logic',
+        text: 'Fixed if-then rules without error tolerance.',
       },
       {
         icon: 'i-lucide-shield-alert',
         bold: 'No Reasoning',
-        text: 'Crashes on unexpected schema or free text.',
+        text: 'Fails when input text format changes.',
       },
       {
         icon: 'i-lucide-arrow-right-circle',
         bold: 'Example',
-        text: 'Google Form submit, Append sheet row.',
+        text: 'Submit a web form to write a spreadsheet row.',
       },
     ],
   },
   {
     level: 'LEVEL 2',
-    title: 'AI Orchestration',
+    title: 'AI-Powered Workflows',
     theme: 'cyan',
     diagramType: 'branch',
     points: [
       {
         icon: 'i-lucide-sparkles',
         bold: 'Semantic Logic',
-        text: 'LLMs branch, summarize, and route data.',
+        text: 'AI models classify, summarize, and route data.',
       },
       {
         icon: 'i-lucide-layers',
-        bold: 'Data Tolerant',
-        text: 'Converts unstructured free text into JSON.',
+        bold: 'Unstructured Data',
+        text: 'Converts free text and documents into structured JSON.',
       },
       {
         icon: 'i-lucide-arrow-right-circle',
         bold: 'Example',
-        text: 'Angry user email, LLM drafts refund.',
+        text: 'Analyze customer email and draft appropriate reply.',
       },
     ],
   },
   {
     level: 'LEVEL 3',
-    title: 'Autonomous Agent',
+    title: 'Autonomous Agents',
     theme: 'emerald',
     diagramType: 'loop',
     points: [
       {
         icon: 'i-lucide-bot',
         bold: 'Goal-Directed',
-        text: 'Plans and selects tools autonomously.',
+        text: 'Plans actions and selects external tools to achieve goals.',
       },
       {
         icon: 'i-lucide-cpu',
         bold: 'Closed Loop',
-        text: 'Inspects errors, runs scripts, self-heals.',
+        text: 'Reads execution errors, corrects mistakes, and retries.',
       },
       {
         icon: 'i-lucide-arrow-right-circle',
         bold: 'Example',
-        text: 'Server outage alert, Diagnoses & opens PR.',
+        text: 'Detect system error, diagnose root cause, and submit fix.',
       },
     ],
   },

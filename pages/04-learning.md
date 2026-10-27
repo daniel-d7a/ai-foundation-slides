@@ -4,93 +4,93 @@ layout: default
 
 <ModuleTitleCard
   moduleNo="MODULE 04"
-  title="Supercharging Personal Growth"
-  subtitle="From Passive Answer-Copying to Cognitive Acceleration: The AI Tutor Framework."
+  title="AI for Learning"
+  subtitle="From Passive Copying to Active Practice: The AI Tutor Framework."
   image="/images/04-learning.jpg"
   color="pink"
 />
 
 ---
 
-# The AI Tutor Mindset Shift
+# Two Approaches to AI in Learning
 
-Using AI as a personalized cognitive sparring partner rather than a shortcut oracle.
+Use AI as a study partner that tests your knowledge instead of a tool that only provides answers.
 
 <div class="grid grid-cols-2 gap-5 mt-6">
   <div v-click class="p-5 rounded-xl bg-slate-900/90 border-2 border-red-500/40 flex flex-col justify-between h-90">
     <div>
-      <h3 class="text-xl font-bold text-white font-serif min-h-[2.5rem] flex items-center">The Oracle Mindset ("Give me the code")</h3>
+      <h3 class="text-xl font-bold text-white font-serif min-h-[2.5rem] flex items-center">The Oracle Method ("Give me the code")</h3>
       <div class="mt-2.5 p-3 rounded-lg bg-red-950/40 border border-red-500/30 font-mono text-xs text-red-200">
         "Write the code to implement a binary search tree in Python with insert and delete."
       </div>
       <div class="text-[11px] text-slate-300 mt-4 space-y-2 font-mono">
         <div class="flex items-center gap-2">
           <span class="i-lucide-circle-x w-3.5 h-3.5 text-red-400 shrink-0"></span>
-          <span>Zero active retrieval practice</span>
+          <span>No active recall practice</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="i-lucide-triangle-alert w-3.5 h-3.5 text-red-400 shrink-0"></span>
-          <span>Creates immediate dependency on the tool</span>
+          <span>Creates immediate dependence on the tool</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="i-lucide-slash w-3.5 h-3.5 text-red-400 shrink-0"></span>
-          <span>Total failure during closed-book interviews &amp; exams</span>
+          <span>Causes failure during exams and technical interviews</span>
         </div>
       </div>
     </div>
     <div class="pt-2 border-t border-red-900/40 text-xs font-mono text-red-400">
-      Outcome: Cognitive atrophy &amp; surface familiarity
+      Outcome: Surface familiarity and weak retention
     </div>
   </div>
 
   <div v-click class="p-5 rounded-xl bg-slate-900/90 border-2 border-emerald-500/40 flex flex-col justify-between h-84">
     <div>
-      <h3 class="text-xl font-bold text-white font-serif min-h-[2.5rem] flex items-center">The Socratic Coach ("Guide my reasoning")</h3>
+      <h3 class="text-xl font-bold text-white font-serif min-h-[2.5rem] flex items-center">The Coach Method ("Guide my reasoning")</h3>
       <div class="mt-2.5 p-3 rounded-lg bg-emerald-950/40 border border-emerald-500/30 font-mono text-xs text-emerald-200">
-        "Don't give me code. Test my intuition on BST node deletion and point out edge cases I miss."
+        "Do not give me code. Test my understanding of BST node deletion and point out missing edge cases."
       </div>
       <div class="text-[11px] text-slate-300 mt-4 space-y-2 font-mono">
         <div class="flex items-center gap-2">
           <span class="i-lucide-circle-check w-3.5 h-3.5 text-emerald-400 shrink-0"></span>
-          <span>Relentless active recall testing</span>
+          <span>Consistent active recall practice</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="i-lucide-target w-3.5 h-3.5 text-emerald-400 shrink-0"></span>
-          <span>Rapid diagnosis of conceptual blind spots</span>
+          <span>Quick detection of conceptual errors</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="i-lucide-sparkles w-3.5 h-3.5 text-emerald-400 shrink-0"></span>
-          <span>Converts textbook theory into first-principles mastery</span>
+          <span>Deep understanding of core principles</span>
         </div>
       </div>
     </div>
     <div class="pt-2 border-t border-emerald-900/40 text-xs font-mono text-emerald-300">
-      Outcome: Autonomous problem-solving capability
+      Outcome: Independent problem-solving skills
     </div>
   </div>
 </div>
 
 ---
 
-# The Socratic Method in Action
+# The Socratic Method in Practice
 
-Compare how passive textbook dumps fail vs interactive inquiry-driven dialogue.
+Compare passive text summaries with interactive question-driven study.
 
 <SocraticToggle />
 
 ---
 
-# Concept Deconstruction: The Analogy Engine
+# Explain Concepts with Analogies
 
-Bridge unfamiliar programming concepts directly to real-world domains you already understand intuitively.
+Connect complex programming concepts to real-world systems you already understand.
 
 <AnalogyEngine />
 
 ---
 
-# Study Synthesis: Grounded Ingestion
+# Study Method: Grounded Ingestion
 
-Step 1: Anchor AI strictly to lecture PDFs to eliminate hallucinations and generate deep-dive audio.
+Step 1: Connect AI tools to course materials to prevent incorrect facts and generate audio notes.
 
 <div class="mt-2">
   <StudyPipelineStep :step="1" />
@@ -98,9 +98,9 @@ Step 1: Anchor AI strictly to lecture PDFs to eliminate hallucinations and gener
 
 ---
 
-# Study Synthesis: Active Recall
+# Study Method: Active Recall
 
-Step 2: Transform passive slides into high-yield spaced repetition flashcards with optimal decay intervals.
+Step 2: Convert lecture slides into spaced-repetition flashcards and quiz questions.
 
 <div class="mt-2">
   <StudyPipelineStep :step="2" />
@@ -108,20 +108,30 @@ Step 2: Transform passive slides into high-yield spaced repetition flashcards wi
 
 ---
 
-# Study Synthesis: Visual Sandbox Drill
+# Study Method: Interactive Drills
 
-Step 3: Generate interactive simulations to directly manipulate abstract concepts in real-time.
+Step 3: Build interactive exercises to test abstract concepts directly.
 
 <div class="mt-2">
   <StudyPipelineStep :step="3" />
 </div>
 
+---
+
+# Study Method: Real-World Drill (Cooking)
+
+Step 3: Test everyday skills — interactive kitchen heat & timing technique.
+
+<div class="mt-2">
+  <StudyPipelineStep :step="3" domain="cooking" />
+</div>
+
 
 ---
 
-# Overcoming Plateaus: Automated Gap Analysis
+# Identify Knowledge Gaps
 
-Visual architecture for diagnosing underlying cognitive misconceptions before exam day.
+Diagnose and fix conceptual errors before exam day.
 
 <GapAnalysis />
 

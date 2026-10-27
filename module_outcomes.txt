@@ -1,0 +1,149 @@
+MODULE OUTCOMES: AI FOUNDATIONS COURSE
+WRITTEN IN ASD-STE100 (SIMPLIFIED TECHNICAL ENGLISH)
+
+======================================================================
+MODULE 1: THE AI LANDSCAPE
+======================================================================
+
+1. Understand the Evolution of AI:
+- Learn how computing changed from manual rules to statistical learning.
+- Study Symbolic AI from the 1950s to the 1980s.
+- Understand that humans wrote all if-then rules by hand in expert systems.
+- Study Machine Learning from the 1990s to the 2000s.
+- Learn how algorithms discover statistical patterns directly from tabular data.
+- Study Deep Learning in the 2010s.
+- Understand how multi-layer neural networks process raw images and audio files.
+- Study Generative AI from 2020 to the present time.
+- Learn how foundation models make text, software code, images, and audio from text prompts.
+
+2. Identify the Types of AI:
+- Define Artificial Narrow Intelligence (ANI).
+- Understand that all current AI tools operate as narrow AI.
+- Define Artificial General Intelligence (AGI).
+- Understand that AGI will match human intelligence across many domains.
+- Define Artificial Super Intelligence (ASI).
+- Understand that ASI will exceed all human cognitive ability.
+
+3. Classify AI Subfields:
+- Understand that Artificial Intelligence is the general field.
+- Understand that Machine Learning is a subfield of Artificial Intelligence.
+- Understand that Deep Learning is a subfield of Machine Learning.
+- Learn how Large Language Models (LLMs) and Computer Vision use Deep Learning.
+
+4. Navigate the AI Ecosystem and Careers:
+- Identify how different industries apply AI technologies.
+- Connect AI tools to healthcare, finance, creative work, software engineering, and operations.
+- Separate the reasoning engine from automated action tools.
+- Treat the LLM as the brain and automation software as the hands.
+
+
+======================================================================
+MODULE 2: THE MODERN AI TOOLBOX
+======================================================================
+
+1. Select Precision Foundation Models:
+- Stop using one chatbot for every task.
+- Compare foundation models by cost, context window size, speed, and privacy.
+- Identify the strengths of closed frontier platforms from OpenAI, Anthropic, and Google.
+- Use closed platforms for large context windows and complex reasoning tasks.
+- Identify open-weight models such as Meta Llama.
+- Use open-weight models to keep private data on local computers.
+
+2. Use Specialized Tool Categories:
+- Select chat and ideation tools like ChatGPT, Claude, and Gemini for brainstorming.
+- Select research tools like Perplexity and NotebookLM for grounded writing.
+- Understand that grounded tools give source citations from real documents.
+- Use grounded tools to reduce the risk of false information and hallucinations.
+- Select visual tools like Midjourney and Canva AI to make images and brand graphics.
+- Select coding assistants like Cursor, Antigravity, and GitHub Copilot.
+- Use coding assistants to write, explain, and refactor software.
+
+3. Apply the Tool Recommendation Matrix:
+- Match your academic major to the correct software stack.
+- Match your daily work tasks to the most efficient AI application.
+
+
+======================================================================
+MODULE 3: SPEAKING TO THE MACHINE (PROMPT ENGINEERING)
+======================================================================
+
+1. Overcome the Ambiguity Trap:
+- Understand that LLMs predict the next text token based on probabilities.
+- Avoid vague prompts that cause generic results and errors.
+- Use structured prompt building blocks to produce exact results.
+
+2. Apply the 6 Pillars of a Master Prompt:
+- Pillar 1 (Persona): Define the role, job title, and tone of the AI model.
+- Pillar 2 (Context): Supply background data, target audience details, and project goals.
+- Pillar 3 (Task): Give clear instructions with strong action verbs.
+- Pillar 4 (Instructions): Define rules, negative constraints, and quality requirements.
+- Pillar 5 (Format): Specify the output layout, like Markdown tables, bullet lists, or JSON.
+- Pillar 6 (Chain of Thought): Tell the model to think step by step before writing the answer.
+
+3. Control Chatbot Systems:
+- Monitor the context window limit to avoid memory loss.
+- Understand how models drop early messages when chat history fills the memory buffer.
+- Use external files to supply fresh information to the model.
+- Use agent tools such as web search, code interpreters, and diagram generators.
+
+4. Execute Real-World Applied Scenarios:
+- Marketing: Make audience personas, campaign angles, and marketing copy.
+- Data Analysis: Send tabular CSV data to the model to discover trends and make charts.
+- Software Development: Explain code, find programming errors, and build project templates.
+- Daily Utility: Make a daily news summary template with fillable input variables.
+
+
+======================================================================
+MODULE 4: SUPERCHARGING PERSONAL GROWTH (AI FOR LEARNING)
+======================================================================
+
+1. Change Your Learning Mindset:
+- Do not treat AI as an oracle that gives quick homework answers.
+- Understand that copying answers stops learning and creates dependency.
+- Treat AI as a personal tutor that guides your thinking.
+
+2. Practice Socratic Dialogue:
+- Tell the AI not to give you direct answers.
+- Ask the AI to test your knowledge with challenging questions.
+- Submit your hypothesis and let the AI correct your reasoning errors.
+
+3. Deconstruct Complex Concepts:
+- Translate difficult technical topics into simple analogies.
+- Ask the AI to explain complex concepts using your personal hobbies and interests.
+
+4. Build Study Materials Automatically:
+- Convert messy lecture notes and transcripts into structured review guides.
+- Make digital flashcards and practice test questions in seconds with NotebookLM.
+- Listen to audio summaries of your study documents.
+
+5. Overcome Learning Plateaus:
+- Send incorrect quiz answers back to the AI model.
+- Ask the model to diagnose your missing fundamental concepts.
+- Complete targeted practice exercises to fill identified knowledge gaps.
+
+
+======================================================================
+MODULE 5: PUTTING IT ON AUTOPILOT (WORKFLOW AUTOMATION)
+======================================================================
+
+1. Shift from Manual Work to Automated Pipelines:
+- Stop copying text manually between different applications.
+- Remove human bottlenecks from repetitive daily tasks.
+- Build event-driven systems that run continuously in the background.
+
+2. Identify Automation Tiers:
+- Tier 1: Run simple scripts on fixed time schedules.
+- Tier 2: Use AI to process and transform incoming data.
+- Tier 3: Deploy autonomous multi-step agents that make routing decisions.
+
+3. Master the Anatomy of n8n Workflows:
+- Configure Trigger Nodes to start workflows when specific events occur.
+- Configure Action Nodes to get, filter, and format external data.
+- Configure AI Agent Nodes to read information and choose tools.
+- Configure Output Nodes to send results to chat applications, email, or databases.
+
+4. Build Practical Production Workflows:
+- Build an automated content pipeline from a single concept to a finished publication.
+- Connect secure service credentials inside n8n.
+- Map data variables across connected nodes.
+- Test and run active workflows without manual intervention.

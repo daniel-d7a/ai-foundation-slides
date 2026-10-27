@@ -5,7 +5,7 @@ layout: default
 <ModuleTitleCard
   moduleNo="MODULE 01"
   title="The AI Landscape"
-  subtitle="From Symbolic Rules to Foundation Models: Building a True Mental Model."
+  subtitle="From Rule-Based Systems to Foundation Models: Core Concepts and Structure."
   image="/images/01-landscape.jpg"
   color="indigo"
 />
@@ -14,7 +14,7 @@ layout: default
 
 # The Evolution of AI
 
-How computing transitioned from manual deterministic rules to statistical pattern induction.
+How computing changed from manual rules to data-driven statistical patterns.
 
 <div class="grid grid-cols-4 gap-3 mt-8">
   <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between h-80">
@@ -22,7 +22,7 @@ How computing transitioned from manual deterministic rules to statistical patter
       <div class="text-xs font-mono text-indigo-400 font-bold">1950s - 1980s</div>
       <h3 class="font-bold text-base text-white mt-1 font-serif min-h-[4rem] flex items-start">Symbolic AI</h3>
       <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Rule-based "expert systems" and logical trees. Humans handcraft every "if-then" rule explicitly.
+        Rule-based expert systems and logic trees. Engineers write every if-then rule manually.
       </p>
     </div>
     <div class="mt-3 text-[11px] font-mono text-slate-400 border-t border-slate-800 pt-2">Chess engines, ELIZA</div>
@@ -33,7 +33,7 @@ How computing transitioned from manual deterministic rules to statistical patter
       <div class="text-xs font-mono text-emerald-400 font-bold">1990s - 2000s</div>
       <h3 class="font-bold text-base text-white mt-1 font-serif min-h-[4rem] flex items-start">Machine Learning</h3>
       <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Algorithms learn statistical patterns directly from tabular datasets without manual rule scripting.
+        Algorithms learn patterns directly from data tables without manual rule programming.
       </p>
     </div>
     <div class="mt-3 text-[11px] font-mono text-slate-400 border-t border-slate-800 pt-2">Spam filters, Random Forest</div>
@@ -44,10 +44,10 @@ How computing transitioned from manual deterministic rules to statistical patter
       <div class="text-xs font-mono text-cyan-400 font-bold">2010s</div>
       <h3 class="font-bold text-base text-white mt-1 font-serif min-h-[4rem] flex items-start">Deep Learning</h3>
       <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Multi-layered artificial neural networks capable of feature learning on raw unstructured images and audio.
+        Multi-layer neural networks that extract features from raw images and audio files.
       </p>
     </div>
-    <div class="mt-3 text-[11px] font-mono text-slate-400 border-t border-slate-800 pt-2">ImageNet, AlphaGo, Siri</div>
+    <div class="mt-3 text-[11px] font-mono text-slate-400 border-t border-slate-800 pt-2">ImageNet, AlphaGo, Speech models</div>
   </div>
 
   <div v-click class="p-4 rounded-xl bg-slate-900/80 border border-indigo-500/60 shadow-lg flex flex-col justify-between h-80">
@@ -55,7 +55,7 @@ How computing transitioned from manual deterministic rules to statistical patter
       <div class="text-xs font-mono text-amber-400 font-bold">2020s - Present</div>
       <h3 class="font-bold text-base text-white mt-1 font-serif min-h-[4rem] flex items-start">Generative AI</h3>
       <p class="text-xs text-slate-300 mt-2 leading-relaxed font-sans">
-        Autoregressive transformer foundation models that synthesize multimodal language, code, images, and audio.
+        Transformer foundation models that generate text, computer code, images, and audio.
       </p>
     </div>
     <div class="mt-3 text-[11px] font-mono text-amber-300 border-t border-slate-800 pt-2">Gemini, Claude, Midjourney</div>
@@ -146,7 +146,7 @@ Understanding where today's systems actually stand vs science fiction.
 
 # Concentric Rings: The AI Hierarchy
 
-Click the rings below to explore how each layer nests inside the other.
+Click the rings below to see how each field fits inside the other.
 
 <ConcentricAI />
 
@@ -154,14 +154,14 @@ Click the rings below to explore how each layer nests inside the other.
 
 # The Core Subfields at a Glance
 
-Interactive architectural breakdown of visual perception, language, foundation models, and automation.
+Explore the main subfields: computer vision, natural language processing, foundation models, and automation.
 
 <SubfieldsTabs />
 
 ---
 
-# Demystifying the AI Ecosystem
+# The AI Ecosystem
 
-Explore which AI technologies drive real industry sectors and enterprise applications.
+Explore how AI technologies apply to different industries and jobs.
 
 <EcosystemFilter />

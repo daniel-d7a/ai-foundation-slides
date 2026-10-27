@@ -1,0 +1,32 @@
+COURSE OUTCOMES: AI FOUNDATIONS COURSE
+WRITTEN IN ASD-STE100 (SIMPLIFIED TECHNICAL ENGLISH)
+
+1. GENERAL OUTCOME
+- This course teaches you how to use artificial intelligence (AI) tools effectively.
+- You will change from a passive AI user into an active workflow designer.
+- You do not need programming or complex mathematics for this course.
+
+2. OUTCOMES FOR BEGINNERS
+- Understand basic AI concepts and models without technical jargon.
+- Use AI tools with confidence for daily tasks.
+- Overcome the fear of job loss caused by AI.
+- Write messages and emails quickly.
+- Summarize long documents and analyze data.
+
+3. OUTCOMES FOR STUDENTS AND LEARNERS
+- Use AI as a private tutor for continuous learning.
+- Ask the AI to explain complex topics with simple examples.
+- Make study materials from notes and recorded lectures.
+- Make flashcards, summaries, and practice quizzes in seconds.
+- Find your knowledge gaps and improve your test results.
+- Get practical AI skills for future job opportunities.
+
+4. OUTCOMES FOR CURRENT AI USERS
+- Stop guessing when you write prompts.
+- Apply a structured six-pillar framework to get reliable results.
+- Use persona, context, task, instructions, format, and chain-of-thought rules.
+- Manage context limits and connect external files to AI models.
+- Build automated workflows with n8n.
+- Run background pipelines to replace manual copy and paste tasks.
+
+NOTE: For detailed module outcomes, refer to module_outcomes.txt.

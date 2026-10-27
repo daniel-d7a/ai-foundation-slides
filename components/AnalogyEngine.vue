@@ -23,7 +23,7 @@ const isPlaying = ref(true);
 
 <template>
   <div
-    class="p-3.5 h-[395px] rounded-xl bg-slate-900/90 border border-slate-700/60 text-left flex flex-col justify-between shadow-xl"
+    class="p-3.5 h-[420px] rounded-xl bg-slate-900/90 border border-slate-700/60 text-left flex flex-col justify-between shadow-xl"
   >
     <!-- Top Prompt Bar with Embedded Dropdowns and Header Controls -->
     <div
@@ -100,7 +100,7 @@ const isPlaying = ref(true);
 
     <!-- Main Visual Animation Canvas (Moving Icons & SVGs) -->
     <div
-      class="p-3 rounded-xl bg-slate-950/80 border border-slate-800/90 h-[335px] flex flex-col justify-between overflow-hidden relative mt-2"
+      class="p-3 rounded-xl bg-slate-950/80 border border-slate-800/90 h-[385px] flex flex-col justify-between overflow-hidden relative mt-2"
     >
       <!-- 1. Polymorphism Animation -->
       <PolyAnimation

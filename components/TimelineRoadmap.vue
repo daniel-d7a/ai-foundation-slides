@@ -19,42 +19,42 @@ const part1Milestones: Milestone[] = [
     step: "01",
     moduleNo: "MODULE 01",
     title: "The AI Landscape",
-    badge: "Foundations & Mental Models",
+    badge: "Foundations and Mental Models",
     color: "indigo",
     icon: "i-lucide-globe",
-    description: "Demystifying the tech stack and capability spectrum.",
+    description: "Learn the core technical structure and capabilities.",
     bullets: [
-      "From Symbolic Rules to Transformers",
-      "Narrow AI (ANI) vs General AI (AGI)",
-      "ML, Deep Learning, NLP & Vision",
+      "From rule-based systems to transformers",
+      "Narrow AI (ANI) compared to General AI (AGI)",
+      "Machine learning, deep learning, NLP, and vision",
     ],
   },
   {
     step: "02",
     moduleNo: "MODULE 02",
-    title: "The Modern Toolbox",
-    badge: "Tools For Every Major",
+    title: "Modern AI Tools",
+    badge: "Tools for All Fields",
     color: "emerald",
     icon: "i-lucide-wrench",
-    description: "Curating the right tool for each problem archetype.",
+    description: "Select the correct tool for each task type.",
     bullets: [
-      "Ideation & Chat: Claude, Gemini",
-      "Deep Synthesis: Perplexity, NotebookLM",
-      "Coding & Media: Cursor, Midjourney",
+      "Discussion and chat tools: Claude, Gemini",
+      "Research and summary tools: Perplexity, NotebookLM",
+      "Code and media tools: Cursor, Midjourney",
     ],
   },
   {
     step: "03",
     moduleNo: "MODULE 03",
-    title: "Speaking to the Machine",
+    title: "Prompt Engineering",
     badge: "Prompt Engineering",
     color: "amber",
     icon: "i-lucide-terminal",
-    description: "Transitioning from guessing to deterministic control.",
+    description: "Control AI outputs with structured rules instead of guesses.",
     bullets: [
-      "The 6-Pillar Prompting Framework",
-      "Context windows & token budgeting",
-      "Applied Workflows: Data, Copy, Code",
+      "The 6-pillar prompt structure",
+      "Context limits and token management",
+      "Practical tasks: data, text, and code",
     ],
   },
 ];
@@ -63,43 +63,43 @@ const part2Milestones: Milestone[] = [
   {
     step: "04",
     moduleNo: "MODULE 04",
-    title: "Supercharging Learning",
-    badge: "Socratic Tutor Framework",
+    title: "Active Learning with AI",
+    badge: "Socratic Tutor Method",
     color: "pink",
     icon: "i-lucide-book-open",
-    description: "Transforming passive memorization into active recall.",
+    description: "Change passive reading into active question-and-answer study.",
     bullets: [
-      "Socratic Drills: Questions > Answers",
-      "Tailored concept deconstruction",
-      "Automated study & quiz pipelines",
+      "Socratic practice: questions before answers",
+      "Clear explanations for complex topics",
+      "Automated study notes and test questions",
     ],
   },
   {
     step: "05",
     moduleNo: "MODULE 05",
     title: "Visual Automation",
-    badge: "Autopilot with n8n",
+    badge: "Automation with n8n",
     color: "cyan",
     icon: "i-lucide-cpu",
-    description: "Building autonomous background pipelines.",
+    description: "Build automated workflows that run in the background.",
     bullets: [
-      "Event triggers, actions & AI nodes",
-      "Autonomous content & research pipelines",
-      "Multi-step autonomous execution",
+      "Triggers, actions, and AI nodes",
+      "Automated research and content workflows",
+      "Multi-step automated task execution",
     ],
   },
   {
     step: "06",
     moduleNo: "CAPSTONE",
-    title: "The AI Architect",
-    badge: "Full Autonomy & Mastery",
+    title: "The AI System Designer",
+    badge: "Complete Workflow Control",
     color: "purple",
     icon: "i-lucide-rocket",
-    description: "Complete synthesis into daily life and career.",
+    description: "Apply automated workflows to your daily work and career.",
     bullets: [
-      "From consumer to system architect",
-      "Building durable personal workflows",
-      "Continuous real-world leverage",
+      "From basic user to system designer",
+      "Build reliable personal workflows",
+      "Increase output in real-world work",
     ],
   },
 ];
@@ -124,8 +124,8 @@ const milestones = props.part === 1 ? part1Milestones : part2Milestones;
         <h2 class="text-3xl font-extrabold text-white font-serif mt-1">
           {{
             part === 1
-              ? "From Landscape to Deterministic Prompting"
-              : "From Socratic Mastery to Autopilot Workflows"
+              ? "From Basic Concepts to Structured Prompts"
+              : "From Active Learning to Automated Workflows"
           }}
         </h2>
       </div>
@@ -135,7 +135,7 @@ const milestones = props.part === 1 ? part1Milestones : part2Milestones;
     <div class="relative my-auto w-full">
       <!-- SVG Connecting Timeline Path -->
       <svg
-        class="absolute -top-4 inset-0 w-full h-full pointer-events-none"
+        class="absolute -top-6 inset-0 w-full h-full pointer-events-none"
         viewBox="0 0 900 240"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +205,7 @@ const milestones = props.part === 1 ? part1Milestones : part2Milestones;
 
           <!-- Card Content -->
           <div
-            class="w-full mt-4 p-4 rounded-xl bg-slate-900/90 border flex flex-col justify-between h-66"
+            class="w-full mt-4 p-4 rounded-xl bg-slate-900/90 border flex flex-col justify-between h-70"
             :class="{
               'border-indigo-500/40': m.color === 'indigo',
               'border-emerald-500/40': m.color === 'emerald',

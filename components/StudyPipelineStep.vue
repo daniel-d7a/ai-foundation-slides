@@ -1,40 +1,76 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   step: 1 | 2 | 3
-}>()
+  domain?: 'cs' | 'cooking'
+}>(), {
+  domain: 'cs',
+})
 
 // Pipeline stages meta
-const stages = [
-  {
-    num: '01',
-    title: 'Grounded Ingestion',
-    tool: 'Google NotebookLM',
-    icon: 'i-lucide-book-open',
-    color: 'indigo',
-    border: 'border-indigo-500',
-    activeBg: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/50',
-  },
-  {
-    num: '02',
-    title: 'Active Recall Synthesis',
-    tool: 'Claude & Anki',
-    icon: 'i-lucide-brain',
-    color: 'emerald',
-    border: 'border-emerald-500',
-    activeBg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/50',
-  },
-  {
-    num: '03',
-    title: 'Visual Sandbox Drill (BFS)',
-    tool: 'Claude Artifacts',
-    icon: 'i-lucide-code-2',
-    color: 'amber',
-    border: 'border-amber-500',
-    activeBg: 'bg-amber-500/20 text-amber-300 border-amber-500/50',
-  },
-]
+const stages = computed(() => {
+  if (props.domain === 'cooking') {
+    return [
+      {
+        num: '01',
+        title: 'Culinary Ingestion',
+        tool: 'Recipe Book & Ratios',
+        icon: 'i-lucide-book-open',
+        color: 'indigo',
+        border: 'border-indigo-500',
+        activeBg: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/50',
+      },
+      {
+        num: '02',
+        title: 'Technique Recall',
+        tool: 'Baker Ratios & Yeast',
+        icon: 'i-lucide-brain',
+        color: 'emerald',
+        border: 'border-emerald-500',
+        activeBg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/50',
+      },
+      {
+        num: '03',
+        title: 'Interactive Kitchen Drill',
+        tool: 'Claude Artifacts',
+        icon: 'i-lucide-utensils',
+        color: 'amber',
+        border: 'border-amber-500',
+        activeBg: 'bg-amber-500/20 text-amber-300 border-amber-500/50',
+      },
+    ]
+  }
+  return [
+    {
+      num: '01',
+      title: 'Grounded Ingestion',
+      tool: 'Google NotebookLM',
+      icon: 'i-lucide-book-open',
+      color: 'indigo',
+      border: 'border-indigo-500',
+      activeBg: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/50',
+    },
+    {
+      num: '02',
+      title: 'Active Recall Practice',
+      tool: 'Claude & Anki',
+      icon: 'i-lucide-brain',
+      color: 'emerald',
+      border: 'border-emerald-500',
+      activeBg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/50',
+    },
+    {
+      num: '03',
+      title: 'Interactive Visual Drill',
+      tool: 'Claude Artifacts',
+      icon: 'i-lucide-code-2',
+      color: 'amber',
+      border: 'border-amber-500',
+      activeBg: 'bg-amber-500/20 text-amber-300 border-amber-500/50',
+    },
+  ]
+})
 
 // --- STEP 1 STATE: Document Feeding & NotebookLM Audio ---
 const isAudioPlaying = ref(false)
@@ -86,7 +122,7 @@ function toggleAutoFlip() {
   }, 1300)
 }
 
-// --- STEP 3 STATE: Breadth First Search (BFS) Graph ---
+// --- STEP 3 CS STATE: Breadth First Search (BFS) Graph ---
 interface GraphNode {
   id: number
   x: number // percentage
@@ -170,6 +206,132 @@ function jumpToNode(nodeId: number) {
   bfsStep.value = nodeId
 }
 
+// --- STEP 3 COOKING STATE: Simple Culinary Technique (Perfect Steak) ---
+interface CookingStage {
+  id: number
+  title: string
+  action: string
+  heat: string
+  timing: string
+  tip: string
+  status: string
+  icon: string
+  donenessPercent: number
+}
+
+const cookingStages: CookingStage[] = [
+  {
+    id: 1,
+    title: 'Season',
+    action: 'Pat Dry & Season Generously',
+    heat: 'Room Temp',
+    timing: '15 mins before',
+    tip: 'Pat meat dry with paper towels; rub with coarse salt and black pepper.',
+    status: 'Raw pink steak • Salt begins dissolving into meat',
+    icon: 'i-lucide-utensils',
+    donenessPercent: 0,
+  },
+  {
+    id: 2,
+    title: 'Hot Pan',
+    action: 'Preheat Skillet Until Smoking',
+    heat: 'High Heat',
+    timing: '3 mins',
+    tip: 'Add high-heat oil. Pan must be smoking hot before the meat touches it.',
+    status: 'Skillet smoking hot • Ready for contact sizzle',
+    icon: 'i-lucide-flame',
+    donenessPercent: 15,
+  },
+  {
+    id: 3,
+    title: 'The Sear',
+    action: 'Lay Down & Don\'t Move',
+    heat: 'High Heat',
+    timing: '2 mins',
+    tip: 'Press gently once. Leave undisturbed so a crisp, dark brown crust develops.',
+    status: 'Deep golden brown crust forming on first side',
+    icon: 'i-lucide-sparkles',
+    donenessPercent: 40,
+  },
+  {
+    id: 4,
+    title: 'Baste',
+    action: 'Flip & Spoon Hot Butter',
+    heat: 'Medium Heat',
+    timing: '2 mins',
+    tip: 'Flip once; drop in butter, smashed garlic, and thyme. Spoon hot butter over the top.',
+    status: 'Foaming butter glaze • Rich aroma infused',
+    icon: 'i-lucide-droplets',
+    donenessPercent: 70,
+  },
+  {
+    id: 5,
+    title: 'Doneness',
+    action: 'Check Center Temperature',
+    heat: '54°C (130°F)',
+    timing: 'Instant Read',
+    tip: 'Insert thermometer into center: 54°C for medium-rare, 60°C for medium.',
+    status: 'Target reached: Warm red/pink center',
+    icon: 'i-lucide-gauge',
+    donenessPercent: 90,
+  },
+  {
+    id: 6,
+    title: 'Rest & Slice',
+    action: 'Rest on Cutting Board',
+    heat: 'Off Heat',
+    timing: '5 mins',
+    tip: 'Do not cut immediately! Resting lets the juices reabsorb back into the steak.',
+    status: 'Tender & juicy • Ready to slice against grain',
+    icon: 'i-lucide-check-circle-2',
+    donenessPercent: 100,
+  },
+]
+
+const cookingStep = ref(3)
+const isAutoCookingRunning = ref(false)
+let cookingTimer: ReturnType<typeof setInterval> | null = null
+
+const currentCookingStage = computed(() => {
+  return cookingStages.find(s => s.id === cookingStep.value) || cookingStages[0]
+})
+
+function nextCookingStep() {
+  if (cookingStep.value >= 6) {
+    cookingStep.value = 1
+  } else {
+    cookingStep.value++
+  }
+}
+
+function resetCooking() {
+  cookingStep.value = 1
+  if (isAutoCookingRunning.value && cookingTimer) {
+    clearInterval(cookingTimer)
+    isAutoCookingRunning.value = false
+  }
+}
+
+function toggleAutoCooking() {
+  if (isAutoCookingRunning.value) {
+    if (cookingTimer) clearInterval(cookingTimer)
+    isAutoCookingRunning.value = false
+    return
+  }
+  isAutoCookingRunning.value = true
+  cookingTimer = setInterval(() => {
+    if (cookingStep.value >= 6) {
+      cookingStep.value = 1
+    } else {
+      cookingStep.value++
+    }
+  }, 1200)
+}
+
+function jumpToCookingStage(id: number) {
+  cookingStep.value = id
+}
+
 onMounted(() => {
   feedTimer = setInterval(() => {
     activeDocFeed.value = (activeDocFeed.value + 1) % 3
@@ -180,6 +342,7 @@ onUnmounted(() => {
   if (feedTimer) clearInterval(feedTimer)
   if (autoFlipTimer) clearInterval(autoFlipTimer)
   if (bfsTimer) clearInterval(bfsTimer)
+  if (cookingTimer) clearInterval(cookingTimer)
 })
 </script>
 
@@ -276,15 +439,15 @@ onUnmounted(() => {
               Google NotebookLM
             </div>
             <div class="text-[10px] font-mono text-indigo-400 mt-0.5">
-              Zero-Hallucination Grounding
+              Document-Grounded Analysis
             </div>
 
             <div class="w-full mt-2.5 pt-2 border-t border-slate-800 flex items-center justify-between text-[10px] font-mono text-slate-400">
               <span class="flex items-center gap-1 text-emerald-400 font-semibold">
-                <span class="i-lucide-shield-check w-3 h-3"></span>
+                <span class="i-lucide-shield-check w-3.3 h-3.3"></span>
                 <span>Source-Grounded</span>
               </span>
-              <span class="text-[9px] text-indigo-300 animate-pulse">Ingesting...</span>
+              <span class="text-[9px] text-indigo-300 animate-pulse">Analyzing...</span>
             </div>
           </div>
 
@@ -292,7 +455,7 @@ onUnmounted(() => {
             <div class="flex items-center justify-between text-xs font-mono text-slate-400">
               <span class="flex items-center gap-1.5 font-bold uppercase tracking-wider text-emerald-400">
                 <span class="i-lucide-headphones w-4 h-4"></span>
-                <span>2. AI Podcast Output</span>
+                <span>2. Audio Overview Output</span>
               </span>
               <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/30">
                 Audio Overview
@@ -494,6 +657,160 @@ onUnmounted(() => {
                   </span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= STEP 3: Cooking / Culinary Steak Searing Drill ================= -->
+      <div v-else-if="domain === 'cooking'" class="flex flex-col gap-2.5 py-1">
+        <!-- Top Toolbar & Cooking Actions -->
+        <div class="flex items-center justify-between px-1">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-mono font-bold uppercase">
+              Home Cooking Drill
+            </span>
+            <span class="text-[11px] font-mono text-slate-400">
+              Searing the Perfect Steak: Heat &amp; Timing
+            </span>
+          </div>
+
+          <!-- Controls -->
+          <div class="flex items-center gap-2">
+            <button
+              @click.stop="nextCookingStep"
+              class="px-3 py-1 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-mono text-xs font-bold transition-all flex items-center gap-1.5 shadow cursor-pointer active:scale-95"
+            >
+              <span class="i-lucide-arrow-right w-3.5 h-3.5"></span>
+              <span>Next Step</span>
+            </button>
+            <button
+              @click.stop="toggleAutoCooking"
+              class="px-3 py-1 rounded-lg border text-xs font-mono font-bold transition-all flex items-center gap-1.5 shadow cursor-pointer active:scale-95"
+              :class="isAutoCookingRunning
+                ? 'bg-amber-950 border-amber-500 text-amber-300 shadow-md'
+                : 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-200'"
+            >
+              <span :class="isAutoCookingRunning ? 'i-lucide-pause' : 'i-lucide-play'" class="w-3.5 h-3.5 text-amber-400"></span>
+              <span>{{ isAutoCookingRunning ? 'Pause' : 'Auto Cook' }}</span>
+            </button>
+            <button
+              @click.stop="resetCooking"
+              class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white text-xs font-mono font-bold transition-all flex items-center gap-1.5 shadow cursor-pointer"
+              title="Reset steps"
+            >
+              <span class="i-lucide-rotate-ccw w-3.5 h-3.5"></span>
+              <span>Reset</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Central Culinary Process Canvas -->
+        <div class="relative w-full h-52 rounded-xl bg-slate-900/90 border border-slate-800 p-3 flex flex-col justify-between overflow-hidden shadow-inner">
+          <!-- Horizontal Timeline Station Pipeline -->
+          <div class="relative flex items-center justify-between px-2 pt-1 pb-2">
+            <!-- Connecting SVG Pipeline Tube -->
+            <svg class="absolute top-5.5 left-6 right-6 h-1 w-[calc(100%-48px)] pointer-events-none" preserveAspectRatio="none">
+              <line x1="0" y1="2" x2="100%" y2="2" stroke="#334155" stroke-width="2.5" />
+              <line
+                x1="0"
+                y1="2"
+                :x2="`${((cookingStep - 1) / 5) * 100}%`"
+                stroke="#f59e0b"
+                stroke-width="3"
+                class="transition-all duration-300"
+              />
+            </svg>
+
+            <!-- 6 Stages Stations -->
+            <div
+              v-for="stg in cookingStages"
+              :key="stg.id"
+              @click.stop="jumpToCookingStage(stg.id)"
+              class="flex flex-col items-center cursor-pointer relative z-10 transition-all duration-300 group"
+            >
+              <div
+                class="w-9 h-9 rounded-full flex items-center justify-center font-mono font-bold transition-all duration-300 border-2 shadow-md"
+                :class="[
+                  cookingStep === stg.id
+                    ? 'bg-amber-500 border-white text-slate-950 scale-115 ring-4 ring-amber-400/50 shadow-amber-500/40 animate-pulse'
+                    : cookingStep > stg.id
+                      ? 'bg-emerald-950 border-emerald-400 text-emerald-300'
+                      : 'bg-slate-950 border-slate-700 text-slate-500 group-hover:border-slate-500 group-hover:text-slate-300'
+                ]"
+              >
+                <span v-if="cookingStep > stg.id" class="i-lucide-check w-4 h-4 text-emerald-400"></span>
+                <span v-else class="text-xs">{{ stg.id }}</span>
+              </div>
+              <span
+                class="text-[9.5px] font-mono mt-1 transition-all"
+                :class="cookingStep === stg.id ? 'text-amber-300 font-bold' : (cookingStep > stg.id ? 'text-emerald-400' : 'text-slate-500')"
+              >
+                {{ stg.title }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Active Stage Card: Parameters, Chef Rule & Steak Visual -->
+          <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800 flex items-center justify-between gap-4 mt-1">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-bold text-white font-serif flex items-center gap-1.5">
+                  <span :class="currentCookingStage.icon" class="w-3.5 h-3.5 text-amber-400"></span>
+                  Step {{ currentCookingStage.id }}: {{ currentCookingStage.action }}
+                </span>
+                <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-amber-950 text-amber-300 border border-amber-500/40">
+                  {{ currentCookingStage.heat }} &bull; {{ currentCookingStage.timing }}
+                </span>
+              </div>
+
+              <p class="text-[10.5px] text-slate-300 font-sans leading-tight">
+                {{ currentCookingStage.tip }}
+              </p>
+            </div>
+
+            <!-- Visual Steak Doneness Monitor -->
+            <div class="flex items-center gap-2.5 shrink-0 px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800 text-[10px] font-mono">
+              <div class="flex flex-col text-right">
+                <span class="text-slate-400 text-[8.5px] uppercase">State:</span>
+                <span class="text-amber-300 font-bold text-[9.5px] max-w-[140px] truncate">{{ currentCookingStage.status }}</span>
+              </div>
+
+              <!-- Mini Steak Cross-Section Graphic -->
+              <svg class="w-10 h-7 rounded-md bg-slate-950 border border-slate-800 p-0.5" viewBox="0 0 40 28">
+                <!-- Outer Sear Crust -->
+                <rect x="2" y="4" width="36" height="20" rx="4" :fill="cookingStep >= 3 ? '#451a03' : '#991b1b'" stroke="#78350f" stroke-width="1.2" />
+                <!-- Inner Meat Center -->
+                <rect x="5" y="7" width="30" height="14" rx="2" :fill="cookingStep >= 5 ? '#f43f5e' : (cookingStep >= 3 ? '#e11d48' : '#be123c')" opacity="0.9" />
+                <!-- Warm Center Core for Medium-Rare -->
+                <ellipse v-if="cookingStep >= 4" cx="20" cy="14" rx="8" ry="4" fill="#fda4af" opacity="0.8" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Traversal State: Kitchen Golden Rule & Progress -->
+        <div class="grid grid-cols-12 gap-2 text-xs font-mono">
+          <!-- Chef Rule -->
+          <div class="col-span-8 p-2 rounded-lg bg-slate-900/90 border border-amber-500/30 flex items-center justify-between">
+            <span class="text-[10px] uppercase text-amber-400 font-bold flex items-center gap-1">
+              <span class="i-lucide-lightbulb w-3.5 h-3.5 text-amber-400"></span>
+              <span>Kitchen Rule:</span>
+            </span>
+            <span class="text-[10.5px] text-slate-200">
+              {{ currentCookingStage.id === 6 ? 'Never cut immediately; resting 5 mins locks juices inside.' : 'High heat creates the crust; gentle basting cooks the center.' }}
+            </span>
+          </div>
+
+          <!-- Sequence Tracker -->
+          <div class="col-span-4 p-2 rounded-lg bg-slate-900/90 border border-emerald-500/30 flex items-center justify-between">
+            <span class="text-[10px] uppercase text-emerald-400 font-bold flex items-center gap-1">
+              <span class="i-lucide-check-circle-2 w-3.5 h-3.5"></span>
+              <span>Progress:</span>
+            </span>
+            <div class="flex items-center gap-1 text-[10px]">
+              <span class="text-white font-bold">{{ currentCookingStage.title }}</span>
+              <span class="text-slate-500">({{ currentCookingStage.id }}/6)</span>
             </div>
           </div>
         </div>
