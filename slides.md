@@ -1,6 +1,6 @@
 ---
 theme: default
-title: AI Foundations Course
+title: AI Camp
 info: |
   Interactive Master Deck for the AI Foundations Course
 class: text-center

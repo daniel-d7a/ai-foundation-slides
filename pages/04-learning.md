@@ -94,6 +94,38 @@ Connect complex programming concepts to real-world systems you already understan
 
 ---
 
+# What is RAG?
+
+Retrieval-Augmented Generation: Giving the AI an open-book exam with your own course materials.
+
+<RagExplainer />
+
+---
+
+# Standard LLM vs. RAG
+
+Why generic chatbots struggle with study materials, and how grounded retrieval fixes it.
+
+<RagComparison />
+
+---
+
+# How We Use RAG
+
+From raw study materials to verified answers in three simple steps.
+
+<RagWorkflow />
+
+---
+
+# The AI Study Framework
+
+RAG is the foundation of effective studying. Here is how we put it into action.
+
+<RagStudySegue />
+
+---
+
 # Study Method: Grounded Ingestion
 
 Step 1: Connect AI tools to course materials to prevent incorrect facts and generate audio notes.

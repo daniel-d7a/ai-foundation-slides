@@ -28,6 +28,34 @@ AI models predict words based on your input. Vague prompts cause generic answers
 
 ---
 
+# Why Do We Need Prompt Engineering?
+
+Turn probabilistic next-token guessing into deterministic, reliable systems.
+
+<WhyPromptEngineering />
+
+<!--
+PRESENTER NOTES:
+Why Prompt Engineering Matters:
+1. Hallucinations (False Facts & Phantom APIs):
+   - The Root Cause: LLMs predict plausible next tokens; they have no internal fact-checker or database validation.
+   - The Fix: Explicit grounding ("Answer strictly using provided text"), clear boundaries, and instructed failure behavior ("State 'I do not know' if information is missing").
+
+2. Generic Fluff (Bland Boilerplate):
+   - The Root Cause: Broad uncalibrated prompts cause models to converge on median internet text filled with clichés ("delve", "game-changer", "synergy").
+   - The Fix: Define an explicit Persona (e.g., Staff Security Engineer), target audience knowledge level, and negative constraints (banned phrases).
+
+3. Format Drift (Schema Chaos):
+   - The Root Cause: Natural language output is non-deterministic. Without constraints, it breaks automated scrapers, JSON parsers, and API integrations.
+   - The Fix: Enforce strict schemas (Markdown tables, JSON structures, Pydantic/TypeScript interfaces).
+
+4. Logic Jumps (Reasoning Breakdowns):
+   - The Root Cause: Models attempt to generate immediate answers on multi-step reasoning tasks without planning steps ahead.
+   - The Fix: Chain-of-Thought (CoT) prompting — require step-by-step breakdown before concluding.
+-->
+
+---
+
 # The 6-Pillar Prompt Structure
 
 Build reliable prompts with these 6 core parts.
@@ -252,11 +280,49 @@ Select prompt components across three domain scenarios to observe live output ch
 
 ---
 
+# Applied Prompts: Production Templates
+
+Review complete prompt templates broken down into structured components.
+
+<div class="mt-2">
+  <PromptDissector />
+</div>
+
+---
+
 # Context Limits in AI Models
 
 AI models have finite context windows. Test memory limits and run context reduction.
 
 <ContextGauge />
+
+---
+
+# Context: Why We Use It, Limits & The Shift to RAG
+
+Why we supply prompt context, where it breaks down, and how RAG bridges the gap.
+
+<ContextToRag />
+
+<!--
+PRESENTER NOTES:
+1. Why We Stuff Context (The Strengths):
+   - Stateless nature of LLMs: Transformers retain zero memory between interactions. Context window acts as ephemeral RAM.
+   - Dynamic Grounding: Lets developers supply proprietary documents, customer data, and brand tone without fine-tuning or retraining weights.
+   - Fast experimentation: Prompt modifications update model behavior immediately at runtime.
+
+2. Breaking Points of Large Context Windows:
+   - "Lost in the Middle": Attention distributions are U-shaped (highest at beginning and end of prompt). Buried critical facts get ignored as window size scales up.
+   - Latency & Cost: Massive prompts linearly/quadratically scale Time to First Token (TTFT) and dramatically inflate token billing per call.
+   - Attention Dilution & Hallucination: Flooding the model with hundreds of irrelevant pages dilutes instruction attention, causing hallucinations and rule violations.
+
+3. The Paradigm Shift to RAG (Retrieval-Augmented Generation):
+   - Philosophy: "Search first, generate second." Instead of shoving 500 pages into context, index documents into an external Vector DB.
+   - Pipeline:
+     1. Ingestion: Documents split into semantic chunks and embedded.
+     2. Retrieval: When user asks a query, retrieve only the top 3-5 most mathematically relevant snippets.
+     3. Generation: Pass only those top snippets into the prompt, giving the model exact facts with minimal token overhead and maximal precision.
+-->
 
 ---
 
@@ -282,13 +348,4 @@ Modern AI models do not only generate text. They execute external tools to compl
 
 <AgentRobotArms />
 
----
-
-# Applied Prompts: Production Templates
-
-Review complete prompt templates broken down into structured components.
-
-<div class="mt-2">
-  <PromptDissector />
-</div>
 

@@ -18,6 +18,22 @@ layout: default
 
 ---
 
+# LLM Core: Next-Token Prediction & Tokens
+
+Understand how language models generate language and measure context through sub-word tokens.
+
+<LlmTokenCore />
+
+---
+
+# The Agentic Loop: From Text to Autonomous Action
+
+How placing foundation models inside an execution loop transforms chatbots into problem-solving agents.
+
+<LlmAgenticLoop />
+
+---
+
 # Foundation Models: Compare Costs and Features
 
 Many models now offer similar base quality. Select models by cost, context limit, and data control.

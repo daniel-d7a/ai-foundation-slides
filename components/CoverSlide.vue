@@ -45,7 +45,7 @@ const modules = [
     <div
       class="px-4 py-1.5 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 text-xs font-mono mb-4"
     >
-      AI FOUNDATIONS CURRICULUM
+      AI CAMP
     </div>
 
     <h1 class="text-6xl font-extrabold tracking-tight text-white font-serif">

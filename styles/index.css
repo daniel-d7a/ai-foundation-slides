@@ -30,6 +30,21 @@ h1, h2, h3, h4, .font-title {
   color: #ffffff;
 }
 
+/* Slide titles & subtitles: tightly paired and clearly visible */
+.slidev-layout h1 {
+  margin-bottom: 0.25rem !important;
+}
+
+.slidev-layout h1 + p {
+  display: block !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.75rem !important;
+  font-size: 0.875rem !important;
+  line-height: 1.4 !important;
+  color: var(--text-muted) !important;
+  opacity: 0.85 !important;
+}
+
 /* Neutralize and elevate card backgrounds to fit oklch(20.5% 0 none) */
 .glass-card,
 [class*="bg-slate-900"] {
