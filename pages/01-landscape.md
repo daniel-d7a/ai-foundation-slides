@@ -11,6 +11,12 @@ layout: default
 />
 
 ---
+layout: default
+---
+
+<LectureOutcomes :module="1" />
+
+---
 
 # The Evolution of AI
 

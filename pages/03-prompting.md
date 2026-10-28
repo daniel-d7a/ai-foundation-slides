@@ -11,6 +11,12 @@ layout: default
 />
 
 ---
+layout: default
+---
+
+<LectureOutcomes :module="3" />
+
+---
 
 # Why Unclear Prompts Fail
 

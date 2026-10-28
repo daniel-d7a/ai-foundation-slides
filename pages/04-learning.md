@@ -11,6 +11,12 @@ layout: default
 />
 
 ---
+layout: default
+---
+
+<LectureOutcomes :module="4" />
+
+---
 
 # Two Approaches to AI in Learning
 

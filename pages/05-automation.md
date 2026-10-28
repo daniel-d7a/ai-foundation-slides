@@ -11,6 +11,12 @@ layout: default
 />
 
 ---
+layout: default
+---
+
+<LectureOutcomes :module="5" />
+
+---
 
 # Manual Work vs Automated Workflows
 Do not copy and paste text between chat windows. Build automated, event-driven workflows.

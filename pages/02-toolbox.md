@@ -11,6 +11,12 @@ layout: default
 />
 
 ---
+layout: default
+---
+
+<LectureOutcomes :module="2" />
+
+---
 
 # Foundation Models: Compare Costs and Features
 
